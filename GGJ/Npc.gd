@@ -4,10 +4,11 @@ var speed = 4
 var converted = false
 var separationDist = 500
 var followSlowRadius = 100
+var anim
 
 func _ready():
 	set_process(true)
-	
+	anim = get_node("AnimationPlayer")
 func _process(delta):
 	if converted:
 		var separation = get_separation() * speed
@@ -20,6 +21,13 @@ func _process(delta):
 		if distToTarget.length() < 150:
 			var lerpValue = 1 - (distToTarget.length() / 150)
 			position = get_global_pos().linear_interpolate(position, lerpValue)
+		
+		if distToTarget.length() > 0.5:
+			if !anim.is_playing():
+				anim.play("bounce")
+		else:
+			anim.stop()
+			get_node("body").set_rot(0)
 		
 		var direction = position.x - get_pos().x
 		if (direction < 0):
