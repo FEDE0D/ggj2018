@@ -5,12 +5,14 @@ var move_speed = 150
 var deceleration = 40
 var direction = Vector2(0,0)
 var player
+var animation_speed = 1.5
 const MAX_SPEED = Vector2(20,20)
 
 
 func _ready():
 	set_process(true)
 	player = get_node("AnimationPlayer")
+	player.set_speed(animation_speed)
 	
 func _process(delta):
 	if Input.is_action_pressed("ui_up"):
@@ -38,7 +40,7 @@ func _process(delta):
 		if (!player.is_playing()):
 			player.play("bounce")
 	else:
-		player.stop_all()
+		player.stop(false)
 	set_pos(get_pos() + speed)
 	
 func collision( area ):
