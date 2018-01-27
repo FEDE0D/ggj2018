@@ -4,12 +4,10 @@ var speed = 4
 var converted = false
 var separationDist = 500
 var followSlowRadius = 100
-var anim
 var health = 1
 
 func _ready():
 	set_process(true)
-	anim = get_node("AnimationPlayer")
 	
 func _process(delta):
 	if !converted:
@@ -27,10 +25,9 @@ func _process(delta):
 			position = get_global_pos().linear_interpolate(position, lerpValue)
 		
 		if distToTarget.length() > 0.5:
-			if !anim.is_playing():
-				anim.play("bounce")
+			get_node("AnimationTreePlayer").transition_node_set_current("transition", 1)
 		else:
-			anim.stop()
+			get_node("AnimationTreePlayer").transition_node_set_current("transition", 0)
 			get_node("body").set_rot(0)
 		
 		var direction = position.x - get_pos().x
@@ -44,11 +41,11 @@ func _process(delta):
 		
 		# if converted & far away from player
 		if isAwayFromPlayer():
-			setHealth(health + 0.5 * delta)
+			setHealth(health + 0.25 * delta)
 			if health + delta >= 1:
 				converted = false
 				remove_from_group("converted")
-				get_node("AnimationPlayer").play("idle")
+				get_node("AnimationTreePlayer").transition_node_set_current("transition", 0)
 				get_node("/root/Score").decrement(1)
 		else:
 			setHealth(0)
@@ -106,7 +103,7 @@ func do_hit():
 				Globals.get("player").newFollower(self)
 
 func _on_Timer_timeout():
-	get_node("AnimationPlayer").play("hit")
+	get_node("AnimationTreePlayer").oneshot_node_start("oneshot")
 
 func setHealth(health):
 	self.health = health
