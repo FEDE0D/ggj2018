@@ -6,15 +6,17 @@ var deceleration = 40
 var direction = Vector2(0,0)
 var animationtree
 var animation_pos = 0
+var score
 const MAX_SPEED = Vector2(20,20)
 
-signal new_follower
+signal new_follower(health, score)
 
 func _ready():
 	set_process(true)
 	set_process_input(true)
 	animationtree = get_node("AnimationTreePlayer")
 	Globals.set("player", self)
+	score = get_node("/root/Score")
 	
 func _process(delta):
 	if Input.is_action_pressed("ui_up"):
@@ -44,7 +46,7 @@ func _process(delta):
 		speed.y -=deceleration
 	clamp(speed.y,0,MAX_SPEED.y)
 	clamp(speed.x,0,MAX_SPEED.x)
-		
+	
 	if (direction.x || direction.y):
 		animationtree.transition_node_set_current("transition", 1)
 	else:
@@ -66,7 +68,9 @@ func _input(event):
 			if b.is_in_group("npcs"):
 				b.conversion(self)
 				var health = (float(get_tree().get_nodes_in_group("converted").size()) / get_tree().get_nodes_in_group("npcs").size())
-				emit_signal("new_follower", health)
+				score.increment(1)
+				
+				emit_signal("new_follower", health, score.get_score())
 
 func newFollower(node):
 	pass
