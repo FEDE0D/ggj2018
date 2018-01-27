@@ -22,15 +22,19 @@ margin/bottom = 0.0
 
 [node name="ProgressBar" type="ProgressBar" parent="Control"]
 
+anchor/left = 1
+anchor/top = 3
+anchor/right = 1
+anchor/bottom = 3
 rect/rotation = 90.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 1205.0
-margin/top = 639.0
-margin/right = 1717.0
-margin/bottom = 664.0
+margin/left = 75.0
+margin/top = -279.0
+margin/right = -437.0
+margin/bottom = -304.0
 range/min = 0.0
 range/max = 100.0
 range/step = 1.0
