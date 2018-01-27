@@ -4,15 +4,13 @@ var speed = Vector2(0,0)
 var move_speed = 150
 var deceleration = 40
 var direction = Vector2(0,0)
+var player
 const MAX_SPEED = Vector2(20,20)
-var tween
+
 
 func _ready():
-	
 	set_process(true)
-	tween = get_node("Tween")
-	tween.interpolate_property(get_node("Sprite"), "transform/pos", Vector2(0,0), Vector2(0,-30), 1, Tween.TRANS_QUAD, Tween.EASE_IN, 0)
-	
+	player = get_node("AnimationPlayer")
 	
 func _process(delta):
 	if Input.is_action_pressed("ui_up"):
@@ -28,7 +26,6 @@ func _process(delta):
 	else:
 		direction.x = 0
 	
-	
 	speed = direction * move_speed * delta
 	if (!direction.x) && (speed.x > 0):
 		speed.x -= deceleration
@@ -36,18 +33,13 @@ func _process(delta):
 		speed.y -=deceleration
 	clamp(speed.y,0,MAX_SPEED.y)
 	clamp(speed.x,0,MAX_SPEED.x)
-	
+		
 	if (direction.x || direction.y):
-		if (!tween.is_active()):
-			tween.set_repeat(true)
-			tween.start()
-			tween.resume_all()
-			print("tween start")
-		
+		print("moving")
+		if (!player.is_playing()):
+			player.play("bounce")
 	else:
-		tween.stop_all()
-		print("tween stop")
-		
+		player.stop_all()
 	set_pos(get_pos() + speed)
 	
 func collision( area ):
