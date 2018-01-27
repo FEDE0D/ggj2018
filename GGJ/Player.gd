@@ -55,39 +55,31 @@ func _process(delta):
 		animationtree.transition_node_set_current("transition", 1)
 	else:
 		animationtree.transition_node_set_current("transition", 0)
-	
-	if reload <= 0:
-		transmission_emiting = false
-	elif reload > 0:
-		reload -= delta
-	
 	set_pos(get_pos() + speed + (speed * getExtraSpeedRatio()))
 
 func getExtraSpeedRatio():
-	return float(get_tree().get_nodes_in_group("converted").size()) / get_tree().get_nodes_in_group("npcs").size()
+	return float(get_followers_count()) / get_npcs_count()
 
 func get_followers_count():
 	return get_tree().get_nodes_in_group("converted").size()
-
+	
+func get_npcs_count():
+	return get_tree().get_nodes_in_group("npcs").size()
 
 func _input(event):
 	if event.is_action_pressed("hit"):
-
-		if !transmission_emiting:
-			transmission_emiting = true
-			reload = 0.2 * get_followers_count()
-			get_node("AnimationTreePlayer").oneshot_node_start("HitNode")
-			# trigger hit on converted
-			for converted in get_tree().get_nodes_in_group("converted"):
-				converted.start_hit()
-			# convert new ones
-			for b in get_node("Area2D").get_overlapping_bodies():
-				if b.is_in_group("npcs"):
-					b.conversion(self)
-					var health = (float(followers_count) / npcs_count)
-					
-					score.increment(1)
-					emit_signal("new_follower", health, score.get_score())
+		get_node("AnimationTreePlayer").oneshot_node_start("HitNode")
+		# trigger hit on converted
+		for converted in get_tree().get_nodes_in_group("converted"):
+			converted.start_hit()
+		# convert new ones
+		for b in get_node("Area2D").get_overlapping_bodies():
+			if b.is_in_group("npcs"):
+				b.conversion(self)
+				var health = (float(get_followers_count()) / get_npcs_count())
+				
+				score.increment(1)
+				emit_signal("new_follower", health, score.get_score())
 
 func newFollower(node):
 	pass

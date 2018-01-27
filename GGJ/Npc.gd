@@ -44,13 +44,13 @@ func _process(delta):
 		
 		# if converted & far away from player
 		if isAwayFromPlayer():
-			setHealth(health + delta)
+			setHealth(health + 0.5 * delta)
 			if health + delta >= 1:
 				converted = false
 				remove_from_group("converted")
 				get_node("AnimationPlayer").play("idle")
 		else:
-			setHealth(health - delta)
+			setHealth(0)
 			
 func isAwayFromPlayer():
 	var distToPlayer = Globals.get("player").get_global_pos() - get_global_pos()
