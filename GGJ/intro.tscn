@@ -60,6 +60,16 @@ tracks/4/keys = {
 "update": 0,
 "values": [ 0.0, 10.0, -10.0, 10.0, -10.0, 10.0, 0.0 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Dad:transform/rot")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = {
+"times": FloatArray( 1.2, 1.4, 1.8, 2.2, 2.6, 3, 3.2 ),
+"transitions": FloatArray( 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25 ),
+"update": 0,
+"values": [ 0.0, 10.0, -10.0, 10.0, -10.0, 10.0, 0.0 ]
+}
 
 [node name="Intro" type="Node"]
 
