@@ -1,0 +1,264 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://scenes/ui/main.gd" type="Script" id=1]
+[ext_resource path="res://assets/clouds/cloud.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/title96.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://assets/fonts/title128.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://assets/fonts/title64.fnt" type="BitmapFont" id=5]
+
+[node name="main" type="Control"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorFrame" type="ColorFrame" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+color = Color( 0.417755, 0.552212, 0.660156, 1 )
+
+[node name="cloud1" type="Node2D" parent="."]
+
+transform/pos = Vector2( 393.25, 314.329 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="cloud1"]
+
+transform/pos = Vector2( -130.371, 36.9295 )
+transform/rot = 20.3686
+transform/scale = Vector2( 0.459791, 0.459791 )
+texture = ExtResource( 2 )
+
+[node name="Sprite8" type="Sprite" parent="cloud1"]
+
+transform/pos = Vector2( -200.325, 89.0512 )
+transform/rot = 20.3686
+transform/scale = Vector2( 0.200176, 0.200176 )
+texture = ExtResource( 2 )
+
+[node name="Sprite1" type="Sprite" parent="cloud1"]
+
+transform/pos = Vector2( -77.6137, -12.8128 )
+transform/rot = 16.68
+transform/scale = Vector2( 0.459791, 0.459791 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="cloud1"]
+
+transform/pos = Vector2( -5.26141, -21.9745 )
+transform/rot = -13.3292
+transform/scale = Vector2( 0.69529, 0.69529 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="cloud1"]
+
+transform/pos = Vector2( -42.9449, 61.0468 )
+transform/scale = Vector2( 0.459791, 0.459791 )
+texture = ExtResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="cloud1"]
+
+transform/pos = Vector2( 52.0175, 30.877 )
+transform/rot = -25.3903
+transform/scale = Vector2( 0.506134, 0.506134 )
+texture = ExtResource( 2 )
+
+[node name="Sprite5" type="Sprite" parent="cloud1"]
+
+transform/pos = Vector2( 65.5836, -24.9005 )
+transform/rot = 2.93922
+transform/scale = Vector2( 0.517956, 0.517956 )
+texture = ExtResource( 2 )
+
+[node name="Sprite6" type="Sprite" parent="cloud1"]
+
+transform/pos = Vector2( 133.414, 59.5615 )
+transform/scale = Vector2( 0.416003, 0.416003 )
+texture = ExtResource( 2 )
+
+[node name="Sprite7" type="Sprite" parent="cloud1"]
+
+transform/pos = Vector2( 140.53, 3.78894 )
+transform/rot = 13.8238
+transform/scale = Vector2( 0.309603, 0.309603 )
+texture = ExtResource( 2 )
+
+[node name="cloud2" type="Node2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 874.897, 312.068 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="cloud2"]
+
+transform/pos = Vector2( -134.472, 56.8421 )
+transform/rot = 18.6277
+transform/scale = Vector2( 0.329338, 0.329338 )
+texture = ExtResource( 2 )
+
+[node name="Sprite1" type="Sprite" parent="cloud2"]
+
+transform/pos = Vector2( -87.8879, 0.886429 )
+transform/rot = 16.68
+transform/scale = Vector2( 0.459791, 0.459791 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="cloud2"]
+
+transform/pos = Vector2( -15.5357, -8.27529 )
+transform/rot = -13.3292
+transform/scale = Vector2( 0.69529, 0.69529 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="cloud2"]
+
+transform/pos = Vector2( -44.8505, 55.2195 )
+transform/scale = Vector2( 0.459791, 0.459791 )
+texture = ExtResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="cloud2"]
+
+transform/pos = Vector2( 41.7433, 44.5762 )
+transform/rot = -25.3903
+transform/scale = Vector2( 0.506134, 0.506134 )
+texture = ExtResource( 2 )
+
+[node name="Sprite5" type="Sprite" parent="cloud2"]
+
+transform/pos = Vector2( 55.3093, -11.2013 )
+transform/rot = 2.93922
+transform/scale = Vector2( 0.517956, 0.517956 )
+texture = ExtResource( 2 )
+
+[node name="Sprite6" type="Sprite" parent="cloud2"]
+
+transform/pos = Vector2( 123.14, 73.2606 )
+transform/scale = Vector2( 0.416003, 0.416003 )
+texture = ExtResource( 2 )
+
+[node name="Sprite7" type="Sprite" parent="cloud2"]
+
+transform/pos = Vector2( 124.104, 15.4376 )
+transform/rot = 13.8238
+transform/scale = Vector2( 0.309603, 0.309603 )
+texture = ExtResource( 2 )
+
+[node name="Sprite8" type="Sprite" parent="cloud2"]
+
+transform/pos = Vector2( 178.232, 85.0248 )
+transform/rot = 19.7969
+transform/scale = Vector2( 0.182114, 0.182114 )
+texture = ExtResource( 2 )
+
+[node name="Sprite9" type="Sprite" parent="cloud2"]
+
+transform/pos = Vector2( 214.242, 102.054 )
+transform/rot = 19.7969
+transform/scale = Vector2( 0.120129, 0.120129 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+
+anchor/left = 3
+anchor/right = 3
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 284.0
+margin/top = 73.0
+margin/right = -299.0
+margin/bottom = 388.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Malos"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label1" type="Label" parent="."]
+
+anchor/left = 3
+anchor/right = 3
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 119.0
+margin/top = 182.0
+margin/right = -124.0
+margin/bottom = 338.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Habitos"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Control" type="Control" parent="."]
+
+editor/display_folded = true
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 3.0
+margin/top = 0.0
+margin/right = -3.0
+margin/bottom = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Button" type="Button" parent="Control"]
+
+anchor/left = 3
+anchor/top = 1
+anchor/right = 3
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 116.0
+margin/top = 163.0
+margin/right = -74.0
+margin/bottom = 79.0
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Start"
+flat = false
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
+
+
