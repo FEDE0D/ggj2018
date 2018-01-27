@@ -48,10 +48,8 @@ func _process(delta):
 	else:
 		animationtree.transition_node_set_current("transition", 0)
 	
-	
 	set_pos(get_pos() + speed)
 	
-func collision( area ):
-	print("collision")
+func _on_Area2D_area_enter( area ):
 	if area.is_in_group("npcs"):
 		area.conversion(self)
