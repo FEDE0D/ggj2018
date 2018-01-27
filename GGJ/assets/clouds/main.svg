@@ -131,9 +131,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.94609376"
-     inkscape:cx="530.74001"
-     inkscape:cy="58.370983"
+     inkscape:zoom="0.66898931"
+     inkscape:cx="190.69672"
+     inkscape:cy="205.37595"
      inkscape:document-units="mm"
      inkscape:current-layer="g217"
      showgrid="false"
@@ -1175,6 +1175,36 @@
            cy="225.36679"
            rx="78.153442"
            ry="19.538361" />
+        <g
+           id="g227">
+          <path
+             inkscape:connector-curvature="0"
+             id="path207"
+             d="m 880.81763,117.48106 h 13.5919 l -2.97323,18.26412 18.26412,-0.42475 -0.84949,19.11362 -16.98988,-5.94646 -2.54849,25.48481 -16.14038,-0.42474 5.94646,-25.48482 -12.31766,-2.97323 v -14.86614 l 13.16715,4.67221 z"
+             style="fill:#502d16;stroke:#000000;stroke-width:4.55641431;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path209"
+             d="m 885.38366,121.1976 4.99077,-0.21238 -2.97322,18.26412 0.53093,-16.67132 z"
+             style="fill:#784421;stroke:none;stroke-width:0.40185043px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path213"
+             d="m 890.79918,138.50603 13.9447,0.11908 0.47627,10.31832 -2.50671,-8.31366 z"
+             style="fill:#784421;fill-opacity:0.49748745;stroke:none;stroke-width:4.5564146"
+             sodipodi:nodetypes="ccccc" />
+          <path
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             id="path215"
+             d="m 888.2507,151.67319 -2.17683,17.73319 -5.65744,-0.22903 3.85483,-2.11864 z"
+             style="fill:#784421;fill-opacity:0.49748745;stroke:none;stroke-width:4.5564146" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path220"
+             d="m 869.56183,134.15238 13.91046,4.7784 -13.16715,-3.39797 -0.63712,1.48661 z"
+             style="fill:#784421;fill-opacity:0.49748745;stroke:none;stroke-width:4.5564146" />
+        </g>
       </g>
     </g>
   </g>

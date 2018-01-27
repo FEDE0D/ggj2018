@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://progressBar.gd" type="Script" id=1]
 [ext_resource path="res://assets/progressbar.png" type="Texture" id=2]
 [ext_resource path="res://assets/progressbar_over.png" type="Texture" id=3]
 [ext_resource path="res://assets/progressbar_progress.png" type="Texture" id=4]
+[ext_resource path="res://assets/cross.png" type="Texture" id=5]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -53,5 +54,19 @@ texture/progress = ExtResource( 4 )
 mode = 3
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="TextureFrame" type="TextureFrame" parent="Control/TextureProgress"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = -68.0
+margin/right = 128.0
+margin/bottom = 84.0
+texture = ExtResource( 5 )
+stretch_mode = 0
 
 

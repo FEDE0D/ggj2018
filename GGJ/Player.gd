@@ -59,8 +59,15 @@ func _process(delta):
 func _input(event):
 	if event.is_action_pressed("hit"):
 		get_node("AnimationTreePlayer").oneshot_node_start("HitNode")
+		# trigger hit on converted
+		for converted in get_tree().get_nodes_in_group("converted"):
+			converted.start_hit()
+		# convert new ones
 		for b in get_node("Area2D").get_overlapping_bodies():
 			if b.is_in_group("npcs"):
 				b.conversion(self)
 				var health = (float(followers_count) / npcs_count)
 				emit_signal("new_follower", health)
+
+func newFollower(node):
+	followers_count += 1

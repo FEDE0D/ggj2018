@@ -58,5 +58,23 @@ func conversion(p):
 	if !converted:
 		p.followers_count += 1
 		converted = true
+		add_to_group("converted")
 		get_node("body/Particles2D").set_emitting(true)
 		print("convert")
+
+func start_hit():
+	var timeout = 0.5
+	var dist = get_global_pos() - Globals.get("player").get_global_pos()
+	if dist.length() < 800:
+		timeout = dist.length() / 800 * 0.5
+	get_node("HitTimer").set_wait_time(timeout)
+	get_node("HitTimer").start()
+
+func do_hit():
+	for b in get_node("Area2D").get_overlapping_bodies():
+		if b.is_in_group("npcs") and b != self:
+			b.conversion(Globals.get("player"))
+			Globals.get("player").newFollower(self)
+
+func _on_Timer_timeout():
+	get_node("AnimationPlayer").play("hit")
