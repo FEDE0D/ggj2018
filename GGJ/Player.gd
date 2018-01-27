@@ -22,8 +22,11 @@ func _process(delta):
 		direction.y = 0
 	if Input.is_action_pressed("ui_right"):
 		direction.x = 1
+		get_node("body").get_node("Sprite").set_flip_h(false)
+		
 	elif Input.is_action_pressed("ui_left"):
 		direction.x = -1
+		get_node("body").get_node("Sprite").set_flip_h(true)
 	else:
 		direction.x = 0
 	
