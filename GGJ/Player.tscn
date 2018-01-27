@@ -81,6 +81,8 @@ offset = Vector2( 5, 5 )
 
 [node name="body" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="Sprite" type="Sprite" parent="body"]
 
 transform/pos = Vector2( -1.08185, -0.0498047 )

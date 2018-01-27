@@ -3,18 +3,20 @@ extends Node
 var score = 0;
 
 func _ready():
-	print("instancing")
 	set_process (true)
 	pass
 
 func _process(delta):
-	_increment(1)
 	pass
 	
-func _increment(amount):
+func increment(amount):
 	score += amount
 	pass
 	
-func get_score(amount):
+func decrement(amount):
 	score += amount
+	pass
+	
+func get_score():
+	return score
 	pass

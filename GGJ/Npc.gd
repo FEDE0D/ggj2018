@@ -46,6 +46,7 @@ func _process(delta):
 				converted = false
 				remove_from_group("converted")
 				get_node("AnimationTreePlayer").transition_node_set_current("transition", 0)
+				get_node("/root/Score").decrement(1)
 		else:
 			setHealth(0)
 			
@@ -82,6 +83,7 @@ func conversion(p):
 		if health == 0:
 			converted = true
 			get_node("body/Sprite").set_frame(1)
+			get_node("/root/Score").increment(1)
 			add_to_group("converted")
 			get_node("body/Particles2D").set_emitting(true)
 			print("convert")
