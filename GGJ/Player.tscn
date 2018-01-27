@@ -81,8 +81,6 @@ offset = Vector2( 5, 5 )
 
 [node name="body" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="Sprite" type="Sprite" parent="body"]
 
 transform/pos = Vector2( -1.08185, -0.0498047 )
@@ -127,15 +125,15 @@ data = {
 "type": "animation"
 }, {
 "filter": [  ],
-"from": "bounce",
-"id": "bounce",
-"pos": Vector2( 74, 173 ),
-"type": "animation"
-}, {
-"filter": [  ],
 "from": "hit",
 "id": "anim",
 "pos": Vector2( 159, 297 ),
+"type": "animation"
+}, {
+"filter": [  ],
+"from": "bounce",
+"id": "bounce",
+"pos": Vector2( 74, 173 ),
 "type": "animation"
 }, {
 "id": "out",
