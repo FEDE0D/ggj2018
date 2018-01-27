@@ -5,12 +5,16 @@ var converted = false
 var separationDist = 500
 var followSlowRadius = 100
 var anim
+var health = 1
 
 func _ready():
 	set_process(true)
 	anim = get_node("AnimationPlayer")
+	
 func _process(delta):
-	if converted:
+	if !converted:
+		setHealth(min(1, health + 0.1 * delta))
+	else:
 		var separation = get_separation() * speed
 		var follow = get_follow() * speed * 0.7
 		var position = get_global_pos()
@@ -64,10 +68,12 @@ func get_follow():
 
 func conversion(p):
 	if !converted:
-		converted = true
-		add_to_group("converted")
-		get_node("body/Particles2D").set_emitting(true)
-		print("convert")
+		setHealth(max(0, health - 0.5))
+		if health == 0:
+			converted = true
+			add_to_group("converted")
+			get_node("body/Particles2D").set_emitting(true)
+			print("convert")
 
 func start_hit():
 	var timeout = 0.5
@@ -80,8 +86,16 @@ func start_hit():
 func do_hit():
 	for b in get_node("Area2D").get_overlapping_bodies():
 		if b.is_in_group("npcs") and b != self:
-			b.conversion(Globals.get("player"))
-			Globals.get("player").newFollower(self)
+				b.conversion(Globals.get("player"))
+				Globals.get("player").newFollower(self)
 
 func _on_Timer_timeout():
 	get_node("AnimationPlayer").play("hit")
+
+func setHealth(health):
+	self.health = health
+	get_node("ProgressBar").set_value(health)
+	if self.health == 0 or converted:
+		get_node("ProgressBar").hide()
+	elif self.health < 1:
+		get_node("ProgressBar").show()
