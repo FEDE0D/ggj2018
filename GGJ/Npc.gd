@@ -19,10 +19,15 @@ func _process(delta):
 	if converted:
 		var separation = get_separation() * separation_speed
 		var follow = get_follow() * move_speed
-		var position = get_pos()
+		var position = get_global_pos()
 		position += separation
 		position += follow
-		position = position.linear_interpolate(position, delta)
+		
+		var distToTarget = get_global_pos() - position
+		if distToTarget.length() < 150:
+			var lerpValue = 1 - (distToTarget.length() / 150)
+			position = get_global_pos().linear_interpolate(position, lerpValue)
+			
 		set_pos(position)
 		
 func get_separation():
