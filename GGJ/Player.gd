@@ -4,15 +4,14 @@ var speed = Vector2(0,0)
 var move_speed = 150
 var deceleration = 40
 var direction = Vector2(0,0)
-var player
-var animation_speed = 1.5
+var animationtree
+var animation_pos = 0
 const MAX_SPEED = Vector2(20,20)
 
 
 func _ready():
 	set_process(true)
-	player = get_node("AnimationPlayer")
-	player.set_speed(animation_speed)
+	animationtree = get_node("AnimationTreePlayer")
 	
 func _process(delta):
 	if Input.is_action_pressed("ui_up"):
@@ -37,10 +36,11 @@ func _process(delta):
 	clamp(speed.x,0,MAX_SPEED.x)
 		
 	if (direction.x || direction.y):
-		if (!player.is_playing()):
-			player.play("bounce")
+		animationtree.transition_node_set_current("transition", 1)
 	else:
-		player.stop(false)
+		animationtree.transition_node_set_current("transition", 0)
+	
+	
 	set_pos(get_pos() + speed)
 	
 func collision( area ):
