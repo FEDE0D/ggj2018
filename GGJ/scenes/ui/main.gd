@@ -16,3 +16,6 @@ func _process(delta):
 		c.rotate(-delta)
 	for c in cloudSprites2:
 		c.rotate(-delta)
+
+func _on_Button1_toggled( pressed ):
+	OS.set_window_fullscreen(pressed)

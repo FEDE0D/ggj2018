@@ -1,79 +1,14 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://scenes/ui/main.gd" type="Script" id=1]
 [ext_resource path="res://assets/clouds/cloud.png" type="Texture" id=2]
 [ext_resource path="res://assets/clouds/head.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/title96.fnt" type="BitmapFont" id=4]
 [ext_resource path="res://assets/fonts/title128.fnt" type="BitmapFont" id=5]
-[ext_resource path="res://assets/button_hover.png" type="Texture" id=6]
-[ext_resource path="res://assets/button.png" type="Texture" id=7]
-[ext_resource path="res://assets/button_pressed.png" type="Texture" id=8]
-[ext_resource path="res://assets/fonts/title64.fnt" type="BitmapFont" id=9]
-
-[sub_resource type="StyleBoxTexture" id=2]
-
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
-texture = ExtResource( 6 )
-margin/left = 18.0
-margin/right = 18.0
-margin/top = 18.0
-margin/bottom = 18.0
-expand_margin/left = 2.0
-expand_margin/right = 2.0
-expand_margin/top = 2.0
-expand_margin/bottom = 2.0
-draw_center = true
-
-[sub_resource type="StyleBoxTexture" id=3]
-
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
-texture = ExtResource( 7 )
-margin/left = 18.0
-margin/right = 18.0
-margin/top = 18.0
-margin/bottom = 18.0
-expand_margin/left = 2.0
-expand_margin/right = 2.0
-expand_margin/top = 2.0
-expand_margin/bottom = 2.0
-draw_center = true
-
-[sub_resource type="StyleBoxTexture" id=4]
-
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
-texture = ExtResource( 8 )
-margin/left = 18.0
-margin/right = 18.0
-margin/top = 18.0
-margin/bottom = 18.0
-expand_margin/left = 2.0
-expand_margin/right = 2.0
-expand_margin/top = 2.0
-expand_margin/bottom = 2.0
-draw_center = true
-
-[sub_resource type="Theme" id=1]
-
-Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
-Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
-Button/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
-Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
-Button/constants/hseparation = 2
-Button/fonts/font = null
-Button/styles/disabled = null
-Button/styles/focus = null
-Button/styles/hover = SubResource( 2 )
-Button/styles/normal = SubResource( 3 )
-Button/styles/pressed = SubResource( 4 )
+[ext_resource path="res://themes/button.tres" type="Theme" id=6]
+[ext_resource path="res://assets/fonts/title64.fnt" type="BitmapFont" id=7]
+[ext_resource path="res://assets/fonts/title48.fnt" type="BitmapFont" id=8]
+[ext_resource path="res://assets/GGJ.png" type="Texture" id=9]
 
 [node name="main" type="Control"]
 
@@ -108,6 +43,7 @@ color = Color( 0.417755, 0.552212, 0.660156, 1 )
 
 [node name="cloud1" type="Node2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 393.25, 314.329 )
 __meta__ = {
 "_edit_group_": true
@@ -323,18 +259,58 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = SubResource( 1 )
-margin/left = 100.0
-margin/top = 190.0
-margin/right = -90.0
-margin/bottom = 76.0
-custom_fonts/font = ExtResource( 9 )
+theme/theme = ExtResource( 6 )
+margin/left = 109.0
+margin/top = 185.0
+margin/right = -81.0
+margin/bottom = 71.0
+custom_fonts/font = ExtResource( 7 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "Start"
 flat = false
 
+[node name="Button1" type="Button" parent="Control"]
+
+anchor/left = 1
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 6 )
+margin/left = 188.0
+margin/top = 122.0
+margin/right = 34.0
+margin/bottom = 27.0
+custom_fonts/font = ExtResource( 8 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Fullscreen"
+flat = false
+
+[node name="TextureFrame" type="TextureFrame" parent="."]
+
+anchor/top = 1
+anchor/bottom = 1
+rect/scale = Vector2( 0.25, 0.25 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 46.0
+margin/top = 142.0
+margin/right = 434.0
+margin/bottom = -247.0
+texture = ExtResource( 9 )
+stretch_mode = 0
+
 [connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
+
+[connection signal="toggled" from="Control/Button1" to="." method="_on_Button1_toggled"]
 
 
