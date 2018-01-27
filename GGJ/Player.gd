@@ -14,6 +14,7 @@ signal new_follower
 
 func _ready():
 	set_process(true)
+	set_process_input(true)
 	animationtree = get_node("AnimationTreePlayer")
 	Globals.set("player", self)
 	self.npcs_count = get_tree().get_nodes_in_group("npcs").size()
@@ -54,8 +55,12 @@ func _process(delta):
 	
 	set_pos(get_pos() + speed)
 	
-func _on_Area2D_area_enter( area ):
-	if area.is_in_group("npcs"):
-		area.conversion(self)
-		var health = (float(followers_count) / npcs_count)
-		emit_signal("new_follower", health)
+
+func _input(event):
+	if event.is_action_pressed("hit"):
+		get_node("AnimationTreePlayer").oneshot_node_start("HitNode")
+		for b in get_node("Area2D").get_overlapping_bodies():
+			if b.is_in_group("npcs"):
+				b.conversion(self)
+				var health = (float(followers_count) / npcs_count)
+				emit_signal("new_follower", health)

@@ -10,8 +10,6 @@
 
 [node name="map" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="TextureFrame" type="TextureFrame" parent="map"]
 
 focus/ignore_mouse = true

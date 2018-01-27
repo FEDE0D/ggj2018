@@ -11,7 +11,7 @@ custom_solver_bias = 0.0
 radius = 32.9543
 height = 32.1342
 
-[node name="Character" type="Area2D" groups=[
+[node name="Character" type="KinematicBody2D" groups=[
 "npcs",
 ]]
 
@@ -19,18 +19,10 @@ input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 11.8879, 12.4283 )
 shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
+collision/layers = 1024
+collision/mask = 0
+collision/margin = 0.08
 script/script = ExtResource( 1 )
-
-[node name="Tween" type="Tween" parent="."]
-
-playback/process_mode = 1
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -38,6 +30,13 @@ transform/pos = Vector2( 11.8879, 12.4283 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="Tween" type="Tween" parent="."]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 [node name="body" type="Node2D" parent="."]
 
@@ -73,7 +72,7 @@ params/anim_initial_pos = 0.0
 
 z/z = 10
 texture = ExtResource( 3 )
-modulate = Color( 0.816406, 0.274261, 0.274261, 1 )
+modulate = Color( 1, 0.421875, 0, 1 )
 
 [node name="shadow" type="Sprite" parent="body"]
 

@@ -1,4 +1,4 @@
-extends Node2D
+extends KinematicBody2D
 
 var speed = 4
 var converted = false
