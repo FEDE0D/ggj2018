@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/clouds/shadow.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -61,12 +62,17 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
+[node name="shadow" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0.440125, 34.0126 )
+texture = ExtResource( 2 )
+
 [node name="body" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="body"]
 
 transform/pos = Vector2( -0.081852, -0.0498047 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 offset = Vector2( 0.0818529, 0.0498037 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
