@@ -16,3 +16,4 @@ func _process(delta):
 	zoom =Vector2(1,1) * camera_value
 	zoom = get_zoom().linear_interpolate(zoom,delta*2)
 	set_zoom(zoom)
+	pass

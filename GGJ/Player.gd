@@ -70,4 +70,4 @@ func _input(event):
 				emit_signal("new_follower", health)
 
 func newFollower(node):
-	followers_count += 1
+	#followers_count += 1
