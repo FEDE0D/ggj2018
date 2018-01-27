@@ -85,9 +85,9 @@ tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = {
 "times": FloatArray( 0, 1.2 ),
-"transitions": FloatArray( -4, -4 ),
+"transitions": FloatArray( -4, 1 ),
 "update": 0,
-"values": [ Vector2( 1378.3, -285.944 ), Vector2( -409.441, 1063.42 ) ]
+"values": [ Vector2( 1378.3, -285.944 ), Vector2( -447.204, 1103.7 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("clouds:transform/rot")
@@ -168,7 +168,7 @@ autoplay = "in"
 
 [node name="clouds" type="Node2D" parent="."]
 
-transform/pos = Vector2( -409.441, 1063.42 )
+transform/pos = Vector2( -447.204, 1103.7 )
 
 [node name="Sprite" type="Sprite" parent="clouds"]
 
@@ -190,7 +190,7 @@ texture = ExtResource( 4 )
 [node name="clouds1" type="Node2D" parent="."]
 
 editor/display_folded = true
-transform/pos = Vector2( -239.475, 771.125 )
+transform/pos = Vector2( -211.519, 751.726 )
 
 [node name="Sprite 2" type="Sprite" parent="clouds1"]
 
@@ -206,7 +206,7 @@ texture = ExtResource( 4 )
 [node name="clouds2" type="Node2D" parent="."]
 
 editor/display_folded = true
-transform/pos = Vector2( -342.632, 539.698 )
+transform/pos = Vector2( -319.346, 523.594 )
 
 [node name="Sprite 2" type="Sprite" parent="clouds2"]
 
