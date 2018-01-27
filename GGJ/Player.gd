@@ -78,7 +78,6 @@ func _input(event):
 				b.conversion(self)
 				var health = (float(get_followers_count()) / get_npcs_count())
 				
-				score.increment(1)
 				emit_signal("new_follower", health, score.get_score())
 
 func newFollower(node):
