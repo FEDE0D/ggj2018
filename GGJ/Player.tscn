@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/clouds/shadow.png" type="Texture" id=2]
 [ext_resource path="res://directional-pixel-man.png" type="Texture" id=3]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 
 resource/name = "bounce"
 length = 1.2
@@ -31,14 +31,14 @@ tracks/1/keys = {
 "values": [ 0.0, 15.0, 0.0, -15.0, 0.0, 15.0, 0.0, -15.0 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 
 resource/name = "idle"
 length = 1.0
 loop = false
 step = 0.1
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 47.8257
@@ -78,8 +78,8 @@ modulate = Color( 0, 0, 0, 1 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/bounce = SubResource( 2 )
-anims/idle = SubResource( 3 )
+anims/bounce = SubResource( 1 )
+anims/idle = SubResource( 2 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -127,7 +127,7 @@ data = {
 
 transform/pos = Vector2( 5.38861, 54.4851 )
 input/pickable = true
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -138,7 +138,7 @@ angular_damp = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 transform/rot = 90.0
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 

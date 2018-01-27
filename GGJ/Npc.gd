@@ -27,7 +27,14 @@ func _process(delta):
 		if distToTarget.length() < 150:
 			var lerpValue = 1 - (distToTarget.length() / 150)
 			position = get_global_pos().linear_interpolate(position, lerpValue)
-			
+		
+		var direction = position.x - get_pos().x
+		if (direction < 0):
+			get_node("body").get_node("Sprite").set_flip_h(true)
+			get_node("body").get_node("shadow").set_flip_h(true)
+		else:
+			get_node("body").get_node("Sprite").set_flip_h(false)
+			get_node("body").get_node("shadow").set_flip_h(false)
 		set_pos(position)
 		
 func get_separation():
