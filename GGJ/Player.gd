@@ -6,7 +6,10 @@ extends Node2D
 
 var speed = Vector2(0,0)
 var move_speed = 300
+var deceleration = 40
 var direction = Vector2(0,0)
+const MAX_SPEED = Vector2(20,20)
+
 
 func _ready():
 	set_process(true)
@@ -26,5 +29,14 @@ func _process(delta):
 	else:
 		direction.x = 0
 	
+	
 	speed = direction * move_speed * delta
+	if (!direction.x) && (speed.x > 0):
+		speed.x -= deceleration
+	if (!direction.y) && (speed.y > 0):
+		speed.y -=deceleration
+	clamp(speed.y,0,MAX_SPEED.y)
+	clamp(speed.x,0,MAX_SPEED.x)
+	
+	
 	set_pos(get_pos() + speed)
