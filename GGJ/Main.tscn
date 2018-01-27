@@ -1,11 +1,38 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Npc.tscn" type="PackedScene" id=2]
 
 [node name="Node" type="Node"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 181, 123 )
+
+[node name="Npcs" type="Node" parent="."]
+
+[node name="Npc" parent="Npcs" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 470, 108 )
+
+[node name="Npc1" parent="Npcs" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 674.998, 208.992 )
+
+[node name="Npc2" parent="Npcs" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 491.103, 263.256 )
+
+[node name="Npc3" parent="Npcs" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 391.618, 383.843 )
+
+[node name="Npc4" parent="Npcs" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 507.684, 377.814 )
+
+[node name="Npc5" parent="Npcs" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 382, 197 )
 
 
