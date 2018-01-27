@@ -64,7 +64,6 @@ func get_follow():
 
 func conversion(p):
 	if !converted:
-		p.followers_count += 1
 		converted = true
 		add_to_group("converted")
 		get_node("body/Particles2D").set_emitting(true)

@@ -12,7 +12,7 @@ func _ready():
 func _process(delta):
 	set_pos(get_pos().linear_interpolate(player.get_pos(),delta))
 	var zoom =  Vector2()
-	var camera_value = 1 + player.followers_count *0.02
+	var camera_value = 1 + (get_tree().get_nodes_in_group("converted").size()) *0.02
 	zoom =Vector2(1,1) * camera_value
 	zoom = get_zoom().linear_interpolate(zoom,delta*2)
 	set_zoom(zoom)

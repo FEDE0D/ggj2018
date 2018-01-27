@@ -7,8 +7,6 @@ var direction = Vector2(0,0)
 var animationtree
 var animation_pos = 0
 const MAX_SPEED = Vector2(20,20)
-var followers_count = 0
-var npcs_count = 0
 
 signal new_follower
 
@@ -17,7 +15,6 @@ func _ready():
 	set_process_input(true)
 	animationtree = get_node("AnimationTreePlayer")
 	Globals.set("player", self)
-	self.npcs_count = get_tree().get_nodes_in_group("npcs").size()
 	
 func _process(delta):
 	if Input.is_action_pressed("ui_up"):
@@ -53,8 +50,10 @@ func _process(delta):
 	else:
 		animationtree.transition_node_set_current("transition", 0)
 	
-	set_pos(get_pos() + speed)
-	
+	set_pos(get_pos() + speed + (speed * getExtraSpeedRatio()))
+
+func getExtraSpeedRatio():
+	return float(get_tree().get_nodes_in_group("converted").size()) / get_tree().get_nodes_in_group("npcs").size()
 
 func _input(event):
 	if event.is_action_pressed("hit"):
@@ -66,8 +65,8 @@ func _input(event):
 		for b in get_node("Area2D").get_overlapping_bodies():
 			if b.is_in_group("npcs"):
 				b.conversion(self)
-				var health = (float(followers_count) / npcs_count)
+				var health = (float(get_tree().get_nodes_in_group("converted").size()) / get_tree().get_nodes_in_group("npcs").size())
 				emit_signal("new_follower", health)
 
 func newFollower(node):
-	#followers_count += 1
+	pass
