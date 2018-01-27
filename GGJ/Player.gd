@@ -11,7 +11,7 @@ func _ready():
 	
 	set_process(true)
 	tween = get_node("Tween")
-	tween.interpolate_property(get_node("Sprite"), "transform/pos", Vector2(0,0), Vector2(0,-10), 1, Tween.TRANS_BOUNCE, Tween.EASE_IN_OUT,0)
+	tween.interpolate_property(get_node("Sprite"), "transform/pos", Vector2(0,0), Vector2(0,-30), 1, Tween.TRANS_QUAD, Tween.EASE_IN, 0)
 	
 	
 func _process(delta):
@@ -38,10 +38,15 @@ func _process(delta):
 	clamp(speed.x,0,MAX_SPEED.x)
 	
 	if (direction.x || direction.y):
-		tween.set_repeat(true)
+		if (!tween.is_active()):
+			tween.set_repeat(true)
+			tween.start()
+			tween.resume_all()
+			print("tween start")
+		
 	else:
 		tween.stop_all()
-		tween.set_repeat(false)
+		print("tween stop")
 		
 	set_pos(get_pos() + speed)
 	
