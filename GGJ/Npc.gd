@@ -84,6 +84,7 @@ func conversion(p):
 		setHealth(max(0, health - 0.5))
 		if health == 0:
 			converted = true
+			get_node("body/Sprite").set_frame(1)
 			add_to_group("converted")
 			get_node("body/Particles2D").set_emitting(true)
 			print("convert")
