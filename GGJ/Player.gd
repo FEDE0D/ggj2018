@@ -21,7 +21,23 @@ func _ready():
 	animationtree = get_node("AnimationTreePlayer")
 	Globals.set("player", self)
 	score = get_node("/root/Score")
+	emit_signal("new_follower", score.get_health(), score.get_score())
 	
+	var ticker = null
+	ticker = Timer.new()
+	add_child(ticker)
+	
+	ticker.connect("timeout", self, "tick_health")
+	ticker.set_wait_time(1.0)
+	ticker.set_one_shot(false)
+	ticker.start()
+
+
+func tick_health():
+	score.set_health(score.get_health() - 1)
+	emit_signal("new_follower", score.get_health(), score.get_score())
+	pass
+
 func _process(delta):
 	if Input.is_action_pressed("ui_up"):
 		direction.y = -1
@@ -76,9 +92,8 @@ func _input(event):
 		for b in get_node("Area2D").get_overlapping_bodies():
 			if b.is_in_group("npcs"):
 				b.conversion(self)
-				var health = (float(get_followers_count()) / get_npcs_count())
-				
-				emit_signal("new_follower", health, score.get_score())
+				emit_signal("new_follower", score.get_health(), score.get_score())
 
 func newFollower(node):
+	print("new follower")
 	pass

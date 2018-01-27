@@ -5,8 +5,10 @@ var converted = false
 var separationDist = 500
 var followSlowRadius = 100
 var health = 1
+var score
 
 func _ready():
+	score = get_node("/root/Score")
 	set_process(true)
 	
 func _process(delta):
@@ -83,10 +85,10 @@ func conversion(p):
 		if health == 0:
 			converted = true
 			get_node("body/Sprite").set_frame(1)
-			get_node("/root/Score").increment(1)
+			score.increment(1)
+			score.increment_health(5);
 			add_to_group("converted")
 			get_node("body/Particles2D").set_emitting(true)
-			print("convert")
 
 func start_hit():
 	var timeout = 0.5

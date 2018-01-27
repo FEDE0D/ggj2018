@@ -249,20 +249,9 @@ base_path = NodePath("..")
 master_player = NodePath("../AnimationPlayer")
 data = {
 "active": true,
-"connections": [ "transition", "oneshot", 0, "anim 3", "oneshot", 1, "oneshot", "out", 0, "anim", "transition", 0, "anim 2", "transition", 1 ],
+"connections": [ "oneshot", "out", 0, "anim", "transition", 0, "anim 2", "transition", 1, "transition", "oneshot", 0, "anim 3", "oneshot", 1 ],
 "master": NodePath("../AnimationPlayer"),
 "nodes": [ {
-"autorestart": false,
-"autorestart_delay": 1.0,
-"autorestart_random_delay": 0.0,
-"fade_in": 0.0,
-"fade_out": 0.0,
-"filter": [  ],
-"id": "oneshot",
-"mix": true,
-"pos": Vector2( 422, 58 ),
-"type": "oneshot"
-}, {
 "filter": [  ],
 "from": "idle",
 "id": "anim",
@@ -284,15 +273,26 @@ data = {
 "xfade": 0.25
 }, {
 "filter": [  ],
-"from": "bounce",
-"id": "anim 2",
-"pos": Vector2( 87, 141 ),
-"type": "animation"
-}, {
-"filter": [  ],
 "from": "hit",
 "id": "anim 3",
 "pos": Vector2( 252, 188 ),
+"type": "animation"
+}, {
+"autorestart": false,
+"autorestart_delay": 1.0,
+"autorestart_random_delay": 0.0,
+"fade_in": 0.0,
+"fade_out": 0.0,
+"filter": [  ],
+"id": "oneshot",
+"mix": true,
+"pos": Vector2( 422, 58 ),
+"type": "oneshot"
+}, {
+"filter": [  ],
+"from": "bounce",
+"id": "anim 2",
+"pos": Vector2( 87, 141 ),
 "type": "animation"
 } ]
 }

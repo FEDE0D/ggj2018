@@ -1,6 +1,7 @@
 extends Node
 
 var score = 0;
+var health = 50;
 
 func _ready():
 	set_process (true)
@@ -19,4 +20,16 @@ func decrement(amount):
 	
 func get_score():
 	return score
+	pass
+	
+func set_health(new_health):
+	health = new_health
+	pass
+	
+func get_health():
+	return health
+	pass
+	
+func increment_health(amount):
+	health += amount
 	pass

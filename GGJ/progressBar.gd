@@ -8,6 +8,7 @@ func update(count, score):
 	get_node("Control/Score").set_text(str(score))
 	get_node("Control/ScoreShadow").set_text(str(score))
 	print(score)
+	print(count)
 
 
 func _ready():
