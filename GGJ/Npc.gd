@@ -44,7 +44,7 @@ func _process(delta):
 		
 		# if converted & far away from player
 		if isAwayFromPlayer():
-			setHealth(health + delta)
+			setHealth(health + 2 * delta)
 			if health + delta >= 1:
 				converted = false
 				remove_from_group("converted")
