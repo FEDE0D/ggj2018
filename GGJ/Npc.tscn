@@ -110,13 +110,13 @@ playback/speed = 1.0
 [node name="Particles2D" type="Particles2D" parent="body"]
 
 z/z = 670
-config/amount = 32
+config/amount = 64
 config/lifetime = 2.0
-config/emit_timeout = 2.5
+config/emit_timeout = 0.5
 config/emitting = false
 config/process_mode = 1
 config/local_space = false
-config/explosiveness = 0.49
+config/explosiveness = 0.1
 config/texture = ExtResource( 2 )
 params/direction = 170.18
 params/spread = 52.36
@@ -162,6 +162,7 @@ modulate = Color( 0, 0, 0, 1 )
 
 [node name="Sprite" type="Sprite" parent="shadow"]
 
+visibility/blend_mode = 1
 transform/pos = Vector2( 12.7104, 38.7303 )
 transform/scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 5 )

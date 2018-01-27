@@ -101,6 +101,7 @@ _update_shape_index = 0
 [node name="Shadow1" type="Sprite" parent="shadow"]
 
 visibility/opacity = 0.7
+visibility/blend_mode = 1
 transform/scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 2 )
 offset = Vector2( 5, 5 )
