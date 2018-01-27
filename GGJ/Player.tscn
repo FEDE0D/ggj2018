@@ -125,15 +125,15 @@ data = {
 "type": "animation"
 }, {
 "filter": [  ],
-"from": "bounce",
-"id": "bounce",
-"pos": Vector2( 74, 173 ),
-"type": "animation"
-}, {
-"filter": [  ],
 "from": "hit",
 "id": "anim",
 "pos": Vector2( 159, 297 ),
+"type": "animation"
+}, {
+"filter": [  ],
+"from": "bounce",
+"id": "bounce",
+"pos": Vector2( 74, 173 ),
 "type": "animation"
 }, {
 "id": "out",

@@ -1,11 +1,11 @@
 extends CanvasLayer
 
-var scene
+var scene_path
 
 func transition_to(scene_path):
-	scene = load(scene_path)
+	self.scene_path = scene_path
 	get_node("AnimationPlayer").play("transition")
 
 func transition():
-	if (scene):
-		get_tree().change_scene_to(scene)
+	if (scene_path):
+		get_tree().change_scene_to(load(scene_path))
