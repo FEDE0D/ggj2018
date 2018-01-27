@@ -65,6 +65,7 @@ func get_follow():
 func conversion(p):
 	if !converted:
 		converted = true
+		get_node("body/Sprite").set_frame(1)
 		add_to_group("converted")
 		get_node("body/Particles2D").set_emitting(true)
 		print("convert")
