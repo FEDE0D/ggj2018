@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -35,6 +35,13 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 0.0, 15.0, 0.0, -15.0, 0.0, 15.0, 0.0, -15.0 ]
 }
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "idle"
+length = 1.0
+loop = false
+step = 0.1
 
 [node name="Node2D" type="Area2D"]
 
@@ -75,10 +82,49 @@ playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/bounce = SubResource( 2 )
+anims/idle = SubResource( 3 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
+
+[node name="AnimationTreePlayer" type="AnimationTreePlayer" parent="."]
+
+playback/process_mode = 1
+base_path = NodePath("..")
+master_player = NodePath("../AnimationPlayer")
+data = {
+"active": true,
+"connections": [ "transition", "out", 0, "idle", "transition", 0, "bounce", "transition", 1 ],
+"master": NodePath("../AnimationPlayer"),
+"nodes": [ {
+"filter": [  ],
+"from": "idle",
+"id": "idle",
+"pos": Vector2( 72, 54 ),
+"type": "animation"
+}, {
+"filter": [  ],
+"from": "bounce",
+"id": "bounce",
+"pos": Vector2( 74, 173 ),
+"type": "animation"
+}, {
+"id": "out",
+"pos": Vector2( 487, 101 ),
+"type": "output"
+}, {
+"id": "transition",
+"pos": Vector2( 282, 98 ),
+"transitions": [ {
+"auto_advance": false
+}, {
+"auto_advance": false
+} ],
+"type": "transition",
+"xfade": 0.2
+} ]
+}
 
 [connection signal="area_enter" from="." to="." method="collision"]
 
