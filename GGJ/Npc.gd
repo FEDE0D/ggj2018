@@ -1,15 +1,9 @@
 extends Node2D
 
-
-var speed = Vector2(0,0)
-var move_speed = 2
-var separation_speed = 3
-var deceleration = 40
-var direction = Vector2(0,0)
-const MAX_SPEED = Vector2(20,20)
-var player
-
+var speed = 4
 var converted = false
+var separationDist = 500
+var followSlowRadius = 100
 
 func _ready():
 	set_process(true)
@@ -17,8 +11,8 @@ func _ready():
 	
 func _process(delta):
 	if converted:
-		var separation = get_separation() * separation_speed
-		var follow = get_follow() * move_speed
+		var separation = get_separation() * speed
+		var follow = get_follow() * speed * 0.7
 		var position = get_global_pos()
 		position += separation
 		position += follow
@@ -35,6 +29,7 @@ func _process(delta):
 		else:
 			get_node("body").get_node("Sprite").set_flip_h(false)
 			get_node("body").get_node("shadow").set_flip_h(false)
+
 		set_pos(position)
 		
 func get_separation():
@@ -43,20 +38,23 @@ func get_separation():
 	var neightborCount = 0
 	for npc in npcs:
 		var dist = npc.get_global_pos() - get_global_pos()
-		if abs(dist.length()) < 100:
-			separation += dist * -1
+		if dist.length() < separationDist:
+			var lerpValue = 1 - (dist.length() / separationDist)
+			separation += dist.normalized() * -lerpValue
 			neightborCount += 1
 	
-	return (separation / neightborCount).normalized()
+	return (separation / neightborCount)
 
 func get_follow():
 	var player = Globals.get("player")
 	var dist = get_global_pos() - player.get_global_pos()
-	return dist.normalized() * -1
+	var lerpValue = 1
+	
+	if dist.length() < followSlowRadius:
+		lerpValue = dist.length() / followSlowRadius
+	
+	return dist.normalized() * -lerpValue
 
 func conversion(p):
 	if !converted:
-		player = p
 		converted = true
-		print("convert")
-		

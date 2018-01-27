@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://assets/map/grass.jpg" type="Texture" id=1]
-[ext_resource path="res://Npc.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Npc.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/music/bluegrass_banjo_-_country_banjo.ogg" type="AudioStream" id=4]
 [ext_resource path="res://scenes/ui/GameUI.tscn" type="PackedScene" id=5]
 
@@ -28,32 +28,9 @@ stretch_mode = 2
 
 sort/enabled = true
 
-[node name="Npc" parent="characters" instance=ExtResource( 2 )]
+[node name="player" parent="characters" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 470, 108 )
-
-[node name="Npc1" parent="characters" instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 619.208, 228.519 )
-
-[node name="Npc2" parent="characters" instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 491.103, 263.256 )
-
-[node name="Npc3" parent="characters" instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 391.618, 383.843 )
-
-[node name="Npc4" parent="characters" instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 507.684, 377.814 )
-
-[node name="Npc5" parent="characters" instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 382, 197 )
-
-[node name="player" parent="characters" instance=ExtResource( 3 )]
-
+editor/display_folded = true
 transform/pos = Vector2( 530.268, 203.362 )
 
 [node name="Camera2D" type="Camera2D" parent="characters/player"]
@@ -74,6 +51,86 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
+
+[node name="Npc" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 470, 108 )
+
+[node name="Npc6" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 507.948, -58.97 )
+
+[node name="Npc7" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 322.004, -66.5595 )
+
+[node name="Npc8" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 397.899, -138.66 )
+
+[node name="Npc9" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 208.161, -131.071 )
+
+[node name="Npc10" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 215.75, -36.2014 )
+
+[node name="Npc11" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 219.545, 70.0522 )
+
+[node name="Npc12" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 363.747, -9.63794 )
+
+[node name="Npc13" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 322.004, 81.4366 )
+
+[node name="Npc14" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 272.672, 168.716 )
+
+[node name="Npc15" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 86.7285, 104.205 )
+
+[node name="Npc16" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 170.214, 24.515 )
+
+[node name="Npc17" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 22.2175, -62.7647 )
+
+[node name="Npc18" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 124.677, -100.712 )
+
+[node name="Npc19" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 105.703, 47.2837 )
+
+[node name="Npc1" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 713.507, 151.532 )
+
+[node name="Npc2" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 668.614, 306.614 )
+
+[node name="Npc3" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1051.88, 186.071 )
+
+[node name="Npc4" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 934.429, 65.5269 )
+
+[node name="Npc5" parent="characters" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 807.704, -104.471 )
 
 [node name="StreamPlayer" type="StreamPlayer" parent="."]
 
