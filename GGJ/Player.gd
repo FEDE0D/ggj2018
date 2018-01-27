@@ -35,7 +35,6 @@ func _process(delta):
 	clamp(speed.x,0,MAX_SPEED.x)
 		
 	if (direction.x || direction.y):
-		print("moving")
 		if (!player.is_playing()):
 			player.play("bounce")
 	else:
