@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://Npc.gd" type="Script" id=1]
 [ext_resource path="res://assets/clouds/shadow.png" type="Texture" id=2]
 [ext_resource path="res://assets/particula.png" type="Texture" id=3]
 [ext_resource path="res://directional-pixel-npc.png" type="Texture" id=4]
 [ext_resource path="res://assets/path219.png" type="Texture" id=5]
-[ext_resource path="res://assets/bounce.tres" type="Animation" id=6]
+[ext_resource path="res://assets/progressbar_back.png" type="Texture" id=6]
+[ext_resource path="res://assets/enemyProgressbar_over.png" type="Texture" id=7]
+[ext_resource path="res://assets/bounce.tres" type="Animation" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -193,22 +195,8 @@ modulate = Color( 0, 0, 0, 1 )
 [node name="Sprite" type="Sprite" parent="shadow"]
 
 visibility/blend_mode = 1
-transform/pos = Vector2( 12.7104, 38.7303 )
 transform/scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 5 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
-anims/bounce = ExtResource( 6 )
-anims/hit = SubResource( 3 )
-anims/idle = SubResource( 4 )
-playback/active = true
-playback/speed = 1.0
-blend_times = [  ]
-autoplay = ""
 
 [node name="HitTimer" type="Timer" parent="."]
 
@@ -217,25 +205,97 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="ProgressBar" type="TextureProgress" parent="."]
 
-visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -45.0
-margin/top = -75.0
-margin/right = 65.0
-margin/bottom = -59.0
+size_flags/vertical = 2
+margin/left = -23.0
+margin/top = -74.0
+margin/right = 189.0
+margin/bottom = -32.0
 range/min = 0.0
 range/max = 1.0
 range/step = 1.0
 range/page = 0.0
-range/value = 1.0
+range/value = 0.0
 range/exp_edit = false
 range/rounded = false
-percent/visible = true
+texture/under = ExtResource( 6 )
+texture/over = null
+texture/progress = ExtResource( 7 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/bounce = ExtResource( 8 )
+anims/hit = SubResource( 3 )
+anims/idle = SubResource( 4 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="AnimationTreePlayer" type="AnimationTreePlayer" parent="."]
+
+playback/process_mode = 1
+base_path = NodePath("..")
+master_player = NodePath("../AnimationPlayer")
+data = {
+"active": true,
+"connections": [ "transition", "oneshot", 0, "anim 3", "oneshot", 1, "oneshot", "out", 0, "anim", "transition", 0, "anim 2", "transition", 1 ],
+"master": NodePath("../AnimationPlayer"),
+"nodes": [ {
+"autorestart": false,
+"autorestart_delay": 1.0,
+"autorestart_random_delay": 0.0,
+"fade_in": 0.0,
+"fade_out": 0.0,
+"filter": [  ],
+"id": "oneshot",
+"mix": true,
+"pos": Vector2( 422, 58 ),
+"type": "oneshot"
+}, {
+"filter": [  ],
+"from": "idle",
+"id": "anim",
+"pos": Vector2( 99, 38 ),
+"type": "animation"
+}, {
+"id": "out",
+"pos": Vector2( 627, 67 ),
+"type": "output"
+}, {
+"id": "transition",
+"pos": Vector2( 271, 44 ),
+"transitions": [ {
+"auto_advance": false
+}, {
+"auto_advance": false
+} ],
+"type": "transition",
+"xfade": 0.25
+}, {
+"filter": [  ],
+"from": "bounce",
+"id": "anim 2",
+"pos": Vector2( 87, 141 ),
+"type": "animation"
+}, {
+"filter": [  ],
+"from": "hit",
+"id": "anim 3",
+"pos": Vector2( 252, 188 ),
+"type": "animation"
+} ]
+}
 
 [connection signal="timeout" from="HitTimer" to="." method="_on_Timer_timeout"]
 

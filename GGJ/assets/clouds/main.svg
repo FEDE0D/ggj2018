@@ -144,11 +144,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.3379786"
-     inkscape:cx="608.87164"
-     inkscape:cy="126.41351"
+     inkscape:zoom="0.6689893"
+     inkscape:cx="2801.4813"
+     inkscape:cy="432.41547"
      inkscape:document-units="mm"
-     inkscape:current-layer="g217"
+     inkscape:current-layer="g228"
      showgrid="false"
      units="px"
      inkscape:window-width="1366"
@@ -1262,6 +1262,31 @@
              style="fill:#784421;fill-opacity:0.49748745;stroke:none;stroke-width:4.5564146" />
         </g>
       </g>
+    </g>
+    <g
+       inkscape:export-ydpi="80.468658"
+       inkscape:export-xdpi="80.468658"
+       inkscape:export-filename="C:\Users\federico\Documents\repositories\ggj2018\GGJ\assets\button.png"
+       id="g228"
+       transform="translate(132.29169)">
+      <path
+         style="fill:#ffaaaa;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         d="m 611.19405,105.15412 0.83897,16.18962 101.5161,-1.67795 0.83897,-17.16843 z"
+         id="path223"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc"
+         inkscape:export-filename="C:\Users\federico\Documents\repositories\ggj2018\GGJ\assets\progressbar_back.png"
+         inkscape:export-xdpi="51.113617"
+         inkscape:export-ydpi="51.113617" />
+      <path
+         style="fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:2;stroke-opacity:1"
+         d="m 613.71098,107.53122 1.53813,10.87611 94.94412,-1.67796 0.41947,-11.57525 z"
+         id="path225"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc"
+         inkscape:export-filename="C:\Users\federico\Documents\repositories\ggj2018\GGJ\assets\enemyProgressbar_over.png"
+         inkscape:export-xdpi="51.113617"
+         inkscape:export-ydpi="51.113617" />
     </g>
   </g>
 </svg>
