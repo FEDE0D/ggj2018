@@ -1,10 +1,79 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scenes/ui/main.gd" type="Script" id=1]
 [ext_resource path="res://assets/clouds/cloud.png" type="Texture" id=2]
-[ext_resource path="res://assets/fonts/title96.fnt" type="BitmapFont" id=3]
-[ext_resource path="res://assets/fonts/title128.fnt" type="BitmapFont" id=4]
-[ext_resource path="res://assets/fonts/title64.fnt" type="BitmapFont" id=5]
+[ext_resource path="res://assets/clouds/head.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/title96.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://assets/fonts/title128.fnt" type="BitmapFont" id=5]
+[ext_resource path="res://assets/button_hover.png" type="Texture" id=6]
+[ext_resource path="res://assets/button.png" type="Texture" id=7]
+[ext_resource path="res://assets/button_pressed.png" type="Texture" id=8]
+[ext_resource path="res://assets/fonts/title64.fnt" type="BitmapFont" id=9]
+
+[sub_resource type="StyleBoxTexture" id=2]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 6 )
+margin/left = 18.0
+margin/right = 18.0
+margin/top = 18.0
+margin/bottom = 18.0
+expand_margin/left = 2.0
+expand_margin/right = 2.0
+expand_margin/top = 2.0
+expand_margin/bottom = 2.0
+draw_center = true
+
+[sub_resource type="StyleBoxTexture" id=3]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 7 )
+margin/left = 18.0
+margin/right = 18.0
+margin/top = 18.0
+margin/bottom = 18.0
+expand_margin/left = 2.0
+expand_margin/right = 2.0
+expand_margin/top = 2.0
+expand_margin/bottom = 2.0
+draw_center = true
+
+[sub_resource type="StyleBoxTexture" id=4]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 8 )
+margin/left = 18.0
+margin/right = 18.0
+margin/top = 18.0
+margin/bottom = 18.0
+expand_margin/left = 2.0
+expand_margin/right = 2.0
+expand_margin/top = 2.0
+expand_margin/bottom = 2.0
+draw_center = true
+
+[sub_resource type="Theme" id=1]
+
+Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource( 2 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 4 )
 
 [node name="main" type="Control"]
 
@@ -71,6 +140,13 @@ transform/pos = Vector2( -5.26141, -21.9745 )
 transform/rot = -13.3292
 transform/scale = Vector2( 0.69529, 0.69529 )
 texture = ExtResource( 2 )
+
+[node name="Sprite 2" type="Sprite" parent="cloud1/Sprite3"]
+
+transform/pos = Vector2( -27.2585, -104.63 )
+transform/rot = 13.3292
+transform/scale = Vector2( 0.495182, 0.495182 )
+texture = ExtResource( 3 )
 
 [node name="Sprite2" type="Sprite" parent="cloud1"]
 
@@ -193,7 +269,7 @@ margin/left = 284.0
 margin/top = 73.0
 margin/right = -299.0
 margin/bottom = 388.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Malos"
 align = 1
@@ -213,7 +289,7 @@ margin/left = 119.0
 margin/top = 182.0
 margin/right = -124.0
 margin/bottom = 338.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Habitos"
 align = 1
@@ -223,7 +299,6 @@ max_lines_visible = -1
 
 [node name="Control" type="Control" parent="."]
 
-editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -248,11 +323,12 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 116.0
-margin/top = 163.0
-margin/right = -74.0
-margin/bottom = 79.0
-custom_fonts/font = ExtResource( 5 )
+theme/theme = SubResource( 1 )
+margin/left = 100.0
+margin/top = 190.0
+margin/right = -90.0
+margin/bottom = 76.0
+custom_fonts/font = ExtResource( 9 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
