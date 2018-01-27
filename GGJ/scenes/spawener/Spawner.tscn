@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://scenes/spawener/Spawner.gd" type="Script" id=1]
+[ext_resource path="res://directional-pixel-npc.png" type="Texture" id=2]
+
+[node name="Spawner" type="Position2D"]
+
+script/script = ExtResource( 1 )
+packedScene = null
+maxCant = 10
+maxDistance = 500
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="Sprite"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -20.0
+margin/top = -10.0
+margin/right = 42.0
+margin/bottom = 4.0
+text = "SPAWNER"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
