@@ -13,7 +13,6 @@ var converted = false
 
 func _ready():
 	set_process(true)
-	pass
 	
 func _process(delta):
 	if converted:
@@ -49,7 +48,8 @@ func get_follow():
 
 func conversion(p):
 	if !converted:
-		player = p
+		p.followers_count += 1
 		converted = true
+		get_node("body/Particles2D").set_emitting(true)
 		print("convert")
 		

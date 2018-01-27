@@ -7,7 +7,9 @@ var direction = Vector2(0,0)
 var animationtree
 var animation_pos = 0
 const MAX_SPEED = Vector2(20,20)
+var followers_count = 0
 
+signal new_follower
 
 func _ready():
 	set_process(true)
@@ -53,3 +55,4 @@ func _process(delta):
 func _on_Area2D_area_enter( area ):
 	if area.is_in_group("npcs"):
 		area.conversion(self)
+		emit_signal("new_follower",followers_count)
