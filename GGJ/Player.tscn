@@ -12,7 +12,7 @@ height = 20.0
 [sub_resource type="Animation" id=2]
 
 resource/name = "bounce"
-length = 2.4
+length = 1.2
 loop = true
 step = 0.1
 tracks/0/type = "value"
@@ -20,7 +20,7 @@ tracks/0/path = NodePath("body:transform/pos")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1 ),
+"times": FloatArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05 ),
 "transitions": FloatArray( 0.25, 4.75683, 0.25, 4.75683, 0.25, 4.75683, 0.25, 4.75683 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( -5, -10 ), Vector2( 0, 0 ), Vector2( 5, -10 ), Vector2( 0, 0 ), Vector2( -5, -10 ), Vector2( 0, 0 ), Vector2( 0, -10 ) ]
@@ -30,7 +30,7 @@ tracks/1/path = NodePath("body:transform/rot")
 tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = {
-"times": FloatArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1 ),
+"times": FloatArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05 ),
 "transitions": FloatArray( 0.25, 3.48221, 0.25, 3.48221, 0.25, 3.48221, 0.25, 3.48221 ),
 "update": 0,
 "values": [ 0.0, 15.0, 0.0, -15.0, 0.0, 15.0, 0.0, -15.0 ]
@@ -77,7 +77,7 @@ root/root = NodePath("..")
 anims/bounce = SubResource( 2 )
 anims/idle = SubResource( 3 )
 playback/active = true
-playback/speed = 1.5
+playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 

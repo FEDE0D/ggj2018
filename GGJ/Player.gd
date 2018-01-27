@@ -12,6 +12,7 @@ const MAX_SPEED = Vector2(20,20)
 func _ready():
 	set_process(true)
 	animationtree = get_node("AnimationTreePlayer")
+	Globals.set("player", self)
 	
 func _process(delta):
 	if Input.is_action_pressed("ui_up"):

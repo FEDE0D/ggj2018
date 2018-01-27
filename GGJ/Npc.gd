@@ -16,10 +16,27 @@ func _ready():
 	
 func _process(delta):
 	if converted:
-		set_pos(Vector2(lerp(get_pos().x, player.get_pos().x ,delta),
-		lerp(get_pos().y, player.get_pos().y ,delta)))
+		var separation = get_separation() * 1
+		var follow = get_follow() * 1
+		set_pos(get_pos() + separation + follow)
 		
-		
+func get_separation():
+	var npcs = get_tree().get_nodes_in_group("npcs")
+	var separation = Vector2()
+	var neightborCount = 0
+	for npc in npcs:
+		var dist = npc.get_global_pos() - get_global_pos()
+		if abs(dist.length()) < 100:
+			separation += dist * -1
+			neightborCount += 1
+	
+	return (separation / neightborCount).normalized()
+
+func get_follow():
+	var player = Globals.get("player")
+	var dist = get_global_pos() - player.get_global_pos()
+	
+	return dist.normalized() * -1
 
 func conversion(p):
 	if !converted:
