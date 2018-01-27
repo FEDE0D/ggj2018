@@ -95,11 +95,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.94609376"
-     inkscape:cx="2855.7885"
-     inkscape:cy="-387.67924"
+     inkscape:zoom="0.47304688"
+     inkscape:cx="102.86654"
+     inkscape:cy="276.60115"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g217"
      showgrid="false"
      units="px"
      inkscape:window-width="1366"
@@ -1089,5 +1089,50 @@
        ry="2.5169284"
        inkscape:export-xdpi="96.880035"
        inkscape:export-ydpi="96.880035" />
+    <g
+       id="g210">
+      <g
+         id="g217"
+         transform="matrix(0.65841247,0,0,0.65841247,-470.87442,106.10756)">
+        <path
+           style="fill:#ffe6d5;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 743.33276,256.72913 h 12.30498 l 1.67796,-167.235891 -19.01679,0.559317 z"
+           id="path193"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="C:\Users\federico\Documents\repositories\ggj2018\GGJ\assets\progressbar.png"
+           inkscape:export-xdpi="96.406471"
+           inkscape:export-ydpi="96.406471" />
+        <g
+           transform="matrix(1.1403817,0,0,1.402658,-73.747904,-101.56684)"
+           id="g201"
+           inkscape:export-filename="C:\Users\federico\Documents\repositories\ggj2018\GGJ\assets\progressbar_progress.png"
+           inkscape:export-xdpi="96.416214"
+           inkscape:export-ydpi="96.416214">
+          <path
+             inkscape:export-filename="C:\Users\federico\Documents\repositories\ggj2018\GGJ\assets\progressbar_progress.png"
+             sodipodi:nodetypes="ccccc"
+             inkscape:export-ydpi="95.929726"
+             inkscape:export-xdpi="95.929726"
+             inkscape:connector-curvature="0"
+             id="path195"
+             d="m 740.25653,135.91658 16.2202,-0.55932 -2.07559,120.42217 -9.94557,0.24085 z"
+             style="fill:#ffb380;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+          <path
+             sodipodi:nodetypes="cccssc"
+             inkscape:connector-curvature="0"
+             id="path197"
+             d="m 741.93447,137.03521 13.42361,-0.27966 -1.11864,117.45665 c 0,0 0.32626,-106.81032 -0.5593,-112.70245 -0.17896,-1.19071 -0.92564,-2.39494 -1.93632,-3.04942 -2.77339,-1.79595 -9.80935,-1.42512 -9.80935,-1.42512 z"
+             style="fill:#ff9955;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        </g>
+        <path
+           inkscape:export-ydpi="95.831787"
+           inkscape:export-xdpi="95.831787"
+           inkscape:export-filename="C:\Users\federico\Documents\repositories\ggj2018\GGJ\assets\progressbar_over.png"
+           inkscape:connector-curvature="0"
+           id="path203"
+           d="m 806.27697,256.72913 h 12.30498 l 1.67796,-167.235891 -19.01679,0.559317 z"
+           style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      </g>
+    </g>
   </g>
 </svg>
