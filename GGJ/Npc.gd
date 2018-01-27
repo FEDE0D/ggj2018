@@ -40,9 +40,22 @@ func _process(delta):
 		else:
 			get_node("body").get_node("Sprite").set_flip_h(false)
 			get_node("body").get_node("shadow").set_flip_h(false)
-
 		set_pos(position)
 		
+		# if converted & far away from player
+		if isAwayFromPlayer():
+			setHealth(health + delta)
+			if health + delta >= 1:
+				converted = false
+				remove_from_group("converted")
+				get_node("AnimationPlayer").play("idle")
+		else:
+			setHealth(health - delta)
+			
+func isAwayFromPlayer():
+	var distToPlayer = Globals.get("player").get_global_pos() - get_global_pos()
+	return distToPlayer.length() > 500
+
 func get_separation():
 	var npcs = get_tree().get_nodes_in_group("npcs")
 	var separation = Vector2()
@@ -71,6 +84,7 @@ func conversion(p):
 		setHealth(max(0, health - 0.5))
 		if health == 0:
 			converted = true
+			get_node("body/Sprite").set_frame(1)
 			add_to_group("converted")
 			get_node("body/Particles2D").set_emitting(true)
 			print("convert")
@@ -95,7 +109,15 @@ func _on_Timer_timeout():
 func setHealth(health):
 	self.health = health
 	get_node("ProgressBar").set_value(health)
-	if self.health == 0 or converted:
-		get_node("ProgressBar").hide()
-	elif self.health < 1:
-		get_node("ProgressBar").show()
+	if !converted:
+		if self.health == 0:
+			get_node("ProgressBar").hide()
+		elif self.health < 1:
+			get_node("ProgressBar").show()
+		elif self.health >= 1:
+			get_node("ProgressBar").hide()
+	else:
+		if isAwayFromPlayer():
+			get_node("ProgressBar").show()
+		else:
+			get_node("ProgressBar").hide()

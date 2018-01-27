@@ -85,7 +85,8 @@ func _input(event):
 				if b.is_in_group("npcs"):
 					b.conversion(self)
 					var health = (float(followers_count) / npcs_count)
-
+					
+					score.increment(1)
 					emit_signal("new_follower", health, score.get_score())
 
 func newFollower(node):
