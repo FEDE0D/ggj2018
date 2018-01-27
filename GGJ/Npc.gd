@@ -16,9 +16,11 @@ func _ready():
 	
 func _process(delta):
 	if converted:
-		#Vector2.lerp(get_pos(), player.get_pos() ,delta)
-	pass
-	
+		set_pos(Vector2(lerp(get_pos().x, player.get_pos().x ,delta),
+		lerp(get_pos().y, player.get_pos().y ,delta)))
+		
+		
+
 func conversion(p):
 	if !converted:
 		player = p
