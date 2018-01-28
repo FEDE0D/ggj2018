@@ -190,7 +190,6 @@ transform/pos = Vector2( 301.296, 108.529 )
 transform/scale = Vector2( 1.27722, 1 )
 frames = SubResource( 2 )
 animation = "New Anim"
-frame = 1
 playing = true
 
 [node name="Movement" type="AnimatedSprite" parent="Control/Tutorial"]
@@ -199,6 +198,7 @@ transform/pos = Vector2( 86.2814, 74.832 )
 transform/scale = Vector2( 0.384719, 0.711493 )
 frames = SubResource( 3 )
 animation = "default"
+frame = 1
 playing = true
 
 

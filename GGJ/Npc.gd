@@ -76,6 +76,8 @@ func _process(delta):
 				remove_from_group("converted")
 				get_node("AnimationTreePlayer").transition_node_set_current("transition", 0)
 				get_node("/root/Score").decrement(1)
+				get_node("body/Sprite").set_texture(load("res://assets/npcs/normal/" + str(character)))
+				get_node("body/shadow").set_texture(load("res://assets/npcs/normal/" + str(character)))
 		else:
 			setHealth(0)
 			
