@@ -13,6 +13,7 @@ var followers_count = 0
 var npcs_count = 0
 var transmission_emiting = false
 var reload = 0
+
 signal new_follower(health, score)
 
 func _ready():
@@ -34,7 +35,9 @@ func _ready():
 
 
 func tick_health():
-	score.set_health(score.get_health() - 1)
+	var health_tick = score.get_health() / 50
+	print("Ticking: " + str(score.get_health()))
+	score.set_health(score.get_health() - health_tick)
 	emit_signal("new_follower", score.get_health(), score.get_score())
 	pass
 
