@@ -36,7 +36,6 @@ func _ready():
 
 func tick_health():
 	var health_tick = score.get_health() / 50 + 0.5
-	print("Ticking: " + str(score.get_health()))
 	score.set_health(score.get_health() - health_tick)
 	emit_signal("new_follower", score.get_health(), score.get_score())
 	pass
