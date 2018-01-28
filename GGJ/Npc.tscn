@@ -205,8 +205,8 @@ modulate = Color( 1, 1, 1, 0.169373 )
 
 [node name="body" type="Node2D" parent="."]
 
-transform/pos = Vector2( 0.115685, -0.231371 )
-transform/rot = -0.254856
+transform/pos = Vector2( -4.71193, -9.42385 )
+transform/rot = 14.1358
 
 [node name="shadow" type="Sprite" parent="body"]
 
