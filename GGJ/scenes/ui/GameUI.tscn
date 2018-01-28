@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=21 format=1]
 
 [ext_resource path="res://progressBar.gd" type="Script" id=1]
 [ext_resource path="res://assets/progressbar.png" type="Texture" id=2]
@@ -9,8 +9,14 @@
 [ext_resource path="res://assets/fonts/title48.fnt" type="BitmapFont" id=7]
 [ext_resource path="res://assets/spacebar-active.png" type="Texture" id=8]
 [ext_resource path="res://assets/spacebar-inactive.png" type="Texture" id=9]
-[ext_resource path="res://assets/button_pressed.png" type="Texture" id=10]
-[ext_resource path="res://assets/button_hover.png" type="Texture" id=11]
+[ext_resource path="res://assets/s-inactive.png" type="Texture" id=10]
+[ext_resource path="res://assets/s-active.png" type="Texture" id=11]
+[ext_resource path="res://assets/a-inactive.png" type="Texture" id=12]
+[ext_resource path="res://assets/a-active.png" type="Texture" id=13]
+[ext_resource path="res://assets/d-inactive.png" type="Texture" id=14]
+[ext_resource path="res://assets/d-active.png" type="Texture" id=15]
+[ext_resource path="res://assets/w-active.png" type="Texture" id=16]
+[ext_resource path="res://assets/w-inactive.png" type="Texture" id=17]
 
 [sub_resource type="Animation" id=1]
 
@@ -46,24 +52,29 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 10 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "S",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "A",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "W",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "D",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "W",
 "speed": 1.0
 } ]
 
@@ -204,13 +215,44 @@ margin/right = 518.0
 margin/bottom = 670.0
 stretch_mode = 0
 
+[node name="Polygon2D1" type="Polygon2D" parent="Control/Tutorial"]
+
+transform/pos = Vector2( 85.6697, 67.2136 )
+transform/scale = Vector2( 4.9412, 3.81307 )
+polygon = Vector2Array( -17.6256, -18.1065, -14.8858, -0.8284, -17.9909, 17.6331, 4.29223, 18.8166, 19.2694, 18.3432, 18.5388, 3.90532, 8.67579, 1.53847, 13.6073, -16.9231 )
+uv = Vector2Array(  )
+color = Color( 0, 0, 0, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="Polygon2D" type="Polygon2D" parent="Control/Tutorial"]
+
+transform/pos = Vector2( 80.6697, 62.2136 )
+transform/scale = Vector2( 4.9412, 3.81307 )
+polygon = Vector2Array( -17.6256, -18.1065, -14.8858, -0.8284, -17.9909, 17.6331, 4.29223, 18.8166, 19.2694, 18.3432, 18.5388, 3.90532, 8.67579, 1.53847, 13.6073, -16.9231 )
+uv = Vector2Array(  )
+color = Color( 0.96875, 0.96875, 0.96875, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
 [node name="Shadow" type="AnimatedSprite" parent="Control/Tutorial"]
 
 transform/pos = Vector2( 323.801, 91.2595 )
 transform/scale = Vector2( 0.362125, 0.358825 )
 frames = SubResource( 2 )
 animation = "New Anim"
-frame = 1
 playing = true
 modulate = Color( 0, 0, 0, 1 )
 
@@ -220,42 +262,40 @@ transform/pos = Vector2( 319.066, 86.2595 )
 transform/scale = Vector2( 0.362125, 0.358825 )
 frames = SubResource( 2 )
 animation = "New Anim"
-frame = 1
 playing = true
 
 [node name="W" type="AnimatedSprite" parent="Control/Tutorial"]
 
-transform/pos = Vector2( 96.4935, 51.3146 )
-transform/scale = Vector2( 0.139191, 0.286367 )
+transform/pos = Vector2( 92.8835, 59.4371 )
+transform/scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "W"
 playing = true
 
 [node name="A" type="AnimatedSprite" parent="Control/Tutorial"]
 
-transform/pos = Vector2( 39.9836, 105.608 )
-transform/scale = Vector2( 0.139191, 0.286367 )
+transform/pos = Vector2( 44.0513, 105.608 )
+transform/scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "A"
-frame = 2
+frame = 1
 playing = true
 
 [node name="S" type="AnimatedSprite" parent="Control/Tutorial"]
 
-transform/pos = Vector2( 147.463, 105.608 )
-transform/scale = Vector2( 0.139191, 0.286367 )
+transform/pos = Vector2( 142.95, 106.51 )
+transform/scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "S"
-frame = 1
 playing = true
 
 [node name="D" type="AnimatedSprite" parent="Control/Tutorial"]
 
 transform/pos = Vector2( 93.4217, 105.608 )
-transform/scale = Vector2( 0.139191, 0.286367 )
+transform/scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "D"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Label" type="Label" parent="Control/Tutorial"]
@@ -272,6 +312,24 @@ margin/bottom = 101.0
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.273438, 0.273438, 0.273438, 1 )
 text = "Purificar!!"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label1" type="Label" parent="Control/Tutorial"]
+
+rect/scale = Vector2( 0.6, 0.6 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 19.0
+margin/top = -1.0
+margin/right = 150.0
+margin/bottom = 59.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.273438, 0.273438, 0.273438, 1 )
+text = "Caminar"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

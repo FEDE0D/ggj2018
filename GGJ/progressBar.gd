@@ -22,6 +22,11 @@ func _ready():
 	timer.connect("timeout", self, "hide_tutorial")
 	timer.set_wait_time(10.0)
 	timer.start()
+	
+	get_node("Control/Tutorial/W").set_frame(0)
+	get_node("Control/Tutorial/A").set_frame(0)
+	get_node("Control/Tutorial/S").set_frame(0)
+	get_node("Control/Tutorial/D").set_frame(0)
 
 func _process(delta):
 	completition = get_node("Control/TextureProgress").get_value()
