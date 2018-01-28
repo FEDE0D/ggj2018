@@ -115,9 +115,41 @@ visibility/visible = false
 
 [node name="body" type="Node2D" parent="."]
 
+[node name="Node2D" type="Node2D" parent="body"]
+
+editor/display_folded = true
+visibility/behind_parent = true
+
+[node name="ColorFrame" type="ColorFrame" parent="body/Node2D"]
+
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -5.0
+margin/top = 0.0
+margin/right = 13.0
+margin/bottom = 3597.0
+color = Color( 0.671875, 0.319596, 0.128601, 1 )
+
+[node name="ColorFrame1" type="ColorFrame" parent="body/Node2D"]
+
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -3.0
+margin/top = 0.0
+margin/right = 13.0
+margin/bottom = 3597.0
+color = Color( 0.238281, 0.107309, 0.0363007, 1 )
+
 [node name="Shadow" type="Sprite" parent="body"]
 
 visibility/opacity = 0.7
+transform/pos = Vector2( 4.78992, 2.39496 )
 transform/scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 4 )
 offset = Vector2( 5, 5 )
