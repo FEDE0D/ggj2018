@@ -6,8 +6,8 @@
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 66.7233
-height = 163.784
+radius = 63.535
+height = 128.586
 
 [sub_resource type="Animation" id=2]
 
@@ -52,19 +52,19 @@ collision/layers = 32768
 collision/mask = 33792
 script/script = ExtResource( 1 )
 
-[node name="body" type="Node2D" parent="."]
-
-[node name="Sprite" type="Sprite" parent="body"]
-
-transform/scale = Vector2( 0.741868, 1.67556 )
-texture = ExtResource( 2 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 transform/rot = 90.0
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="body" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="body"]
+
+transform/scale = Vector2( 0.741868, 1.67556 )
+texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 

@@ -61,6 +61,11 @@ func _process(delta):
 	else:
 		direction.x = 0
 	
+	if reload > 0:
+		reload -= delta
+	else:
+		transmission_emiting = false
+
 	speed = direction * move_speed * delta
 	if (!direction.x) && (speed.x > 0):
 		speed.x -= deceleration
@@ -86,18 +91,21 @@ func get_npcs_count():
 
 func _input(event):
 	if event.is_action_pressed("hit"):
-		get_node("AnimationTreePlayer").oneshot_node_start("HitNode")
-		# trigger hit on converted
-		for converted in get_tree().get_nodes_in_group("converted"):
-			converted.start_hit()
-		# convert new ones
-		for b in get_node("Area2D").get_overlapping_bodies():
-			if b.is_in_group("npcs"):
-				b.conversion(self)
-				emit_signal("new_follower", score.get_health(), score.get_score())
-		for a in get_node("Area2D").get_overlapping_areas():
-			if a.is_in_group("rescue"):
-				a.activate()
+		if !transmission_emiting:
+			reload = 0.2 * get_followers_count()
+			transmission_emiting = true
+			get_node("AnimationTreePlayer").oneshot_node_start("HitNode")
+			# trigger hit on converted
+			for converted in get_tree().get_nodes_in_group("converted"):
+				converted.start_hit()
+			# convert new ones
+			for b in get_node("Area2D").get_overlapping_bodies():
+				if b.is_in_group("npcs"):
+					b.conversion(self)
+					emit_signal("new_follower", score.get_health(), score.get_score())
+			for a in get_node("Area2D").get_overlapping_areas():
+				if a.is_in_group("rescue"):
+					a.activate()
 
 func newFollower(node):
 	print("new follower")
