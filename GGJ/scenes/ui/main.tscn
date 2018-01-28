@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scenes/ui/main.gd" type="Script" id=1]
 [ext_resource path="res://assets/clouds/particle.png" type="Texture" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://assets/fonts/title128.fnt" type="BitmapFont" id=6]
 [ext_resource path="res://themes/button.tres" type="Theme" id=7]
 [ext_resource path="res://assets/fonts/title64.fnt" type="BitmapFont" id=8]
-[ext_resource path="res://assets/fonts/title48.fnt" type="BitmapFont" id=9]
-[ext_resource path="res://assets/GGJ.png" type="Texture" id=10]
+[ext_resource path="res://assets/buttonA.png" type="Texture" id=9]
+[ext_resource path="res://assets/fonts/title48.fnt" type="BitmapFont" id=10]
+[ext_resource path="res://assets/GGJ.png" type="Texture" id=11]
 
 [sub_resource type="ColorRamp" id=1]
 
@@ -631,7 +632,6 @@ max_lines_visible = -1
 
 [node name="Control" type="Control" parent="."]
 
-editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -666,6 +666,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "Start"
+icon = ExtResource( 9 )
 flat = false
 
 [node name="Button1" type="Button" parent="Control"]
@@ -683,7 +684,7 @@ margin/left = 188.0
 margin/top = 122.0
 margin/right = 34.0
 margin/bottom = 27.0
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
 toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
@@ -703,7 +704,7 @@ margin/left = 46.0
 margin/top = 142.0
 margin/right = 434.0
 margin/bottom = -247.0
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 stretch_mode = 0
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]

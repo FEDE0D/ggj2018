@@ -84,13 +84,11 @@ __meta__ = {
 
 [node name="map" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="spawners" type="Node2D" parent="map"]
 
 [node name="Spawner" parent="map/spawners" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 743.776, -223.892 )
+transform/pos = Vector2( 1874.43, 106.174 )
 packedScene = ExtResource( 7 )
 
 [node name="Spawner1" parent="map/spawners" instance=ExtResource( 6 )]
@@ -101,6 +99,21 @@ packedScene = ExtResource( 7 )
 [node name="Spawner2" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -416.74, 38.8052 )
+packedScene = ExtResource( 7 )
+
+[node name="Spawner9" parent="map/spawners" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1549.61, 1373.11 )
+packedScene = ExtResource( 7 )
+
+[node name="Spawner10" parent="map/spawners" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -655.511, 1373.11 )
+packedScene = ExtResource( 7 )
+
+[node name="Spawner11" parent="map/spawners" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -2741.25, 1253.73 )
 packedScene = ExtResource( 7 )
 
 [node name="Spawner3" parent="map/spawners" instance=ExtResource( 6 )]
