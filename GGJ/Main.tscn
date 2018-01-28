@@ -10,7 +10,7 @@
 [ext_resource path="res://scenes/rescuePoint/RescuePoint.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://CameraFollow.gd" type="Script" id=10]
-[ext_resource path="res://assets/button_pressed.png" type="Texture" id=11]
+[ext_resource path="res://assets/cartel.png" type="Texture" id=11]
 [ext_resource path="res://assets/music/bluegrass_banjo_-_country_banjo.ogg" type="AudioStream" id=12]
 [ext_resource path="res://scenes/ui/GameUI.tscn" type="PackedScene" id=13]
 
@@ -168,8 +168,8 @@ script/script = ExtResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="characters"]
 
-transform/pos = Vector2( 649.283, -137.647 )
-transform/scale = Vector2( 0.554333, 0.813168 )
+transform/pos = Vector2( 698.496, -135.501 )
+transform/scale = Vector2( 0.810029, 0.810029 )
 texture = ExtResource( 11 )
 
 [node name="StreamPlayer" type="StreamPlayer" parent="."]
