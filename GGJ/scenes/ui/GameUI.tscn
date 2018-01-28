@@ -7,8 +7,8 @@
 [ext_resource path="res://assets/cross.png" type="Texture" id=5]
 [ext_resource path="res://assets/cross_glow.png" type="Texture" id=6]
 [ext_resource path="res://assets/fonts/title48.fnt" type="BitmapFont" id=7]
-[ext_resource path="res://assets/enemyProgressbar_over.png" type="Texture" id=8]
-[ext_resource path="res://assets/progressbar_back.png" type="Texture" id=9]
+[ext_resource path="res://assets/spacebar-active.png" type="Texture" id=8]
+[ext_resource path="res://assets/spacebar-inactive.png" type="Texture" id=9]
 [ext_resource path="res://assets/button_pressed.png" type="Texture" id=10]
 [ext_resource path="res://assets/button_hover.png" type="Texture" id=11]
 
@@ -36,6 +36,11 @@ animations = [ {
 "loop": true,
 "name": "New Anim",
 "speed": 2.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "New Anim 1",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=3]
@@ -79,9 +84,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 0.0
+margin/top = -1.0
 margin/right = 0.0
-margin/bottom = 0.0
+margin/bottom = 1.0
 
 [node name="TextureProgress" type="TextureProgress" parent="Control"]
 
@@ -195,16 +200,27 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 54.0
 margin/top = 535.0
-margin/right = 497.0
+margin/right = 518.0
 margin/bottom = 670.0
 stretch_mode = 0
 
-[node name="Action" type="AnimatedSprite" parent="Control/Tutorial"]
+[node name="Shadow" type="AnimatedSprite" parent="Control/Tutorial"]
 
-transform/pos = Vector2( 317.62, 102.952 )
-transform/scale = Vector2( 1.27722, 1.26558 )
+transform/pos = Vector2( 323.801, 91.2595 )
+transform/scale = Vector2( 0.362125, 0.358825 )
 frames = SubResource( 2 )
 animation = "New Anim"
+frame = 1
+playing = true
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="Action" type="AnimatedSprite" parent="Control/Tutorial"]
+
+transform/pos = Vector2( 319.066, 86.2595 )
+transform/scale = Vector2( 0.362125, 0.358825 )
+frames = SubResource( 2 )
+animation = "New Anim"
+frame = 1
 playing = true
 
 [node name="W" type="AnimatedSprite" parent="Control/Tutorial"]
@@ -213,7 +229,6 @@ transform/pos = Vector2( 96.4935, 51.3146 )
 transform/scale = Vector2( 0.139191, 0.286367 )
 frames = SubResource( 3 )
 animation = "W"
-frame = 2
 playing = true
 
 [node name="A" type="AnimatedSprite" parent="Control/Tutorial"]
@@ -222,6 +237,7 @@ transform/pos = Vector2( 39.9836, 105.608 )
 transform/scale = Vector2( 0.139191, 0.286367 )
 frames = SubResource( 3 )
 animation = "A"
+frame = 2
 playing = true
 
 [node name="S" type="AnimatedSprite" parent="Control/Tutorial"]
@@ -230,7 +246,7 @@ transform/pos = Vector2( 147.463, 105.608 )
 transform/scale = Vector2( 0.139191, 0.286367 )
 frames = SubResource( 3 )
 animation = "S"
-frame = 3
+frame = 1
 playing = true
 
 [node name="D" type="AnimatedSprite" parent="Control/Tutorial"]
@@ -239,7 +255,25 @@ transform/pos = Vector2( 93.4217, 105.608 )
 transform/scale = Vector2( 0.139191, 0.286367 )
 frames = SubResource( 3 )
 animation = "D"
-frame = 3
+frame = 1
 playing = true
+
+[node name="Label" type="Label" parent="Control/Tutorial"]
+
+rect/scale = Vector2( 0.6, 0.6 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 228.0
+margin/top = 41.0
+margin/right = 359.0
+margin/bottom = 101.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.273438, 0.273438, 0.273438, 1 )
+text = "Purificar!!"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 
