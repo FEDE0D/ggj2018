@@ -30,7 +30,9 @@ func _ready():
 	Globals.set(\"contador\",self)
 
 func update():
-	set_text(str(Globals.get(\"player\").get_npcs_count() - get_tree().get_nodes_in_group(\"salvados\").size()))"
+	set_text(str(Globals.get(\"player\").get_npcs_count() - get_tree().get_nodes_in_group(\"salvados\").size()))
+	if (Globals.get(\"player\").get_npcs_count() - get_tree().get_nodes_in_group(\"salvados\").size() == 0):
+		get_tree().get_nodes_in_group(\"rescue\")[0].changeColor()"
 
 [sub_resource type="Animation" id=2]
 
@@ -338,7 +340,6 @@ script/script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="characters"]
 
-editor/display_folded = true
 transform/pos = Vector2( 613.716, 170.84 )
 transform/scale = Vector2( 0.810029, 0.810029 )
 texture = ExtResource( 12 )

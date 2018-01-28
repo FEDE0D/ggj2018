@@ -11,3 +11,9 @@ func activate():
 			if !f.salvado:
 				f.salvado()
 				audio.play("asencionPosta",0)
+
+func changeColor():
+	get_node("AnimationPlayer").play("loop_complete")
+
+func changeBack():
+	get_node("AnimationPlayer").play("loop")

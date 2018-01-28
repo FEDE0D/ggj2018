@@ -83,44 +83,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=6]
 
-length = 0.6
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("shadow/Sprite:transform/pos")
-tracks/0/interp = 1
-tracks/0/imported = false
-tracks/0/keys = {
-"times": FloatArray( 0, 0.3, 0.5, 0.6 ),
-"transitions": FloatArray( -4, -4, -4, -4 ),
-"update": 0,
-"values": [ Vector2( 12.7104, 38.7303 ), Vector2( 12.7104, 38.2816 ), Vector2( 12.7104, 38.7303 ), Vector2( 12.7104, 38.7303 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("shadow/Sprite:transform/scale")
-tracks/1/interp = 1
-tracks/1/imported = false
-tracks/1/keys = {
-"times": FloatArray( 0, 0.3, 0.5, 0.6 ),
-"transitions": FloatArray( -4, -4, -4, -4 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0.38731, 1.12019 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/imported = false
-tracks/2/keys = {
-"times": FloatArray( 0.3 ),
-"transitions": FloatArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "do_hit"
-} ]
-}
-
-[sub_resource type="Animation" id=7]
-
 length = 1.2
 loop = true
 step = 0.1
@@ -143,6 +105,33 @@ tracks/1/keys = {
 "transitions": FloatArray( -25.1067, -25.1067, -25.1067, -25.1067 ),
 "update": 0,
 "values": [ 0.0, 0.0, 5.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+
+resource/name = "bounce"
+length = 1.2
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05 ),
+"transitions": FloatArray( 0.25, 4.75683, 0.25, 4.75683, 0.25, 4.75683, 0.25, 4.75683 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -5, -10 ), Vector2( 0, 0 ), Vector2( 5, -10 ), Vector2( 0, 0 ), Vector2( -5, -10 ), Vector2( 0, 0 ), Vector2( 0, -10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body:transform/rot")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05 ),
+"transitions": FloatArray( 0.25, 3.48221, 0.25, 3.48221, 0.25, 3.48221, 0.25, 3.48221 ),
+"update": 0,
+"values": [ 0.0, 15.0, 0.0, -15.0, 0.0, 15.0, 0.0, -15.0 ]
 }
 
 [node name="Character" type="KinematicBody2D" groups=[
@@ -216,7 +205,8 @@ modulate = Color( 1, 1, 1, 0.169373 )
 
 [node name="body" type="Node2D" parent="."]
 
-transform/rot = 5.0
+transform/pos = Vector2( 0.115685, -0.231371 )
+transform/rot = -0.254856
 
 [node name="shadow" type="Sprite" parent="body"]
 
@@ -356,6 +346,12 @@ data = {
 "type": "transition",
 "xfade": 0.25
 }, {
+"filter": [  ],
+"from": "hit",
+"id": "anim 3",
+"pos": Vector2( 252, 188 ),
+"type": "animation"
+}, {
 "autorestart": false,
 "autorestart_delay": 0.0,
 "autorestart_random_delay": 0.0,
@@ -366,12 +362,6 @@ data = {
 "mix": true,
 "pos": Vector2( 422, 58 ),
 "type": "oneshot"
-}, {
-"filter": [  ],
-"from": "hit",
-"id": "anim 3",
-"pos": Vector2( 252, 188 ),
-"type": "animation"
 }, {
 "filter": [  ],
 "from": "bounce",
