@@ -93,7 +93,7 @@ visibility/visible = false
 [node name="Shadow" type="Sprite" parent="body"]
 
 visibility/opacity = 0.7
-transform/scale = Vector2( 0.4, 0.4 )
+transform/scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 4 )
 offset = Vector2( 5, 5 )
 modulate = Color( 0, 0, 0, 1 )
@@ -101,7 +101,7 @@ modulate = Color( 0, 0, 0, 1 )
 [node name="Sprite" type="Sprite" parent="body"]
 
 transform/pos = Vector2( -1.08185, -0.0498047 )
-transform/scale = Vector2( 0.4, 0.4 )
+transform/scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 4 )
 offset = Vector2( 0.0818529, 0.0498037 )
 
