@@ -157,10 +157,12 @@ func setHealth(health):
 			get_node("ProgressBar").hide()
 
 func salvado():
+	
 	salvado = true
 	set_z(10)
 	get_node("shadow").hide()
 	get_node("AnimationTreePlayer").transition_node_set_current("transition", 0)
+	Globals.get("player").salvados += 1
 
 func get_random_character():
 	var files = []

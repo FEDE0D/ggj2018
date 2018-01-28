@@ -325,12 +325,6 @@ data = {
 "type": "transition",
 "xfade": 0.25
 }, {
-"filter": [  ],
-"from": "hit",
-"id": "anim 3",
-"pos": Vector2( 252, 188 ),
-"type": "animation"
-}, {
 "autorestart": false,
 "autorestart_delay": 1.0,
 "autorestart_random_delay": 0.0,
@@ -341,6 +335,12 @@ data = {
 "mix": true,
 "pos": Vector2( 422, 58 ),
 "type": "oneshot"
+}, {
+"filter": [  ],
+"from": "hit",
+"id": "anim 3",
+"pos": Vector2( 252, 188 ),
+"type": "animation"
 }, {
 "filter": [  ],
 "from": "bounce",
