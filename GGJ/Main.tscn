@@ -1,23 +1,25 @@
-[gd_scene load_steps=23 format=1]
+[gd_scene load_steps=25 format=1]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://assets/map/map.png" type="Texture" id=2]
 [ext_resource path="res://scenes/spawener/Spawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Npc.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/rescuePoint/RescuePoint.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/map/cono.png" type="Texture" id=6]
-[ext_resource path="res://assets/map/car.png" type="Texture" id=7]
-[ext_resource path="res://assets/map/grocery-store.png" type="Texture" id=8]
-[ext_resource path="res://assets/map/house2.png" type="Texture" id=9]
-[ext_resource path="res://assets/map/house1.png" type="Texture" id=10]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/particula.png" type="Texture" id=12]
-[ext_resource path="res://CameraFollow.gd" type="Script" id=13]
-[ext_resource path="res://assets/cartel.png" type="Texture" id=14]
-[ext_resource path="res://assets/fonts/ui.64.fnt" type="BitmapFont" id=15]
-[ext_resource path="res://assets/clouds/haz.png" type="Texture" id=16]
-[ext_resource path="res://assets/music/bluegrass_banjo_-_country_banjo.ogg" type="AudioStream" id=17]
-[ext_resource path="res://scenes/ui/GameUI.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/clouds/g1048.png" type="Texture" id=5]
+[ext_resource path="res://assets/clouds/head.png" type="Texture" id=6]
+[ext_resource path="res://scenes/rescuePoint/RescuePoint.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/map/cono.png" type="Texture" id=8]
+[ext_resource path="res://assets/map/car.png" type="Texture" id=9]
+[ext_resource path="res://assets/map/grocery-store.png" type="Texture" id=10]
+[ext_resource path="res://assets/map/house2.png" type="Texture" id=11]
+[ext_resource path="res://assets/map/house1.png" type="Texture" id=12]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/particula.png" type="Texture" id=14]
+[ext_resource path="res://CameraFollow.gd" type="Script" id=15]
+[ext_resource path="res://assets/cartel.png" type="Texture" id=16]
+[ext_resource path="res://assets/fonts/ui.64.fnt" type="BitmapFont" id=17]
+[ext_resource path="res://assets/clouds/haz.png" type="Texture" id=18]
+[ext_resource path="res://assets/music/bluegrass_banjo_-_country_banjo.ogg" type="AudioStream" id=19]
+[ext_resource path="res://scenes/ui/GameUI.tscn" type="PackedScene" id=20]
 
 [sub_resource type="ColorRamp" id=1]
 
@@ -32,7 +34,9 @@ func _ready():
 	Globals.set(\"contador\",self)
 
 func update():
-	set_text(str(Globals.get(\"player\").get_npcs_count() - get_tree().get_nodes_in_group(\"salvados\").size()))"
+	set_text(str(Globals.get(\"player\").get_npcs_count() - get_tree().get_nodes_in_group(\"salvados\").size()))
+	if get_tree().get_nodes_in_group(\"salvados\").size() == get_tree().get_nodes_in_group(\"npcs\").size():
+		get_tree().get_nodes_in_group(\"rescue\")[0].changeBack()"
 
 [sub_resource type="Animation" id=3]
 
@@ -199,6 +203,8 @@ stretch_mode = 0
 
 [node name="map" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="spawners" type="Node2D" parent="map"]
 
 editor/display_folded = true
@@ -278,7 +284,119 @@ texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
 
-[node name="RescuePoint" parent="." instance=ExtResource( 5 )]
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( -2121.58, -2457.5 )
+transform/rot = 52.455
+texture = ExtResource( 5 )
+
+[node name="Sprite9" type="Sprite" parent="."]
+
+transform/pos = Vector2( 405.398, -3214.48 )
+transform/rot = 105.936
+transform/scale = Vector2( 0.150872, 0.189037 )
+texture = ExtResource( 5 )
+flip_h = true
+flip_v = true
+modulate = Color( 0.898438, 0.898438, 0.898438, 1 )
+
+[node name="Sprite11" type="Sprite" parent="."]
+
+transform/pos = Vector2( 467.731, -3475.34 )
+transform/rot = 51.5892
+transform/scale = Vector2( 0.962831, 1.06064 )
+texture = ExtResource( 5 )
+
+[node name="Sprite1" type="Sprite" parent="."]
+
+transform/pos = Vector2( -2121.58, -2457.5 )
+transform/rot = 52.455
+texture = ExtResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+
+transform/pos = Vector2( -490.271, -2954.68 )
+transform/rot = 52.455
+transform/scale = Vector2( 1.75505, 1.93333 )
+texture = ExtResource( 5 )
+modulate = Color( 0.860382, 0.897324, 0.910156, 1 )
+
+[node name="Sprite10" type="Sprite" parent="."]
+
+transform/pos = Vector2( 138.979, -3215.71 )
+transform/rot = 266.353
+transform/scale = Vector2( 0.150872, 0.189037 )
+texture = ExtResource( 5 )
+flip_v = true
+modulate = Color( 0.81308, 0.826294, 0.835938, 1 )
+
+[node name="Sprite6" type="Sprite" parent="."]
+
+transform/pos = Vector2( -68.883, -3136.29 )
+transform/rot = 52.8706
+transform/scale = Vector2( 0.35688, 0.393132 )
+texture = ExtResource( 5 )
+modulate = Color( 0.860382, 0.897324, 0.910156, 1 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+
+transform/pos = Vector2( -1561.61, -3031.39 )
+transform/rot = 52.455
+transform/scale = Vector2( 1.75505, 1.93333 )
+texture = ExtResource( 5 )
+
+[node name="Sprite7" type="Sprite" parent="."]
+
+transform/pos = Vector2( -185.662, -2926.36 )
+transform/rot = 52.455
+transform/scale = Vector2( 0.402818, 0.443737 )
+texture = ExtResource( 5 )
+
+[node name="Sprite12" type="Sprite" parent="."]
+
+transform/pos = Vector2( -116.146, -2126.29 )
+transform/rot = 52.455
+transform/scale = Vector2( 0.393225, 0.494301 )
+texture = ExtResource( 5 )
+
+[node name="Sprite14" type="Sprite" parent="."]
+
+transform/pos = Vector2( 958.595, -1926.76 )
+transform/rot = -95.4088
+transform/scale = Vector2( 0.227552, 0.295449 )
+texture = ExtResource( 5 )
+flip_v = true
+
+[node name="Sprite8" type="Sprite" parent="."]
+
+transform/pos = Vector2( 596.419, -3014.66 )
+transform/rot = 52.455
+transform/scale = Vector2( 0.402818, 0.443737 )
+texture = ExtResource( 5 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+
+transform/pos = Vector2( 1673.79, -2907.64 )
+transform/rot = 52.455
+transform/scale = Vector2( 1.75505, 1.93333 )
+texture = ExtResource( 5 )
+
+[node name="Sprite15" type="Sprite" parent="."]
+
+transform/pos = Vector2( -139.6, -3146.6 )
+transform/rot = -19.0381
+transform/scale = Vector2( 0.681887, 0.681887 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="Sprite5" type="Sprite" parent="."]
+
+transform/pos = Vector2( -971.284, -4451.29 )
+transform/rot = -171.305
+transform/scale = Vector2( 0.905538, 0.792169 )
+texture = ExtResource( 5 )
+
+[node name="RescuePoint" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 242.288, 88.413 )
 
@@ -290,97 +408,97 @@ sort/enabled = true
 
 transform/pos = Vector2( -612.387, 1264.9 )
 transform/scale = Vector2( 0.556945, 0.556945 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="cono1" type="Sprite" parent="characters"]
 
 transform/pos = Vector2( -480.135, 72.557 )
 transform/scale = Vector2( 0.556945, 0.556945 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="cono2" type="Sprite" parent="characters"]
 
 transform/pos = Vector2( 1121.87, 1077.49 )
 transform/scale = Vector2( 0.556945, 0.556945 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="cono3" type="Sprite" parent="characters"]
 
 transform/pos = Vector2( -2740.61, 1674.42 )
 transform/scale = Vector2( 0.556945, 0.556945 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="cono4" type="Sprite" parent="characters"]
 
 transform/pos = Vector2( -895.13, -1197.77 )
 transform/scale = Vector2( 0.556945, 0.556945 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="car" type="Sprite" parent="characters"]
 
 editor/display_folded = true
 transform/pos = Vector2( 772.204, 1474.77 )
 transform/scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 modulate = Color( 0, 0, 0, 1 )
 
 [node name="car1" type="Sprite" parent="characters/car"]
 
 transform/pos = Vector2( -50.0006, -49.9997 )
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 
 [node name="TextureFrame1" type="Sprite" parent="characters"]
 
 transform/pos = Vector2( -1139.01, -475.482 )
 transform/scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 modulate = Color( 0, 0, 0, 1 )
 
 [node name="TextureFrame" type="Sprite" parent="characters/TextureFrame1"]
 
 transform/pos = Vector2( -15.3142, -7.14276 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
 [node name="house4" type="Sprite" parent="characters"]
 
 transform/pos = Vector2( -1437.45, 295.721 )
 transform/scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 modulate = Color( 0, 0, 0, 1 )
 
 [node name="house2" type="Sprite" parent="characters/house4"]
 
 transform/pos = Vector2( -6.66675, -6.66647 )
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 
 [node name="house3" type="Sprite" parent="characters"]
 
 transform/pos = Vector2( 464.609, -640.128 )
 transform/scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 modulate = Color( 0, 0, 0, 1 )
 
 [node name="house1" type="Sprite" parent="characters/house3"]
 
 transform/pos = Vector2( -13.3334, -11.6667 )
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 
 [node name="TextureFrame2" type="Sprite" parent="characters"]
 
 editor/display_folded = true
 transform/pos = Vector2( -640.363, -571.723 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 modulate = Color( 0, 0, 0, 1 )
 
 [node name="TextureFrame1" type="Sprite" parent="characters/TextureFrame2"]
 
 transform/pos = Vector2( 7.5, -7.5 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
-[node name="player" parent="characters" instance=ExtResource( 11 )]
+[node name="player" parent="characters" instance=ExtResource( 13 )]
 
-transform/pos = Vector2( 255.913, -289.192 )
+transform/pos = Vector2( 215.913, -3000 )
 
 [node name="Particles2D 2" type="Particles2D" parent="characters/player"]
 
@@ -391,7 +509,7 @@ config/time_scale = 2.0
 config/emitting = false
 config/process_mode = 1
 config/explosiveness = 0.5
-config/texture = ExtResource( 12 )
+config/texture = ExtResource( 14 )
 params/direction = 90.0
 params/spread = 15.0
 params/linear_velocity = 200.0
@@ -432,13 +550,13 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
-script/script = ExtResource( 13 )
+script/script = ExtResource( 15 )
 
 [node name="Sprite" type="Sprite" parent="characters"]
 
 transform/pos = Vector2( 415.856, -171.802 )
 transform/scale = Vector2( 0.810029, 0.810029 )
-texture = ExtResource( 14 )
+texture = ExtResource( 16 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -453,7 +571,7 @@ margin/left = -80.0
 margin/top = -28.0
 margin/right = 57.0
 margin/bottom = 34.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 17 )
 custom_colors/font_color = Color( 0.683594, 0.47189, 0.224304, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 1
@@ -474,7 +592,7 @@ transform/pos = Vector2( 834.453, -98.0329 )
 visibility/blend_mode = 1
 transform/pos = Vector2( 244.2, -177.531 )
 transform/scale = Vector2( 1, 0.670395 )
-texture = ExtResource( 16 )
+texture = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -492,9 +610,16 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = "idle"
 
+[node name="Sprite13" type="Sprite" parent="."]
+
+transform/pos = Vector2( 358.044, -1910.24 )
+transform/rot = -95.4088
+transform/scale = Vector2( 0.227552, 0.295449 )
+texture = ExtResource( 5 )
+
 [node name="StreamPlayer" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 17 )
+stream/stream = ExtResource( 19 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
@@ -503,7 +628,7 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 18 )]
+[node name="CanvasLayer" parent="." instance=ExtResource( 20 )]
 
 [connection signal="new_follower" from="characters/player" to="CanvasLayer" method="update"]
 
