@@ -48,6 +48,12 @@ func _process(delta):
 		position += separation
 		position += follow
 		
+		for a in get_node("Area2D").get_overlapping_areas():
+			print("area")
+			if a.get_name() == "RescuePoint" && converted:
+				a.activate()
+		
+		
 		var distToTarget = get_global_pos() - position
 		if distToTarget.length() < 150:
 			var lerpValue = 1 - (distToTarget.length() / 150)
@@ -76,6 +82,8 @@ func _process(delta):
 				remove_from_group("converted")
 				get_node("AnimationTreePlayer").transition_node_set_current("transition", 0)
 				get_node("/root/Score").decrement(1)
+				get_node("body/Sprite").set_texture(load("res://assets/npcs/normal/" + str(character)))
+				get_node("body/shadow").set_texture(load("res://assets/npcs/normal/" + str(character)))
 		else:
 			setHealth(0)
 			
@@ -155,10 +163,12 @@ func setHealth(health):
 			get_node("ProgressBar").hide()
 
 func salvado():
+	
 	salvado = true
 	set_z(10)
 	get_node("shadow").hide()
 	get_node("AnimationTreePlayer").transition_node_set_current("transition", 0)
+	Globals.get("player").salvados += 1
 
 func get_random_character():
 	var files = []

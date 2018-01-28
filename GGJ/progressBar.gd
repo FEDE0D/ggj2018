@@ -15,9 +15,19 @@ func _ready():
 	get_node("Control/Score").set_text(str(0))
 	get_node("Control/ScoreShadow").set_text(str(0))
 	set_process(true)
+	var timer = null
+	timer = Timer.new()
+	add_child(timer)
+	
+	timer.connect("timeout", self, "hide_tutorial")
+	timer.set_wait_time(10.0)
+	timer.start()
 
 func _process(delta):
 	completition = get_node("Control/TextureProgress").get_value()
 	completition -= delta
 	completition = clamp(completition,0,100)
 	
+func hide_tutorial():
+	get_node("Control/Tutorial").hide()
+	pass

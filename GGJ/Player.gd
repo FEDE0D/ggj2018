@@ -13,6 +13,13 @@ var followers_count = 0
 var npcs_count = 0
 var transmission_emiting = false
 var reload = 0
+var salvados = 0
+var salvados_objetivo = 15
+var elevation = false
+var elevationSpeed = 60
+var elevationAccel = 5
+var fall = false
+
 
 signal new_follower(health, score)
 
@@ -41,25 +48,26 @@ func tick_health():
 	pass
 
 func _process(delta):
-	if Input.is_action_pressed("ui_up"):
-		direction.y = -1
-	elif Input.is_action_pressed("ui_down"):
-		direction.y = 1
-	else:
-		direction.y = 0
-	if Input.is_action_pressed("ui_right"):
-		direction.x = 1
-		#fixme refactor to move body instead of both sprites
-		get_node("body").get_node("Sprite").set_flip_h(false)
-		get_node("body").get_node("Shadow").set_flip_h(false)
-		
-	elif Input.is_action_pressed("ui_left"):
-		direction.x = -1
-		#fixme refactor to move body instead of both sprites
-		get_node("body").get_node("Sprite").set_flip_h(true)
-		get_node("body").get_node("Shadow").set_flip_h(true)
-	else:
-		direction.x = 0
+	if !elevation:
+		if Input.is_action_pressed("ui_up"):
+			direction.y = -1
+		elif Input.is_action_pressed("ui_down"):
+			direction.y = 1
+		else:
+			direction.y = 0
+		if Input.is_action_pressed("ui_right"):
+			direction.x = 1
+			#fixme refactor to move body instead of both sprites
+			get_node("body").get_node("Sprite").set_flip_h(false)
+			get_node("body").get_node("Shadow").set_flip_h(false)
+			
+		elif Input.is_action_pressed("ui_left"):
+			direction.x = -1
+			#fixme refactor to move body instead of both sprites
+			get_node("body").get_node("Sprite").set_flip_h(true)
+			get_node("body").get_node("Shadow").set_flip_h(true)
+		else:
+			direction.x = 0
 	
 	if reload > 0:
 		reload -= delta
@@ -79,6 +87,18 @@ func _process(delta):
 	else:
 		animationtree.transition_node_set_current("transition", 0)
 	set_pos(get_pos() + speed + (speed * getExtraSpeedRatio()))
+	if elevation:
+		set_global_pos(get_global_pos() + Vector2(0, -elevationSpeed) * delta)
+		if get_pos().y <= -1800:
+			fall = true
+		if fall:
+			elevationSpeed = -8000
+		else:
+			elevationSpeed += elevationAccel
+		if fall && (get_pos().y >= -35):
+			elevation = false
+	
+	
 
 func getExtraSpeedRatio():
 	return float(get_followers_count()) / get_npcs_count()
@@ -104,9 +124,17 @@ func _input(event):
 					b.conversion(self)
 					emit_signal("new_follower", score.get_health(), score.get_score())
 			for a in get_node("Area2D").get_overlapping_areas():
-				if a.is_in_group("rescue"):
-					a.activate()
+				if a.get_name() == "RescuePoint":
+					if salvados >= salvados_objetivo:
+						elevation()
 
 func newFollower(node):
 	print("new follower")
 	pass
+
+func elevation():
+	print("elevation")
+	elevation = true
+	direction = Vector2(0,0)
+	Globals.set("cameraSpeed",5)
+	
