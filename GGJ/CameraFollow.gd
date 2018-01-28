@@ -7,12 +7,12 @@ var player
 
 func _ready():
 	player = Globals.get("player")
-	Globals.set("cameraSpeed",1)
+	Globals.set("cameraSpeed", 1)
 	set_process(true)
 
 var cameraSpeed
 func _process(delta):
-	cameraSpeed = Globals.get("cameraSpeed")
+	cameraSpeed = 20
 	set_pos(get_pos().linear_interpolate(player.get_pos(),delta* cameraSpeed))
 	var zoom =  Vector2()
 	var camera_value = 1.1 + (get_tree().get_nodes_in_group("converted").size()) * 0.01

@@ -32,9 +32,7 @@ func _ready():
 	Globals.set(\"contador\",self)
 
 func update():
-	set_text(str(Globals.get(\"player\").get_npcs_count() - get_tree().get_nodes_in_group(\"salvados\").size()))
-	if (Globals.get(\"player\").get_npcs_count() - get_tree().get_nodes_in_group(\"salvados\").size() == 0):
-		get_tree().get_nodes_in_group(\"rescue\")[0].changeColor()"
+	set_text(str(Globals.get(\"player\").get_npcs_count() - get_tree().get_nodes_in_group(\"salvados\").size()))"
 
 [sub_resource type="Animation" id=3]
 
@@ -144,6 +142,47 @@ tracks/3/keys = {
 
 script/script = ExtResource( 1 )
 
+[node name="ColorFrame" type="ColorFrame" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -6756.0
+margin/top = -6051.0
+margin/right = 6683.0
+margin/bottom = -1744.0
+color = Color( 0.744141, 0.992188, 0.974747, 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="ColorFrame"]
+
+polygon = Vector2Array( 3891.02, 4138.15, 3939.12, 4715.38, 3458.09, 4907.79, 3289.74, 5316.66, 1509.94, 4547.02, 595.997, 5292.61, -77.438, 4763.48, -847.078, 3921.69, -678.719, 2935.59, -269.848, 2454.57, 235.228, 2550.77, 812.458, 3320.41, 2303.63, 2887.49, 3265.68, 2430.51, 3698.61, 3128, 3987.22, 3873.59 )
+uv = Vector2Array(  )
+color = Color( 0.741176, 0.992157, 0.972549, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="Polygon2D1" type="Polygon2D" parent="ColorFrame"]
+
+polygon = Vector2Array( 8555.72, 3488.77, 8868.39, 4330.56, 9084.85, 4643.23, 9565.88, 4979.95, 9830.44, 5124.25, 10576, 5004, 11297.6, 5316.66, 11465.9, 5533.12, 11971, 5196.41, 12836.8, 5364.77, 13798.9, 5268.56, 14496.4, 4402.72, 14857.1, 3488.77, 14255.9, 2959.64, 13005.2, 2574.82, 11610.2, 2959.64, 9397.52, 3584.97 )
+uv = Vector2Array(  )
+color = Color( 0.741176, 0.992157, 0.972549, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
 [node name="TextureFrame" type="TextureFrame" parent="."]
 
 rect/scale = Vector2( 2, 2 )
@@ -161,6 +200,8 @@ stretch_mode = 0
 [node name="map" type="Node2D" parent="."]
 
 [node name="spawners" type="Node2D" parent="map"]
+
+editor/display_folded = true
 
 [node name="Spawner" parent="map/spawners" instance=ExtResource( 3 )]
 
@@ -222,6 +263,21 @@ packedScene = ExtResource( 4 )
 transform/pos = Vector2( 1440.63, -922.967 )
 packedScene = ExtResource( 4 )
 
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+
+transform/pos = Vector2( -6756, -6051 )
+polygon = Vector2Array( 4906.48, 3948.77, 4715.94, 4213.41, 4334.86, 4340.44, 4324.27, 4499.22, 3974.95, 4710.93, 3689.13, 4478.05, 3488.01, 4964.99, 3085.76, 4922.64, 2694.09, 4467.46, 3233.95, 3948.77, 3985.53, 3620.62, 4599.5, 3377.15, 5224.04, 3673.54, 5605.13, 3747.64, 8431.48, 3768.82, 9500.62, 3969.94, 9479.45, 4467.46, 8907.83, 4541.56, 8791.39, 4658, 8463.24, 4382.78, 8188.01, 4425.12, 7870.44, 4319.27, 7362.33, 4425.12, 7256.48, 4499.22, 7065.94, 4372.19, 6758.96, 4118.14, 6451.97, 4054.63, 5996.79, 4594.49, 5658.05, 4340.44, 5605.13, 4298.09, 5118.19, 4181.65 )
+uv = Vector2Array(  )
+color = Color( 0.741176, 0.992157, 0.972549, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
 [node name="RescuePoint" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 242.288, 88.413 )
@@ -262,6 +318,7 @@ texture = ExtResource( 6 )
 
 [node name="car" type="Sprite" parent="characters"]
 
+editor/display_folded = true
 transform/pos = Vector2( 772.204, 1474.77 )
 transform/scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 7 )
@@ -282,7 +339,6 @@ modulate = Color( 0, 0, 0, 1 )
 [node name="TextureFrame" type="Sprite" parent="characters/TextureFrame1"]
 
 transform/pos = Vector2( -15.3142, -7.14276 )
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 8 )
 
 [node name="house4" type="Sprite" parent="characters"]
@@ -320,7 +376,6 @@ modulate = Color( 0, 0, 0, 1 )
 [node name="TextureFrame1" type="Sprite" parent="characters/TextureFrame2"]
 
 transform/pos = Vector2( 7.5, -7.5 )
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 8 )
 
 [node name="player" parent="characters" instance=ExtResource( 11 )]
