@@ -1,8 +1,8 @@
 extends Position2D
 
 export(PackedScene) var packedScene
-export(int) var maxCant = 10
-export(int) var maxDistance = 500
+export(int) var maxCant = 5
+export(int) var maxDistance = 300
 
 func _ready():
 	get_node("Sprite").hide()

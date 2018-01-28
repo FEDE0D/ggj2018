@@ -86,71 +86,93 @@ __meta__ = {
 
 [node name="spawners" type="Node2D" parent="map"]
 
-editor/display_folded = true
-
 [node name="Spawner" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1874.43, 106.174 )
 packedScene = ExtResource( 7 )
+maxCant = 5
+maxDistance = 300
 
 [node name="Spawner1" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 889.945, 465.544 )
 packedScene = ExtResource( 7 )
+maxCant = 5
+maxDistance = 300
 
 [node name="Spawner2" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -416.74, 38.8052 )
 packedScene = ExtResource( 7 )
+maxCant = 5
+maxDistance = 300
 
 [node name="Spawner9" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1549.61, 1373.11 )
 packedScene = ExtResource( 7 )
+maxCant = 5
+maxDistance = 300
 
 [node name="Spawner10" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -655.511, 1373.11 )
 packedScene = ExtResource( 7 )
+maxCant = 5
+maxDistance = 300
 
 [node name="Spawner11" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -2741.25, 1253.73 )
 packedScene = ExtResource( 7 )
+maxCant = 5
+maxDistance = 300
 
 [node name="Spawner3" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -2214.24, -848.27 )
 packedScene = ExtResource( 7 )
+maxCant = 5
+maxDistance = 300
 
 [node name="Spawner4" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -191.081, -949.428 )
 packedScene = ExtResource( 7 )
+maxCant = 5
+maxDistance = 300
 
 [node name="Spawner5" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -2043.05, 326.716 )
 packedScene = ExtResource( 7 )
+maxCant = 5
+maxDistance = 300
 
 [node name="Spawner6" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -1311.6, 871.411 )
 packedScene = ExtResource( 7 )
+maxCant = 5
+maxDistance = 300
 
 [node name="Spawner7" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 314.708, 1027.04 )
 packedScene = ExtResource( 7 )
+maxCant = 5
+maxDistance = 300
 
 [node name="Spawner8" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 2119.98, -809.363 )
 packedScene = ExtResource( 7 )
+maxCant = 5
+maxDistance = 300
 
 [node name="RescuePoint" parent="." instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 573.011, 110.049 )
+transform/pos = Vector2( 242.288, 88.413 )
 
 [node name="characters" type="YSort" parent="."]
 
@@ -158,15 +180,15 @@ sort/enabled = true
 
 [node name="player" parent="characters" instance=ExtResource( 9 )]
 
-transform/pos = Vector2( 748.275, 269.534 )
+transform/pos = Vector2( 436.732, -206.481 )
 
 [node name="Camera2D" type="Camera2D" parent="characters"]
 
-transform/pos = Vector2( 530.268, 203.362 )
+transform/pos = Vector2( 425.179, -306.631 )
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 1, 1 )
+zoom = Vector2( 0.5, 0.5 )
 limit/left = -10000000
 limit/top = -10000000
 limit/right = 10000000
@@ -174,7 +196,7 @@ limit/bottom = 10000000
 drag_margin/h_enabled = true
 drag_margin/v_enabled = true
 smoothing/enable = true
-smoothing/speed = 5.0
+smoothing/speed = 10.0
 drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
@@ -183,9 +205,13 @@ script/script = ExtResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="characters"]
 
-transform/pos = Vector2( 698.496, -135.501 )
+transform/pos = Vector2( 132.868, -126.228 )
 transform/scale = Vector2( 0.810029, 0.810029 )
 texture = ExtResource( 11 )
+
+[node name="Character" parent="characters" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 834.453, -98.0329 )
 
 [node name="StreamPlayer" type="StreamPlayer" parent="."]
 
