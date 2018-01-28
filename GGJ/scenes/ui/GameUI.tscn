@@ -9,8 +9,8 @@
 [ext_resource path="res://assets/fonts/title48.fnt" type="BitmapFont" id=7]
 [ext_resource path="res://assets/enemyProgressbar_over.png" type="Texture" id=8]
 [ext_resource path="res://assets/progressbar_back.png" type="Texture" id=9]
-[ext_resource path="res://assets/button_hover.png" type="Texture" id=10]
-[ext_resource path="res://assets/button_pressed.png" type="Texture" id=11]
+[ext_resource path="res://assets/button_pressed.png" type="Texture" id=10]
+[ext_resource path="res://assets/button_hover.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 
@@ -41,10 +41,25 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ) ],
 "loop": true,
-"name": "default",
-"speed": 2.0
+"name": "S",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "A",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "W",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "D",
+"speed": 1.0
 } ]
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -186,19 +201,45 @@ stretch_mode = 0
 
 [node name="Action" type="AnimatedSprite" parent="Control/Tutorial"]
 
-transform/pos = Vector2( 301.296, 108.529 )
-transform/scale = Vector2( 1.27722, 1 )
+transform/pos = Vector2( 317.62, 102.952 )
+transform/scale = Vector2( 1.27722, 1.26558 )
 frames = SubResource( 2 )
 animation = "New Anim"
 playing = true
 
-[node name="Movement" type="AnimatedSprite" parent="Control/Tutorial"]
+[node name="W" type="AnimatedSprite" parent="Control/Tutorial"]
 
-transform/pos = Vector2( 86.2814, 74.832 )
-transform/scale = Vector2( 0.384719, 0.711493 )
+transform/pos = Vector2( 96.4935, 51.3146 )
+transform/scale = Vector2( 0.139191, 0.286367 )
 frames = SubResource( 3 )
-animation = "default"
-frame = 1
+animation = "W"
+frame = 2
+playing = true
+
+[node name="A" type="AnimatedSprite" parent="Control/Tutorial"]
+
+transform/pos = Vector2( 39.9836, 105.608 )
+transform/scale = Vector2( 0.139191, 0.286367 )
+frames = SubResource( 3 )
+animation = "A"
+playing = true
+
+[node name="S" type="AnimatedSprite" parent="Control/Tutorial"]
+
+transform/pos = Vector2( 147.463, 105.608 )
+transform/scale = Vector2( 0.139191, 0.286367 )
+frames = SubResource( 3 )
+animation = "S"
+frame = 3
+playing = true
+
+[node name="D" type="AnimatedSprite" parent="Control/Tutorial"]
+
+transform/pos = Vector2( 93.4217, 105.608 )
+transform/scale = Vector2( 0.139191, 0.286367 )
+frames = SubResource( 3 )
+animation = "D"
+frame = 3
 playing = true
 
 
