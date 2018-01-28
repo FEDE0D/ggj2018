@@ -13,7 +13,8 @@ func activate():
 				audio.play("asencionPosta",0)
 
 func changeColor():
-	get_node("AnimationPlayer").play("loop_complete")
+	get_node("AnimationPlayer").play("loop")
 
 func changeBack():
-	get_node("AnimationPlayer").play("loop")
+	get_node("AnimationPlayer").play("loop_complete")
+	

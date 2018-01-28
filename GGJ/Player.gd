@@ -138,7 +138,7 @@ func elevation():
 	Globals.set("cameraSpeed", 5)
 	set_process(false)
 	set_process_input(false)
-	get_tree().get_nodes_in_group("rescue")[0].changeBack()
+	get_tree().get_nodes_in_group("rescue")[0].changeColor()
 	animationtree.transition_node_set_current("transition", 0)
 	Globals.get("map").get_node("characters/AnimationPlayer").play("die")
 	
