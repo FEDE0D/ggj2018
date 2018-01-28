@@ -111,7 +111,7 @@ func get_npcs_count():
 
 func _input(event):
 	if event.is_action_pressed("hit"):
-		if !transmission_emiting:
+		if true:
 			reload = 0.2 * get_followers_count()
 			transmission_emiting = true
 			get_node("AnimationTreePlayer").oneshot_node_start("HitNode")

@@ -60,9 +60,9 @@ func _process(delta):
 			position = get_global_pos().linear_interpolate(position, lerpValue)
 		
 		if distToTarget.length() > 0.5:
-			get_node("AnimationTreePlayer").transition_node_set_current("transition", 1)
+			get_node("AnimationTreePlayer").transition_node_set_current("transition", 2)
 		else:
-			get_node("AnimationTreePlayer").transition_node_set_current("transition", 0)
+			get_node("AnimationTreePlayer").transition_node_set_current("transition", 1)
 			get_node("body").set_rot(0)
 		
 		var direction = position.x - get_pos().x
@@ -80,7 +80,7 @@ func _process(delta):
 			if health + delta >= 1:
 				converted = false
 				remove_from_group("converted")
-				get_node("AnimationTreePlayer").transition_node_set_current("transition", 0)
+				get_node("AnimationTreePlayer").transition_node_set_current("transition", 1)
 				get_node("/root/Score").decrement(1)
 				get_node("body/Sprite").set_texture(load("res://assets/npcs/normal/" + str(character)))
 				get_node("body/shadow").set_texture(load("res://assets/npcs/normal/" + str(character)))
@@ -116,7 +116,7 @@ func get_follow():
 
 func conversion(p):
 	if !converted:
-		setHealth(max(0, health - 0.5))
+		setHealth(max(0, health - 0.25))
 		if health == 0:
 			converted = true
 			get_node("body/Sprite").set_frame(1)
@@ -136,6 +136,7 @@ func start_hit():
 		timeout = dist.length() / 800 * 0.5
 	get_node("HitTimer").set_wait_time(timeout)
 	get_node("HitTimer").start()
+	get_node("AnimationTreePlayer").transition_node_set_current("transition", 0)
 
 func do_hit():
 	for b in get_node("Area2D").get_overlapping_bodies():

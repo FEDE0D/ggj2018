@@ -8,8 +8,8 @@
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 47.8257
-height = 62.3422
+radius = 102.686
+height = 94.0008
 
 [sub_resource type="Animation" id=2]
 
@@ -80,7 +80,7 @@ script/script = ExtResource( 1 )
 transform/pos = Vector2( 5.38861, 54.4851 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, 0, 0 )
+shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, -8.74228e-07, -20 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -91,6 +91,7 @@ collision/mask = 33792
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
+transform/pos = Vector2( -8.74228e-07, -20 )
 transform/rot = 90.0
 shape = SubResource( 1 )
 trigger = false
