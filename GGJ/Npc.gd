@@ -116,6 +116,7 @@ func conversion(p):
 		setHealth(max(0, health - 0.25))
 		if health == 0:
 			converted = true
+			Globals.get("UI").showLlevalosLuz()
 			get_node("body/Sprite").set_frame(1)
 			score.increment(1)
 			score.increment_health(5);

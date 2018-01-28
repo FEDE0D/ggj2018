@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=1]
+[gd_scene load_steps=22 format=1]
 
 [ext_resource path="res://progressBar.gd" type="Script" id=1]
 [ext_resource path="res://assets/progressbar.png" type="Texture" id=2]
@@ -13,10 +13,11 @@
 [ext_resource path="res://assets/s-active.png" type="Texture" id=11]
 [ext_resource path="res://assets/a-inactive.png" type="Texture" id=12]
 [ext_resource path="res://assets/a-active.png" type="Texture" id=13]
-[ext_resource path="res://assets/d-inactive.png" type="Texture" id=14]
-[ext_resource path="res://assets/d-active.png" type="Texture" id=15]
-[ext_resource path="res://assets/w-active.png" type="Texture" id=16]
-[ext_resource path="res://assets/w-inactive.png" type="Texture" id=17]
+[ext_resource path="res://assets/w-active.png" type="Texture" id=14]
+[ext_resource path="res://assets/w-inactive.png" type="Texture" id=15]
+[ext_resource path="res://assets/d-inactive.png" type="Texture" id=16]
+[ext_resource path="res://assets/d-active.png" type="Texture" id=17]
+[ext_resource path="res://assets/fonts/title96.fnt" type="BitmapFont" id=18]
 
 [sub_resource type="Animation" id=1]
 
@@ -67,14 +68,14 @@ animations = [ {
 "name": "A",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "D",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "W",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "D",
 "speed": 1.0
 } ]
 
@@ -101,6 +102,7 @@ margin/bottom = 1.0
 
 [node name="TextureProgress" type="TextureProgress" parent="Control"]
 
+editor/display_folded = true
 visibility/visible = false
 anchor/left = 1
 anchor/top = 1
@@ -259,7 +261,6 @@ transform/pos = Vector2( 323.801, 91.2595 )
 transform/scale = Vector2( 0.362125, 0.358825 )
 frames = SubResource( 2 )
 animation = "New Anim"
-frame = 1
 playing = true
 modulate = Color( 0, 0, 0, 1 )
 
@@ -269,7 +270,6 @@ transform/pos = Vector2( 319.066, 86.2595 )
 transform/scale = Vector2( 0.362125, 0.358825 )
 frames = SubResource( 2 )
 animation = "New Anim"
-frame = 1
 playing = true
 
 [node name="W" type="AnimatedSprite" parent="Control/Tutorial"]
@@ -342,5 +342,73 @@ text = "Caminar"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="LlevalosLabel" type="Label" parent="Control"]
+
+visibility/visible = false
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 237.0
+margin/top = 320.0
+margin/right = -249.0
+margin/bottom = 202.0
+custom_fonts/font = ExtResource( 18 )
+custom_colors/font_color = Color( 0.136719, 0.136719, 0.136719, 1 )
+custom_colors/font_color_shadow = Color( 0.417969, 0.417969, 0.417969, 1 )
+text = "Llevalos a la luz"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Polygon2D1" type="Polygon2D" parent="Control/LlevalosLabel"]
+
+visibility/behind_parent = true
+transform/pos = Vector2( 8, 10 )
+polygon = Vector2Array( 189.415, 15.0155, -9.47952, -5.85606, -15.6182, 65.3529, -15.6182, 118.146, -2.11307, 83.769, 0.342407, 115.69, 111.161, 99.5552, 288.011, 109.078, 480.389, 109.552, 469.34, 96.0464, 478.464, 32.8967, 457.062, 23.6097, 473.023, 11.3323, 191.87, 0.282639, 157.493, 2.73813 )
+uv = Vector2Array(  )
+color = Color( 0.183594, 0.183594, 0.183594, 0.759569 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="Polygon2D" type="Polygon2D" parent="Control/LlevalosLabel"]
+
+visibility/behind_parent = true
+polygon = Vector2Array( 189.415, 15.0155, -9.47952, -5.85606, -15.6182, 65.3529, -15.6182, 118.146, -2.11307, 83.769, 0.342407, 115.69, 111.161, 99.5552, 288.011, 109.078, 480.389, 109.552, 469.34, 96.0464, 478.464, 32.8967, 457.062, 23.6097, 473.023, 11.3323, 191.87, 0.282639, 157.493, 2.73813 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

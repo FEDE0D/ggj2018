@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var completition
+var flag = false
 
 func update(count, score):
 	get_node("Control/TextureProgress").set_value(count)
@@ -12,6 +13,7 @@ func update(count, score):
 
 
 func _ready():
+	Globals.set("UI", self)
 	get_node("Control/Score").set_text(str(0))
 	get_node("Control/ScoreShadow").set_text(str(0))
 	set_process(true)
@@ -36,3 +38,12 @@ func _process(delta):
 func hide_tutorial():
 	get_node("Control/Tutorial").hide()
 	pass
+
+func showLlevalosLuz():
+	if !flag:
+		get_node("Control/LlevalosLabel").show()
+		get_node("Timer").start()
+		flag = true
+
+func _on_Timer_timeout():
+	get_node("Control/LlevalosLabel").hide()
