@@ -42,7 +42,7 @@ func _process(delta):
 	if !converted:
 		setHealth(min(1, health + 0.1 * delta))
 	else:
-		var separation = get_separation() * speed
+		var separation = get_separation() * speed * 2
 		var follow = get_follow() * speed * (1 + Globals.get("player").getExtraSpeedRatio())
 		var position = get_global_pos()
 		position += separation

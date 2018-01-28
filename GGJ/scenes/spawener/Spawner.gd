@@ -9,9 +9,8 @@ func _ready():
 
 func spawn(parent):
 	for i in range(1, randi() % maxCant + 1):
-		pass
 #		var position = get_global_pos() + Vector2(0, randf() * maxDistance).rotated(randf() * 2 * PI)
 #		var instance = packedScene.instance()
 #		instance.set_global_pos(position)
 #		parent.add_child(instance)
-
+		pass
