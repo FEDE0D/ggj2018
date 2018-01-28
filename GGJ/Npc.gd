@@ -6,14 +6,16 @@ var separationDist = 500
 var followSlowRadius = 100
 var health = 1
 var score
+var character
 export(int) var velocidad = 8
 
 func _ready():
 	score = get_node("/root/Score")
 	set_process(true)
-	get_node("body/Sprite").set_texture(preload("res://assets/npcs/normal/skater.png"))
-	get_node("body/shadow").set_texture(preload("res://assets/npcs/normal/skater.png"))
-	
+	character = get_random_character();
+	get_node("body/Sprite").set_texture(load("res://assets/npcs/normal/" + str(character)))
+	get_node("body/shadow").set_texture(load("res://assets/npcs/normal/" + str(character)))
+		
 func _process(delta):
 	if !converted:
 		setHealth(min(1, health + 0.1 * delta))
@@ -93,6 +95,9 @@ func conversion(p):
 			add_to_group("converted")
 			get_node("body/Particles2D").set_emitting(true)
 			get_node("Particles2D").set_emitting(true)
+			get_node("body/Sprite").set_texture(load("res://assets/npcs/purified/" + str(character)))
+			get_node("body/shadow").set_texture(load("res://assets/npcs/purified/" + str(character)))
+			print("res://assets/npcs/purified/" + str(character));
 
 func start_hit():
 	var timeout = 0.5
@@ -126,3 +131,21 @@ func setHealth(health):
 			get_node("ProgressBar").show()
 		else:
 			get_node("ProgressBar").hide()
+			
+func get_random_character():
+	var files = []
+	var dir = Directory.new()
+	dir.open("res://assets/npcs/normal")
+	dir.list_dir_begin()
+
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		elif not file.begins_with("."):
+			files.append(file)
+
+	dir.list_dir_end()
+
+	return files[randi()%files.size()+0]
+	
