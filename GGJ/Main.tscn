@@ -90,85 +90,61 @@ __meta__ = {
 
 transform/pos = Vector2( 1874.43, 106.174 )
 packedScene = ExtResource( 7 )
-maxCant = 5
-maxDistance = 300
 
 [node name="Spawner1" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 889.945, 465.544 )
 packedScene = ExtResource( 7 )
-maxCant = 5
-maxDistance = 300
 
 [node name="Spawner2" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -416.74, 38.8052 )
 packedScene = ExtResource( 7 )
-maxCant = 5
-maxDistance = 300
 
 [node name="Spawner9" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1549.61, 1373.11 )
 packedScene = ExtResource( 7 )
-maxCant = 5
-maxDistance = 300
 
 [node name="Spawner10" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -655.511, 1373.11 )
 packedScene = ExtResource( 7 )
-maxCant = 5
-maxDistance = 300
 
 [node name="Spawner11" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -2741.25, 1253.73 )
 packedScene = ExtResource( 7 )
-maxCant = 5
-maxDistance = 300
 
 [node name="Spawner3" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -2214.24, -848.27 )
 packedScene = ExtResource( 7 )
-maxCant = 5
-maxDistance = 300
 
 [node name="Spawner4" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -191.081, -949.428 )
 packedScene = ExtResource( 7 )
-maxCant = 5
-maxDistance = 300
 
 [node name="Spawner5" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -2043.05, 326.716 )
 packedScene = ExtResource( 7 )
-maxCant = 5
-maxDistance = 300
 
 [node name="Spawner6" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -1311.6, 871.411 )
 packedScene = ExtResource( 7 )
-maxCant = 5
-maxDistance = 300
 
 [node name="Spawner7" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 314.708, 1027.04 )
 packedScene = ExtResource( 7 )
-maxCant = 5
-maxDistance = 300
 
 [node name="Spawner8" parent="map/spawners" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 2119.98, -809.363 )
 packedScene = ExtResource( 7 )
-maxCant = 5
-maxDistance = 300
 
 [node name="RescuePoint" parent="." instance=ExtResource( 8 )]
 
