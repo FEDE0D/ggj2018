@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=16 format=1]
 
 [ext_resource path="res://Npc.gd" type="Script" id=1]
 [ext_resource path="res://assets/clouds/shadow.png" type="Texture" id=2]
@@ -55,6 +55,33 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=5]
 
+resource/name = "damage"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.5 ),
+"transitions": FloatArray( -4, -4, -4 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -0.790573, -3.42576 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body:transform/rot")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.1, 0.5 ),
+"transitions": FloatArray( -4, -4, -4 ),
+"update": 0,
+"values": [ 0.0, 12.0292, 0.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+
 length = 0.6
 loop = false
 step = 0.1
@@ -91,7 +118,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 
 length = 1.2
 loop = true
@@ -188,11 +215,10 @@ modulate = Color( 1, 1, 1, 0.169373 )
 
 [node name="body" type="Node2D" parent="."]
 
-transform/rot = 4.80046
-
 [node name="shadow" type="Sprite" parent="body"]
 
 visibility/opacity = 0.7
+transform/pos = Vector2( 2.1916, 1.06125 )
 transform/scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 4 )
 offset = Vector2( 5, 5 )
@@ -287,11 +313,12 @@ playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/bounce = SubResource( 4 )
-anims/hit = SubResource( 5 )
-anims/idle = SubResource( 6 )
+anims/damage = SubResource( 5 )
+anims/hit = SubResource( 6 )
+anims/idle = SubResource( 7 )
 playback/active = true
 playback/speed = 1.0
-blend_times = [  ]
+blend_times = [ "damage", "idle", 0.1 ]
 autoplay = ""
 
 [node name="AnimationTreePlayer" type="AnimationTreePlayer" parent="."]
@@ -300,14 +327,14 @@ playback/process_mode = 1
 base_path = NodePath("..")
 master_player = NodePath("../AnimationPlayer")
 data = {
-"active": false,
-"connections": [ "oneshot", "out", 0, "anim", "transition", 0, "anim 2", "transition", 1, "transition", "oneshot", 0, "anim 3", "oneshot", 1 ],
+"active": true,
+"connections": [ "oneshot", "out", 0, "anim 4", "transition", 0, "anim", "transition", 1, "anim 2", "transition", 2, "transition", "oneshot", 0, "anim 3", "oneshot", 1 ],
 "master": NodePath("../AnimationPlayer"),
 "nodes": [ {
 "filter": [  ],
 "from": "idle",
 "id": "anim",
-"pos": Vector2( 99, 38 ),
+"pos": Vector2( 104, 104 ),
 "type": "animation"
 }, {
 "id": "out",
@@ -317,12 +344,32 @@ data = {
 "id": "transition",
 "pos": Vector2( 271, 44 ),
 "transitions": [ {
+"auto_advance": true
+}, {
 "auto_advance": false
 }, {
 "auto_advance": false
 } ],
 "type": "transition",
 "xfade": 0.25
+}, {
+"filter": [  ],
+"from": "bounce",
+"id": "anim 2",
+"pos": Vector2( 108, 197 ),
+"type": "animation"
+}, {
+"filter": [  ],
+"from": "damage",
+"id": "anim 4",
+"pos": Vector2( 109, 5 ),
+"type": "animation"
+}, {
+"filter": [  ],
+"from": "hit",
+"id": "anim 3",
+"pos": Vector2( 252, 188 ),
+"type": "animation"
 }, {
 "autorestart": false,
 "autorestart_delay": 1.0,
@@ -334,18 +381,6 @@ data = {
 "mix": true,
 "pos": Vector2( 422, 58 ),
 "type": "oneshot"
-}, {
-"filter": [  ],
-"from": "hit",
-"id": "anim 3",
-"pos": Vector2( 252, 188 ),
-"type": "animation"
-}, {
-"filter": [  ],
-"from": "bounce",
-"id": "anim 2",
-"pos": Vector2( 87, 141 ),
-"type": "animation"
 } ]
 }
 

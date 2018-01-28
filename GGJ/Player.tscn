@@ -8,8 +8,8 @@
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 47.8257
-height = 62.3422
+radius = 102.686
+height = 94.0008
 
 [sub_resource type="Animation" id=2]
 
@@ -80,7 +80,7 @@ script/script = ExtResource( 1 )
 transform/pos = Vector2( 5.38861, 54.4851 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, 0, 0 )
+shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, -8.74228e-07, -20 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -91,6 +91,7 @@ collision/mask = 33792
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
+transform/pos = Vector2( -8.74228e-07, -20 )
 transform/rot = 90.0
 shape = SubResource( 1 )
 trigger = false
@@ -115,9 +116,41 @@ visibility/visible = false
 
 [node name="body" type="Node2D" parent="."]
 
+[node name="Node2D" type="Node2D" parent="body"]
+
+editor/display_folded = true
+visibility/behind_parent = true
+
+[node name="ColorFrame" type="ColorFrame" parent="body/Node2D"]
+
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -5.0
+margin/top = 0.0
+margin/right = 13.0
+margin/bottom = 3597.0
+color = Color( 0.671875, 0.319596, 0.128601, 1 )
+
+[node name="ColorFrame1" type="ColorFrame" parent="body/Node2D"]
+
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -3.0
+margin/top = 0.0
+margin/right = 13.0
+margin/bottom = 3597.0
+color = Color( 0.238281, 0.107309, 0.0363007, 1 )
+
 [node name="Shadow" type="Sprite" parent="body"]
 
 visibility/opacity = 0.7
+transform/pos = Vector2( 4.78992, 2.39496 )
 transform/scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 4 )
 offset = Vector2( 5, 5 )

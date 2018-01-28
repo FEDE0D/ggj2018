@@ -43,13 +43,12 @@ func _process(delta):
 		setHealth(min(1, health + 0.1 * delta))
 	else:
 		var separation = get_separation() * speed
-		var follow = get_follow() * speed * 0.7
+		var follow = get_follow() * speed * (1 + Globals.get("player").getExtraSpeedRatio())
 		var position = get_global_pos()
 		position += separation
 		position += follow
 		
 		for a in get_node("Area2D").get_overlapping_areas():
-			print("area")
 			if a.get_name() == "RescuePoint" && converted:
 				a.activate()
 		
@@ -60,9 +59,9 @@ func _process(delta):
 			position = get_global_pos().linear_interpolate(position, lerpValue)
 		
 		if distToTarget.length() > 0.5:
-			get_node("AnimationTreePlayer").transition_node_set_current("transition", 1)
+			get_node("AnimationTreePlayer").transition_node_set_current("transition", 2)
 		else:
-			get_node("AnimationTreePlayer").transition_node_set_current("transition", 0)
+			get_node("AnimationTreePlayer").transition_node_set_current("transition", 1)
 			get_node("body").set_rot(0)
 		
 		var direction = position.x - get_pos().x
@@ -80,7 +79,7 @@ func _process(delta):
 			if health + delta >= 1:
 				converted = false
 				remove_from_group("converted")
-				get_node("AnimationTreePlayer").transition_node_set_current("transition", 0)
+				get_node("AnimationTreePlayer").transition_node_set_current("transition", 1)
 				get_node("/root/Score").decrement(1)
 				get_node("body/Sprite").set_texture(load("res://assets/npcs/normal/" + str(character)))
 				get_node("body/shadow").set_texture(load("res://assets/npcs/normal/" + str(character)))
@@ -116,7 +115,7 @@ func get_follow():
 
 func conversion(p):
 	if !converted:
-		setHealth(max(0, health - 0.5))
+		setHealth(max(0, health - 0.25))
 		if health == 0:
 			converted = true
 			get_node("body/Sprite").set_frame(1)
@@ -128,6 +127,7 @@ func conversion(p):
 			get_node("body/Sprite").set_texture(load("res://assets/npcs/purified/" + str(character)))
 			get_node("body/shadow").set_texture(load("res://assets/npcs/purified/" + str(character)))
 			print("res://assets/npcs/purified/" + str(character));
+			get_node("AnimationPlayer").seek(rand_range(0,1))
 
 func start_hit():
 	var timeout = 0.5
@@ -136,6 +136,7 @@ func start_hit():
 		timeout = dist.length() / 800 * 0.5
 	get_node("HitTimer").set_wait_time(timeout)
 	get_node("HitTimer").start()
+	#get_node("AnimationTreePlayer").transition_node_set_current("transition", 0)
 
 func do_hit():
 	for b in get_node("Area2D").get_overlapping_bodies():
@@ -163,7 +164,6 @@ func setHealth(health):
 			get_node("ProgressBar").hide()
 
 func salvado():
-	
 	salvado = true
 	set_z(10)
 	get_node("shadow").hide()
