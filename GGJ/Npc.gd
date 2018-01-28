@@ -8,13 +8,22 @@ var health = 1
 var score
 export(int) var velocidad = 8
 
+var salvado = false
+var salvadoSpeed = 100
+var salvadoAccel = 15
+
 func _ready():
 	score = get_node("/root/Score")
 	set_process(true)
 	get_node("body/Sprite").set_texture(preload("res://assets/npcs/normal/skater.png"))
 	get_node("body/shadow").set_texture(preload("res://assets/npcs/normal/skater.png"))
+	salvadoAccel = rand_range(10, 20)
 	
 func _process(delta):
+	if salvado:
+		set_global_pos(get_global_pos() + Vector2(0, -salvadoSpeed) * delta)
+		salvadoSpeed += salvadoAccel
+	
 	if !converted:
 		setHealth(min(1, health + 0.1 * delta))
 	else:
@@ -126,3 +135,9 @@ func setHealth(health):
 			get_node("ProgressBar").show()
 		else:
 			get_node("ProgressBar").hide()
+
+func salvado():
+	salvado = true
+	set_z(10)
+	get_node("shadow").hide()
+	get_node("AnimationTreePlayer").transition_node_set_current("transition", 0)
