@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://assets/city-top-right.png" type="Texture" id=2]
@@ -11,8 +11,9 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://CameraFollow.gd" type="Script" id=10]
 [ext_resource path="res://assets/cartel.png" type="Texture" id=11]
-[ext_resource path="res://assets/music/bluegrass_banjo_-_country_banjo.ogg" type="AudioStream" id=12]
-[ext_resource path="res://scenes/ui/GameUI.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/clouds/haz.png" type="Texture" id=12]
+[ext_resource path="res://assets/music/bluegrass_banjo_-_country_banjo.ogg" type="AudioStream" id=13]
+[ext_resource path="res://scenes/ui/GameUI.tscn" type="PackedScene" id=14]
 
 [node name="Node" type="Node"]
 
@@ -128,12 +129,12 @@ packedScene = ExtResource( 7 )
 
 [node name="Spawner5" parent="map/spawners" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( -2043.05, 326.716 )
+transform/pos = Vector2( -1542.97, -285.446 )
 packedScene = ExtResource( 7 )
 
 [node name="Spawner6" parent="map/spawners" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( -1311.6, 871.411 )
+transform/pos = Vector2( -1725.46, 854.167 )
 packedScene = ExtResource( 7 )
 
 [node name="Spawner7" parent="map/spawners" instance=ExtResource( 6 )]
@@ -156,7 +157,7 @@ sort/enabled = true
 
 [node name="player" parent="characters" instance=ExtResource( 9 )]
 
-transform/pos = Vector2( 436.732, -206.481 )
+transform/pos = Vector2( 426.092, -292.641 )
 
 [node name="Camera2D" type="Camera2D" parent="characters"]
 
@@ -189,9 +190,16 @@ texture = ExtResource( 11 )
 
 transform/pos = Vector2( 834.453, -98.0329 )
 
+[node name="haz" type="Sprite" parent="characters"]
+
+visibility/blend_mode = 1
+transform/pos = Vector2( 244.2, -177.531 )
+transform/scale = Vector2( 1, 0.670395 )
+texture = ExtResource( 12 )
+
 [node name="StreamPlayer" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 12 )
+stream/stream = ExtResource( 13 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
@@ -200,7 +208,7 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 13 )]
+[node name="CanvasLayer" parent="." instance=ExtResource( 14 )]
 
 [connection signal="new_follower" from="characters/player" to="CanvasLayer" method="update"]
 
