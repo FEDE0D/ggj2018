@@ -125,7 +125,7 @@ func _input(event):
 					emit_signal("new_follower", score.get_health(), score.get_score())
 			for a in get_node("Area2D").get_overlapping_areas():
 				if a.is_in_group("rescue"):
-					if get_tree().get_nodes_in_group("salvados").size() == get_tree().get_nodes_in_group("npcs").size():
+					if get_tree().get_nodes_in_group("salvados").size() >= get_tree().get_nodes_in_group("npcs").size() * 0.8:
 						elevation()
 
 func newFollower(node):

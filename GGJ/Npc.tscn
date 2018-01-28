@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/clouds/shadow.png" type="Texture" id=2]
 [ext_resource path="res://assets/path219.png" type="Texture" id=3]
 [ext_resource path="res://directional-pixel-npc.png" type="Texture" id=4]
-[ext_resource path="res://assets/particle.png" type="Texture" id=5]
+[ext_resource path="res://assets/cross_glow.png" type="Texture" id=5]
 [ext_resource path="res://assets/progressbar_back.png" type="Texture" id=6]
 [ext_resource path="res://assets/enemyProgressbar_over.png" type="Texture" id=7]
 [ext_resource path="res://Particles2D.tscn" type="PackedScene" id=8]
@@ -205,8 +205,8 @@ modulate = Color( 1, 1, 1, 0.169373 )
 
 [node name="body" type="Node2D" parent="."]
 
-transform/pos = Vector2( -4.71193, -9.42385 )
-transform/rot = 14.1358
+transform/pos = Vector2( -4.75782, -9.51563 )
+transform/rot = 13.3648
 
 [node name="shadow" type="Sprite" parent="body"]
 
@@ -380,6 +380,7 @@ data = {
 [node name="Particles2D" parent="." instance=ExtResource( 8 )]
 
 config/emitting = false
+config/texture = ExtResource( 5 )
 
 [node name="SamplePlayer2D" type="SamplePlayer2D" parent="."]
 
