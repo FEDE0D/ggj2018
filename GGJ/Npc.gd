@@ -13,15 +13,28 @@ var salvado = false
 var salvadoSpeed = 100
 var salvadoAccel = 15
 
+var waitAnimTime
+var waitFlipTime
+
 func _ready():
 	score = get_node("/root/Score")
 	set_process(true)
 	salvadoAccel = rand_range(15, 30)
+	waitAnimTime = rand_range(0, 1)
+	waitFlipTime = rand_range(1, 6)
 	character = get_random_character();
 	get_node("body/Sprite").set_texture(load("res://assets/npcs/normal/" + str(character)))
 	get_node("body/shadow").set_texture(load("res://assets/npcs/normal/" + str(character)))
 
 func _process(delta):
+	waitAnimTime -= delta
+	waitFlipTime -= delta
+	if waitAnimTime < 0:
+		get_node("AnimationTreePlayer").set_active(true)
+	if waitFlipTime < 0 and !converted:
+		get_node("body").set_scale(get_node("body").get_scale() * Vector2(-1, 1))
+		waitFlipTime = rand_range(1, 6)
+	
 	if salvado:
 		set_global_pos(get_global_pos() + Vector2(0, -salvadoSpeed) * delta)
 		salvadoSpeed += salvadoAccel

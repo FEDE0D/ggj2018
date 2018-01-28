@@ -101,20 +101,20 @@ tracks/0/path = NodePath("body:transform/pos")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0 ),
-"transitions": FloatArray( 0.25 ),
+"times": FloatArray( 0, 0.4, 0.7, 1 ),
+"transitions": FloatArray( -25.1067, -25.1067, -25.1067, -25.1067 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("body:transform/rot")
 tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = {
-"times": FloatArray( 0 ),
-"transitions": FloatArray( 0.25 ),
+"times": FloatArray( 0, 0.4, 0.7, 1 ),
+"transitions": FloatArray( -25.1067, -25.1067, -25.1067, -25.1067 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ 0.0, 0.0, 5.0, 0.0 ]
 }
 
 [node name="Character" type="KinematicBody2D" groups=[
@@ -188,6 +188,8 @@ texture = ExtResource( 3 )
 modulate = Color( 1, 1, 1, 0.169373 )
 
 [node name="body" type="Node2D" parent="."]
+
+transform/rot = 4.80046
 
 [node name="shadow" type="Sprite" parent="body"]
 
@@ -299,7 +301,7 @@ playback/process_mode = 1
 base_path = NodePath("..")
 master_player = NodePath("../AnimationPlayer")
 data = {
-"active": true,
+"active": false,
 "connections": [ "oneshot", "out", 0, "anim", "transition", 0, "anim 2", "transition", 1, "transition", "oneshot", 0, "anim 3", "oneshot", 1 ],
 "master": NodePath("../AnimationPlayer"),
 "nodes": [ {
