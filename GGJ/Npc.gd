@@ -16,7 +16,7 @@ var salvadoAccel = 15
 func _ready():
 	score = get_node("/root/Score")
 	set_process(true)
-	salvadoAccel = rand_range(10, 20)
+	salvadoAccel = rand_range(15, 30)
 	character = get_random_character();
 	get_node("body/Sprite").set_texture(load("res://assets/npcs/normal/" + str(character)))
 	get_node("body/shadow").set_texture(load("res://assets/npcs/normal/" + str(character)))
