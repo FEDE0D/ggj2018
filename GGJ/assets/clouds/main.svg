@@ -144,11 +144,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.6689893"
-     inkscape:cx="2801.4813"
-     inkscape:cy="432.41547"
+     inkscape:zoom="15.1375"
+     inkscape:cx="268.25266"
+     inkscape:cy="708.35663"
      inkscape:document-units="mm"
-     inkscape:current-layer="g228"
+     inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:window-width="1366"
@@ -1287,6 +1287,23 @@
          inkscape:export-filename="C:\Users\federico\Documents\repositories\ggj2018\GGJ\assets\enemyProgressbar_over.png"
          inkscape:export-xdpi="51.113617"
          inkscape:export-ydpi="51.113617" />
+    </g>
+    <g
+       id="g230"
+       inkscape:export-filename="C:\Users\federico\Documents\repositories\ggj2018\GGJ\assets\particle.png"
+       inkscape:export-xdpi="95.929726"
+       inkscape:export-ydpi="95.929726">
+      <path
+         sodipodi:nodetypes="ccccccccccccc"
+         inkscape:connector-curvature="0"
+         id="path224"
+         d="m 69.014244,107.16137 1.878613,0.0989 -0.296624,1.38424 0.903576,0.12784 0.125608,0.64568 -1.221449,-0.15405 -0.296622,2.05014 -0.887641,0.0175 -0.03769,-2.14902 -0.761007,0.15405 0.197749,-0.59324 h 0.494372 z"
+         style="fill:#2b1100;stroke:#2b1100;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path226"
+         d="m 69.294178,107.34769 1.415773,0.0961 -0.305877,1.33711 0.926369,0.13983 0.08739,0.31462 -1.197287,-0.27966 -0.262181,2.09744 -0.436967,0.009 0.166047,-2.14114 -0.498142,-0.0175 v -0.0786 l 0.454446,0.0175 z"
+         style="fill:#552200;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     </g>
   </g>
 </svg>

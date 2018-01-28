@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://Npc.gd" type="Script" id=1]
 [ext_resource path="res://assets/clouds/shadow.png" type="Texture" id=2]
-[ext_resource path="res://assets/particula.png" type="Texture" id=3]
+[ext_resource path="res://assets/path219.png" type="Texture" id=3]
 [ext_resource path="res://directional-pixel-npc.png" type="Texture" id=4]
-[ext_resource path="res://assets/path219.png" type="Texture" id=5]
+[ext_resource path="res://assets/particle.png" type="Texture" id=5]
 [ext_resource path="res://assets/progressbar_back.png" type="Texture" id=6]
 [ext_resource path="res://assets/enemyProgressbar_over.png" type="Texture" id=7]
 [ext_resource path="res://assets/bounce.tres" type="Animation" id=8]
+[ext_resource path="res://Particles2D.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -20,6 +21,11 @@ height = 32.1342
 custom_solver_bias = 0.0
 radius = 52.4565
 height = 40.3728
+
+[sub_resource type="ColorRamp" id=5]
+
+offsets = FloatArray( 0, 0.19883, 0.368421, 1 )
+colors = ColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 0.865497, 0.865497, 0.865497, 1, 0, 0, 0, 0 )
 
 [sub_resource type="Animation" id=3]
 
@@ -99,10 +105,10 @@ collision/layers = 1024
 collision/mask = 0
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+velocidad = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-visibility/visible = false
 transform/pos = Vector2( 11.8879, 12.4283 )
 shape = SubResource( 1 )
 trigger = false
@@ -110,7 +116,7 @@ _update_shape_index = 0
 
 [node name="Area2D" type="Area2D" parent="."]
 
-visibility/visible = false
+editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, 12.3293, 36.9154 )
@@ -145,43 +151,19 @@ transform/pos = Vector2( 3.64188, 1.19227 )
 transform/scale = Vector2( 2.7436, 8.13414 )
 texture = ExtResource( 2 )
 offset = Vector2( 5, 5 )
-modulate = Color( 0, 0, 0, 1 )
+
+[node name="shadow" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="shadow"]
+
+visibility/blend_mode = 1
+transform/scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 3 )
+modulate = Color( 1, 1, 1, 0.169373 )
 
 [node name="body" type="Node2D" parent="."]
-
-[node name="Particles2D" type="Particles2D" parent="body"]
-
-z/z = 670
-config/amount = 64
-config/lifetime = 2.0
-config/emit_timeout = 0.5
-config/emitting = false
-config/process_mode = 1
-config/local_space = false
-config/explosiveness = 0.1
-config/texture = ExtResource( 3 )
-params/direction = 170.18
-params/spread = 52.36
-params/linear_velocity = 45.0
-params/spin_velocity = 0.0
-params/orbit_velocity = 0.0
-params/gravity_direction = 0.0
-params/gravity_strength = 3.0
-params/radial_accel = 0.0
-params/tangential_accel = 0.0
-params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 0.2
-params/final_size = 1.0
-params/hue_variation = 0.0
-params/anim_speed_scale = 1.0
-params/anim_initial_pos = 0.0
-
-[node name="Sprite" type="Sprite" parent="body"]
-
-z/z = 10
-texture = ExtResource( 4 )
-modulate = Color( 1, 0.421875, 0, 1 )
 
 [node name="shadow" type="Sprite" parent="body"]
 
@@ -190,13 +172,57 @@ texture = ExtResource( 4 )
 offset = Vector2( 5, 5 )
 modulate = Color( 0, 0, 0, 1 )
 
-[node name="shadow" type="Node2D" parent="."]
+[node name="Sprite" type="Sprite" parent="body"]
 
-[node name="Sprite" type="Sprite" parent="shadow"]
+texture = ExtResource( 4 )
+modulate = Color( 1, 0.421875, 0, 1 )
 
-visibility/blend_mode = 1
-transform/scale = Vector2( 1e-05, 1e-05 )
-texture = ExtResource( 5 )
+[node name="Particles2D" type="Particles2D" parent="body"]
+
+z/z = 670
+config/amount = 48
+config/lifetime = 2.0
+config/emit_timeout = 0.5
+config/emitting = false
+config/process_mode = 1
+config/half_extents = Vector2( 20, 20 )
+config/local_space = false
+config/explosiveness = 0.01
+config/texture = ExtResource( 5 )
+params/direction = 0.0
+params/spread = 45.0
+params/linear_velocity = 200.0
+params/spin_velocity = 2.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 180.0
+params/gravity_strength = 180.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 10.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 0.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 1.0
+randomness/spread = 1.0
+randomness/linear_velocity = 0.5
+randomness/spin_velocity = 1.0
+randomness/damping = 10.0
+randomness/initial_size = 1.0
+randomness/final_size = 0.5
+color/color_ramp = SubResource( 5 )
+
+[node name="ParticleAttractor2D" type="ParticleAttractor2D" parent="body"]
+
+transform/pos = Vector2( 4.42833, -61.1559 )
+enabled = true
+radius = 120.0
+disable_radius = 0.0
+gravity = 2.0
+absorption = 2.0
+particles_path = NodePath("../Particles2D")
 
 [node name="HitTimer" type="Timer" parent="."]
 
@@ -296,6 +322,10 @@ data = {
 "type": "animation"
 } ]
 }
+
+[node name="Particles2D" parent="." instance=ExtResource( 9 )]
+
+config/emitting = false
 
 [connection signal="timeout" from="HitTimer" to="." method="_on_Timer_timeout"]
 

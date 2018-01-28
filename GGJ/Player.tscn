@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/path219.png" type="Texture" id=2]
-[ext_resource path="res://directional-pixel-man.png" type="Texture" id=3]
-[ext_resource path="res://assets/bounce.tres" type="Animation" id=4]
+[ext_resource path="res://Particles2D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://directional-pixel-man.png" type="Texture" id=4]
+[ext_resource path="res://assets/bounce.tres" type="Animation" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -50,6 +51,7 @@ script/script = ExtResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 5.38861, 54.4851 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
@@ -59,8 +61,8 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-collision/layers = 0
-collision/mask = 1024
+collision/layers = 32
+collision/mask = 33792
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
@@ -71,6 +73,8 @@ _update_shape_index = 0
 
 [node name="shadow" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="Shadow1" type="Sprite" parent="shadow"]
 
 visibility/opacity = 0.7
@@ -78,31 +82,35 @@ visibility/blend_mode = 1
 transform/scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 2 )
 offset = Vector2( 5, 5 )
+modulate = Color( 1, 1, 1, 0.158471 )
+
+[node name="Particles2D" parent="." instance=ExtResource( 3 )]
+
+visibility/visible = false
 
 [node name="body" type="Node2D" parent="."]
 
 editor/display_folded = true
 
-[node name="Sprite" type="Sprite" parent="body"]
-
-transform/pos = Vector2( -1.08185, -0.0498047 )
-z/z = 10
-texture = ExtResource( 3 )
-offset = Vector2( 0.0818529, 0.0498037 )
-
 [node name="Shadow" type="Sprite" parent="body"]
 
 visibility/opacity = 0.7
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 offset = Vector2( 5, 5 )
 modulate = Color( 0, 0, 0, 1 )
+
+[node name="Sprite" type="Sprite" parent="body"]
+
+transform/pos = Vector2( -1.08185, -0.0498047 )
+texture = ExtResource( 4 )
+offset = Vector2( 0.0818529, 0.0498037 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/bounce = ExtResource( 4 )
+anims/bounce = ExtResource( 5 )
 anims/hit = SubResource( 2 )
 anims/idle = SubResource( 3 )
 playback/active = true
@@ -160,7 +168,7 @@ data = {
 "filter": [  ],
 "id": "HitNode",
 "mix": true,
-"pos": Vector2( 450, 181 ),
+"pos": Vector2( 442, 167 ),
 "type": "oneshot"
 } ]
 }

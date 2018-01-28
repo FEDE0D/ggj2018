@@ -6,6 +6,7 @@ var separationDist = 500
 var followSlowRadius = 100
 var health = 1
 var score
+export(int) var velocidad = 8
 
 func _ready():
 	score = get_node("/root/Score")
@@ -89,6 +90,7 @@ func conversion(p):
 			score.increment_health(5);
 			add_to_group("converted")
 			get_node("body/Particles2D").set_emitting(true)
+			get_node("Particles2D").set_emitting(true)
 
 func start_hit():
 	var timeout = 0.5

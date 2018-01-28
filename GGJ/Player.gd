@@ -96,6 +96,9 @@ func _input(event):
 			if b.is_in_group("npcs"):
 				b.conversion(self)
 				emit_signal("new_follower", score.get_health(), score.get_score())
+		for a in get_node("Area2D").get_overlapping_areas():
+			if a.is_in_group("rescue"):
+				a.activate()
 
 func newFollower(node):
 	print("new follower")
