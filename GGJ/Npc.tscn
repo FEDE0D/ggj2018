@@ -7,8 +7,7 @@
 [ext_resource path="res://assets/particle.png" type="Texture" id=5]
 [ext_resource path="res://assets/progressbar_back.png" type="Texture" id=6]
 [ext_resource path="res://assets/enemyProgressbar_over.png" type="Texture" id=7]
-[ext_resource path="res://assets/bounce.tres" type="Animation" id=8]
-[ext_resource path="res://Particles2D.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Particles2D.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -28,6 +27,33 @@ offsets = FloatArray( 0, 0.19883, 0.368421, 1 )
 colors = ColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 0.865497, 0.865497, 0.865497, 1, 0, 0, 0, 0 )
 
 [sub_resource type="Animation" id=4]
+
+resource/name = "bounce"
+length = 1.2
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05 ),
+"transitions": FloatArray( 0.25, 4.75683, 0.25, 4.75683, 0.25, 4.75683, 0.25, 4.75683 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -5, -10 ), Vector2( 0, 0 ), Vector2( 5, -10 ), Vector2( 0, 0 ), Vector2( -5, -10 ), Vector2( 0, 0 ), Vector2( 0, -10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body:transform/rot")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05 ),
+"transitions": FloatArray( 0.25, 3.48221, 0.25, 3.48221, 0.25, 3.48221, 0.25, 3.48221 ),
+"update": 0,
+"values": [ 0.0, 15.0, 0.0, -15.0, 0.0, 15.0, 0.0, -15.0 ]
+}
+
+[sub_resource type="Animation" id=5]
 
 length = 0.6
 loop = false
@@ -65,7 +91,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
 length = 1.2
 loop = true
@@ -75,20 +101,20 @@ tracks/0/path = NodePath("body:transform/pos")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0 ),
-"transitions": FloatArray( 0.25 ),
+"times": FloatArray( 0, 0.4, 0.7, 1 ),
+"transitions": FloatArray( -25.1067, -25.1067, -25.1067, -25.1067 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("body:transform/rot")
 tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = {
-"times": FloatArray( 0 ),
-"transitions": FloatArray( 0.25 ),
+"times": FloatArray( 0, 0.4, 0.7, 1 ),
+"transitions": FloatArray( -25.1067, -25.1067, -25.1067, -25.1067 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ 0.0, 0.0, 5.0, 0.0 ]
 }
 
 [node name="Character" type="KinematicBody2D" groups=[
@@ -163,17 +189,19 @@ modulate = Color( 1, 1, 1, 0.169373 )
 
 [node name="body" type="Node2D" parent="."]
 
+transform/rot = 4.80046
+
 [node name="shadow" type="Sprite" parent="body"]
 
 visibility/opacity = 0.7
-transform/scale = Vector2( 0.4, 0.4 )
+transform/scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 4 )
 offset = Vector2( 5, 5 )
 modulate = Color( 0, 0, 0, 1 )
 
 [node name="Sprite" type="Sprite" parent="body"]
 
-transform/scale = Vector2( 0.4, 0.4 )
+transform/scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 4 )
 
 [node name="Particles2D" type="Particles2D" parent="body"]
@@ -184,13 +212,13 @@ config/lifetime = 2.0
 config/emit_timeout = 0.5
 config/emitting = false
 config/process_mode = 1
-config/half_extents = Vector2( 20, 20 )
+config/half_extents = Vector2( 50, 50 )
 config/local_space = false
 config/explosiveness = 0.01
 config/texture = ExtResource( 5 )
 params/direction = 0.0
-params/spread = 45.0
-params/linear_velocity = 200.0
+params/spread = 60.0
+params/linear_velocity = 350.0
 params/spin_velocity = 2.0
 params/orbit_velocity = 0.0
 params/gravity_direction = 180.0
@@ -199,7 +227,7 @@ params/radial_accel = 0.0
 params/tangential_accel = 0.0
 params/damping = 10.0
 params/initial_angle = 0.0
-params/initial_size = 1.0
+params/initial_size = 2.0
 params/final_size = 0.0
 params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
@@ -217,7 +245,7 @@ color/color_ramp = SubResource( 3 )
 
 transform/pos = Vector2( 4.42833, -61.1559 )
 enabled = true
-radius = 120.0
+radius = 150.0
 disable_radius = 0.0
 gravity = 2.0
 absorption = 2.0
@@ -259,9 +287,9 @@ radial_fill/center_offset = Vector2( 0, 0 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/bounce = ExtResource( 8 )
-anims/hit = SubResource( 4 )
-anims/idle = SubResource( 5 )
+anims/bounce = SubResource( 4 )
+anims/hit = SubResource( 5 )
+anims/idle = SubResource( 6 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -273,7 +301,7 @@ playback/process_mode = 1
 base_path = NodePath("..")
 master_player = NodePath("../AnimationPlayer")
 data = {
-"active": true,
+"active": false,
 "connections": [ "oneshot", "out", 0, "anim", "transition", 0, "anim 2", "transition", 1, "transition", "oneshot", 0, "anim 3", "oneshot", 1 ],
 "master": NodePath("../AnimationPlayer"),
 "nodes": [ {
@@ -322,7 +350,7 @@ data = {
 } ]
 }
 
-[node name="Particles2D" parent="." instance=ExtResource( 9 )]
+[node name="Particles2D" parent="." instance=ExtResource( 8 )]
 
 config/emitting = false
 
