@@ -215,8 +215,6 @@ modulate = Color( 1, 1, 1, 0.169373 )
 
 [node name="body" type="Node2D" parent="."]
 
-transform/rot = 5.0
-
 [node name="shadow" type="Sprite" parent="body"]
 
 visibility/opacity = 0.7

@@ -10,7 +10,7 @@ func _ready():
 	set_process_input(true)
 
 func _on_Button_pressed():
-	SceneTransition.transition_to("scenes/ui/PreGame.tscn")
+	SceneTransition.transition_to("Main.tscn")
 
 func _process(delta):
 	for c in cloudSprites1:
