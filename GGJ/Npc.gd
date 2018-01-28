@@ -120,6 +120,7 @@ func conversion(p):
 			score.increment(1)
 			score.increment_health(5);
 			add_to_group("converted")
+			get_node("SamplePlayer2D").play("conversion")
 			get_node("body/Particles2D").set_emitting(true)
 			get_node("Particles2D").set_emitting(true)
 			get_node("body/Sprite").set_texture(load("res://assets/npcs/purified/" + str(character)))
