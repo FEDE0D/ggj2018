@@ -14,7 +14,7 @@ var npcs_count = 0
 var transmission_emiting = false
 var reload = 0
 var salvados = 0
-var salvados_objetivo = 2
+var salvados_objetivo = 15
 var elevation = false
 var elevationSpeed = 60
 var elevationAccel = 5
@@ -124,11 +124,9 @@ func _input(event):
 					b.conversion(self)
 					emit_signal("new_follower", score.get_health(), score.get_score())
 			for a in get_node("Area2D").get_overlapping_areas():
-				if a.is_in_group("rescue"):
-					a.activate()
-					if a.get_name() == "RescuePoint":
-						if salvados >= salvados_objetivo:
-							elevation()
+				if a.get_name() == "RescuePoint":
+					if salvados >= salvados_objetivo:
+						elevation()
 
 func newFollower(node):
 	print("new follower")

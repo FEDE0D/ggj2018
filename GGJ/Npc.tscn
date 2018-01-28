@@ -125,8 +125,8 @@ input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 11.8879, 12.4283 )
 shapes/0/trigger = false
-collision/layers = 1024
-collision/mask = 0
+collision/layers = 33792
+collision/mask = 33792
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 velocidad = 8
@@ -140,7 +140,6 @@ _update_shape_index = 0
 
 [node name="Area2D" type="Area2D" parent="."]
 
-editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, 12.3293, 36.9154 )
@@ -149,8 +148,8 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-collision/layers = 0
-collision/mask = 1024
+collision/layers = 33792
+collision/mask = 33792
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 

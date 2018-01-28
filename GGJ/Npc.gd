@@ -48,6 +48,12 @@ func _process(delta):
 		position += separation
 		position += follow
 		
+		for a in get_node("Area2D").get_overlapping_areas():
+			print("area")
+			if a.get_name() == "RescuePoint" && converted:
+				a.activate()
+		
+		
 		var distToTarget = get_global_pos() - position
 		if distToTarget.length() < 150:
 			var lerpValue = 1 - (distToTarget.length() / 150)
