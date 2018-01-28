@@ -10,4 +10,4 @@ func activate():
 		if f.is_in_group("npcs"):
 			if !f.salvado:
 				f.salvado()
-				audio.play("asension",0)
+				audio.play("asencionPosta",0)

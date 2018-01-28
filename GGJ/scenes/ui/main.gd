@@ -10,7 +10,7 @@ func _ready():
 	set_process_input(true)
 
 func _on_Button_pressed():
-	SceneTransition.transition_to("scenes/ui/PreGame.tscn")
+	SceneTransition.transition_to("Main.tscn")
 
 func _process(delta):
 	for c in cloudSprites1:
@@ -22,5 +22,5 @@ func _on_Button1_toggled( pressed ):
 	OS.set_window_fullscreen(pressed)
 
 func _input(event):
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_action_pressed("hit"):
 		_on_Button_pressed()

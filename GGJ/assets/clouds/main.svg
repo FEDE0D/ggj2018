@@ -289,9 +289,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.23652344"
-     inkscape:cx="-105.54299"
-     inkscape:cy="-1114.0584"
+     inkscape:zoom="1.3379786"
+     inkscape:cx="93.030972"
+     inkscape:cy="-126.37"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1498,57 +1498,85 @@
         <g
            id="g1283"
            transform="matrix(1.2342148,0,0,1.2342148,-20.605205,-30.899391)">
-          <text
-             transform="scale(1.0352398,0.96595981)"
-             xml:space="preserve"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.68904114px;line-height:1.25;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;letter-spacing:-0.14621662px;word-spacing:0px;text-anchor:middle;fill:#28170b;fill-opacity:1;stroke:none;stroke-width:0.18072689"
-             x="85.020348"
-             y="116.98259"
-             id="text1275"><tspan
-               dx="0 0 0"
-               sodipodi:role="line"
-               id="tspan1271"
-               x="84.947243"
+          <g
+             id="g1367"
+             transform="matrix(1.0897757,0,0,1.0897757,-7.5764918,-8.3953977)">
+            <text
+               id="text1275"
                y="116.98259"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.68904114px;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;letter-spacing:-0.14621662px;text-anchor:middle;fill:#28170b;stroke-width:0.18072689">SALVACION</tspan><tspan
-               sodipodi:role="line"
-               x="84.947243"
-               y="120.34389"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.68904114px;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;letter-spacing:-0.14621662px;text-anchor:middle;fill:#28170b;stroke-width:0.18072689"
-               id="tspan1273">AQUI</tspan></text>
-          <text
-             id="text1045"
-             y="113.00645"
-             x="87.967567"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.52903771px;line-height:1.25;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#c87137;fill-opacity:1;stroke:none;stroke-width:0.18967782"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.52903771px;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;text-anchor:middle;fill:#c87137;stroke-width:0.18967782"
+               x="85.020348"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.68904114px;line-height:1.25;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;letter-spacing:-0.14621662px;word-spacing:0px;text-anchor:middle;fill:#28170b;fill-opacity:1;stroke:none;stroke-width:0.18072689"
+               xml:space="preserve"
+               transform="scale(1.0352398,0.96595981)"><tspan
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.68904114px;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;letter-spacing:-0.14621662px;text-anchor:middle;fill:#28170b;stroke-width:0.18072689"
+                 y="116.98259"
+                 x="84.947243"
+                 id="tspan1271"
+                 sodipodi:role="line"
+                 dx="0 0 0">SALVACION</tspan><tspan
+                 id="tspan1273"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.68904114px;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;letter-spacing:-0.14621662px;text-anchor:middle;fill:#28170b;stroke-width:0.18072689"
+                 y="120.34389"
+                 x="85.020348"
+                 sodipodi:role="line" /></text>
+            <text
+               xml:space="preserve"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.52903771px;line-height:1.25;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#c87137;fill-opacity:1;stroke:none;stroke-width:0.18967782"
+               x="87.967567"
                y="113.00645"
-               x="87.967567"
-               id="tspan1043"
-               sodipodi:role="line">SALVACION</tspan><tspan
-               id="tspan1047"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.52903771px;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;text-anchor:middle;fill:#c87137;stroke-width:0.18967782"
-               y="116.16775"
-               x="87.967567"
-               sodipodi:role="line">AQUI</tspan></text>
+               id="text1045"><tspan
+                 sodipodi:role="line"
+                 id="tspan1043"
+                 x="87.967567"
+                 y="113.00645"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.52903771px;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;text-anchor:middle;fill:#c87137;stroke-width:0.18967782">SALVACION</tspan><tspan
+                 sodipodi:role="line"
+                 x="87.967567"
+                 y="116.16775"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.52903771px;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;text-anchor:middle;fill:#c87137;stroke-width:0.18967782"
+                 id="tspan1047" /></text>
+          </g>
+          <g
+             id="g1359"
+             transform="translate(-0.09647508,-0.25726689)">
+            <text
+               transform="scale(1.0141025,0.9860936)"
+               id="text1351"
+               y="120.92542"
+               x="82.67511"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.88989484px;line-height:1.25;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#28170b;fill-opacity:1;stroke:none;stroke-width:0.1417421"
+               xml:space="preserve"><tspan
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.88989484px;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;text-anchor:middle;fill:#28170b;stroke-width:0.1417421"
+                 y="120.92542"
+                 x="82.67511"
+                 id="tspan1347"
+                 sodipodi:role="line">POP.</tspan><tspan
+                 id="tspan1349"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.88989484px;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;text-anchor:middle;fill:#28170b;stroke-width:0.1417421"
+                 y="123.28779"
+                 x="82.67511"
+                 sodipodi:role="line" /></text>
+            <text
+               xml:space="preserve"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.12865758px;line-height:1.25;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#c87137;fill-opacity:1;stroke:none;stroke-width:0.15964931"
+               x="83.806343"
+               y="119.32355"
+               id="text1045-4"><tspan
+                 sodipodi:role="line"
+                 id="tspan1043-6"
+                 x="83.806343"
+                 y="119.32355"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.12865758px;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;text-anchor:middle;fill:#c87137;stroke-width:0.15964931">POP.</tspan><tspan
+                 sodipodi:role="line"
+                 x="83.806343"
+                 y="121.98437"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.12865758px;font-family:Aharoni;-inkscape-font-specification:Aharoni;text-align:center;text-anchor:middle;fill:#c87137;stroke-width:0.15964931"
+                 id="tspan1047-2" /></text>
+          </g>
         </g>
         <g
            id="g1355"
-           transform="translate(-3.9323047,-2.9282798)">
-          <path
-             style="fill:#28170b;stroke:#28170b;stroke-width:0.1183871px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             d="m 84.691062,115.01166 -0.529544,3e-5 0.860509,1.1532 1.257669,-1.16798 -0.777769,-0.0445 0.479899,-1.41931 -1.621727,0.0147 z"
-             id="path1351"
-             inkscape:connector-curvature="0"
-             sodipodi:nodetypes="cccccccc" />
-          <path
-             sodipodi:nodetypes="cccccccc"
-             inkscape:connector-curvature="0"
-             id="path1349"
-             d="m 84.686628,114.99591 -0.449044,3e-5 0.729697,1.09454 1.066482,-1.10858 -0.659535,-0.0421 0.406947,-1.34714 -1.375199,0.014 z"
-             style="fill:#c87137;stroke:none;stroke-width:0.10620961px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-        </g>
+           transform="translate(-3.9323047,-2.9282798)" />
       </g>
       <path
          sodipodi:nodetypes="ccccccc"
