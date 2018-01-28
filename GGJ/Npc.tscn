@@ -22,14 +22,13 @@ custom_solver_bias = 0.0
 radius = 52.4565
 height = 40.3728
 
-[sub_resource type="ColorRamp" id=5]
+[sub_resource type="ColorRamp" id=3]
 
 offsets = FloatArray( 0, 0.19883, 0.368421, 1 )
 colors = ColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 0.865497, 0.865497, 0.865497, 1, 0, 0, 0, 0 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
-resource/name = "hit"
 length = 0.6
 loop = false
 step = 0.1
@@ -66,9 +65,8 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
-resource/name = "idle"
 length = 1.2
 loop = true
 step = 0.1
@@ -168,14 +166,15 @@ modulate = Color( 1, 1, 1, 0.169373 )
 [node name="shadow" type="Sprite" parent="body"]
 
 visibility/opacity = 0.7
+transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 offset = Vector2( 5, 5 )
 modulate = Color( 0, 0, 0, 1 )
 
 [node name="Sprite" type="Sprite" parent="body"]
 
+transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
-modulate = Color( 1, 0.421875, 0, 1 )
 
 [node name="Particles2D" type="Particles2D" parent="body"]
 
@@ -212,7 +211,7 @@ randomness/spin_velocity = 1.0
 randomness/damping = 10.0
 randomness/initial_size = 1.0
 randomness/final_size = 0.5
-color/color_ramp = SubResource( 5 )
+color/color_ramp = SubResource( 3 )
 
 [node name="ParticleAttractor2D" type="ParticleAttractor2D" parent="body"]
 
@@ -261,8 +260,8 @@ playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/bounce = ExtResource( 8 )
-anims/hit = SubResource( 3 )
-anims/idle = SubResource( 4 )
+anims/hit = SubResource( 4 )
+anims/idle = SubResource( 5 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]

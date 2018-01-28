@@ -11,6 +11,8 @@ export(int) var velocidad = 8
 func _ready():
 	score = get_node("/root/Score")
 	set_process(true)
+	get_node("body/Sprite").set_texture(preload("res://assets/npcs/normal/skater.png"))
+	get_node("body/shadow").set_texture(preload("res://assets/npcs/normal/skater.png"))
 	
 func _process(delta):
 	if !converted:
