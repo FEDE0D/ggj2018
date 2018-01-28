@@ -3,7 +3,7 @@
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/path219.png" type="Texture" id=2]
 [ext_resource path="res://Particles2D.tscn" type="PackedScene" id=3]
-[ext_resource path="res://directional-pixel-man.png" type="Texture" id=4]
+[ext_resource path="res://player.png" type="Texture" id=4]
 [ext_resource path="res://assets/bounce.tres" type="Animation" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -90,11 +90,10 @@ visibility/visible = false
 
 [node name="body" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="Shadow" type="Sprite" parent="body"]
 
 visibility/opacity = 0.7
+transform/scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 4 )
 offset = Vector2( 5, 5 )
 modulate = Color( 0, 0, 0, 1 )
@@ -102,6 +101,7 @@ modulate = Color( 0, 0, 0, 1 )
 [node name="Sprite" type="Sprite" parent="body"]
 
 transform/pos = Vector2( -1.08185, -0.0498047 )
+transform/scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 4 )
 offset = Vector2( 0.0818529, 0.0498037 )
 

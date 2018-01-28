@@ -138,7 +138,6 @@ transform/pos = Vector2( 573.011, 110.049 )
 
 [node name="characters" type="YSort" parent="."]
 
-editor/display_folded = true
 sort/enabled = true
 
 [node name="player" parent="characters" instance=ExtResource( 9 )]
