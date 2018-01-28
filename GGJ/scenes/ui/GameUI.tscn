@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://progressBar.gd" type="Script" id=1]
 [ext_resource path="res://assets/progressbar.png" type="Texture" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://assets/cross.png" type="Texture" id=5]
 [ext_resource path="res://assets/cross_glow.png" type="Texture" id=6]
 [ext_resource path="res://assets/fonts/title48.fnt" type="BitmapFont" id=7]
+[ext_resource path="res://assets/enemyProgressbar_over.png" type="Texture" id=8]
+[ext_resource path="res://assets/progressbar_back.png" type="Texture" id=9]
+[ext_resource path="res://assets/button_hover.png" type="Texture" id=10]
+[ext_resource path="res://assets/button_pressed.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 
@@ -24,6 +28,24 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 2.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -149,5 +171,34 @@ text = "15"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="Tutorial" type="TextureFrame" parent="Control"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 54.0
+margin/top = 535.0
+margin/right = 462.0
+margin/bottom = 670.0
+stretch_mode = 0
+
+[node name="Action" type="AnimatedSprite" parent="Control/Tutorial"]
+
+transform/pos = Vector2( 301.296, 108.529 )
+transform/scale = Vector2( 1.27722, 1 )
+frames = SubResource( 2 )
+animation = "New Anim"
+playing = true
+
+[node name="Movement" type="AnimatedSprite" parent="Control/Tutorial"]
+
+transform/pos = Vector2( 86.2814, 74.832 )
+transform/scale = Vector2( 0.384719, 0.711493 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 1
+playing = true
 
 
