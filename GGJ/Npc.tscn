@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://Npc.gd" type="Script" id=1]
 [ext_resource path="res://assets/clouds/shadow.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/progressbar_back.png" type="Texture" id=6]
 [ext_resource path="res://assets/enemyProgressbar_over.png" type="Texture" id=7]
 [ext_resource path="res://Particles2D.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/sounds/sonidos.tres" type="SampleLibrary" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -26,7 +27,7 @@ height = 40.3728
 offsets = FloatArray( 0, 0.19883, 0.368421, 1 )
 colors = ColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 0.865497, 0.865497, 0.865497, 1, 0, 0, 0, 0 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 
 resource/name = "bounce"
 length = 1.2
@@ -53,7 +54,7 @@ tracks/1/keys = {
 "values": [ 0.0, 15.0, 0.0, -15.0, 0.0, 15.0, 0.0, -15.0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=5]
 
 resource/name = "damage"
 length = 1.0
@@ -80,7 +81,7 @@ tracks/1/keys = {
 "values": [ 0.0, 12.0292, 0.0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 
 length = 0.6
 loop = false
@@ -118,7 +119,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 
 length = 1.2
 loop = true
@@ -214,6 +215,8 @@ texture = ExtResource( 3 )
 modulate = Color( 1, 1, 1, 0.169373 )
 
 [node name="body" type="Node2D" parent="."]
+
+transform/rot = 5.0
 
 [node name="shadow" type="Sprite" parent="body"]
 
@@ -312,10 +315,10 @@ radial_fill/center_offset = Vector2( 0, 0 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/bounce = SubResource( 7 )
-anims/damage = SubResource( 9 )
-anims/hit = SubResource( 8 )
-anims/idle = SubResource( 6 )
+anims/bounce = SubResource( 4 )
+anims/damage = SubResource( 5 )
+anims/hit = SubResource( 6 )
+anims/idle = SubResource( 7 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [ "damage", "idle", 0.1 ]
@@ -353,14 +356,8 @@ data = {
 "type": "transition",
 "xfade": 0.25
 }, {
-"filter": [  ],
-"from": "hit",
-"id": "anim 3",
-"pos": Vector2( 252, 188 ),
-"type": "animation"
-}, {
 "autorestart": false,
-"autorestart_delay": 1.0,
+"autorestart_delay": 0.0,
 "autorestart_random_delay": 0.0,
 "fade_in": 0.0,
 "fade_out": 0.0,
@@ -369,6 +366,12 @@ data = {
 "mix": true,
 "pos": Vector2( 422, 58 ),
 "type": "oneshot"
+}, {
+"filter": [  ],
+"from": "hit",
+"id": "anim 3",
+"pos": Vector2( 252, 188 ),
+"type": "animation"
 }, {
 "filter": [  ],
 "from": "bounce",
@@ -387,6 +390,17 @@ data = {
 [node name="Particles2D" parent="." instance=ExtResource( 8 )]
 
 config/emitting = false
+
+[node name="SamplePlayer2D" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = ExtResource( 9 )
+config/pitch_random = 0.0
 
 [connection signal="timeout" from="HitTimer" to="." method="_on_Timer_timeout"]
 
