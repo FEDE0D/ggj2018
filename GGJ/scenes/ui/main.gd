@@ -22,5 +22,5 @@ func _on_Button1_toggled( pressed ):
 	OS.set_window_fullscreen(pressed)
 
 func _input(event):
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_action_pressed("hit"):
 		_on_Button_pressed()
