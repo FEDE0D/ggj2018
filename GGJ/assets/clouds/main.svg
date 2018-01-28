@@ -24,6 +24,18 @@
      id="defs2">
     <linearGradient
        inkscape:collect="always"
+       id="linearGradient1322">
+      <stop
+         style="stop-color:#ffde5d;stop-opacity:1;"
+         offset="0"
+         id="stop1318" />
+      <stop
+         style="stop-color:#ffde5d;stop-opacity:0"
+         offset="1"
+         id="stop1320" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
        id="linearGradient1030">
       <stop
          style="stop-color:#ffe15d;stop-opacity:1"
@@ -223,6 +235,52 @@
          result="composite2"
          id="feComposite1903" />
     </filter>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1030"
+       id="radialGradient1032-7"
+       cx="936.88422"
+       cy="225.36679"
+       fx="936.88422"
+       fy="225.36679"
+       r="78.153442"
+       gradientTransform="matrix(0.95368622,0.02173925,-0.00835607,0.36657507,45.27377,122.38578)"
+       gradientUnits="userSpaceOnUse" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter1267-1"
+       x="-0.055500001"
+       width="1.1109999"
+       y="-0.222"
+       height="1.444">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.6145967"
+         id="feGaussianBlur1269-9" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter1314"
+       x="-0.10104998"
+       width="1.2021"
+       y="-0.034645716"
+       height="1.0692914">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.9964983"
+         id="feGaussianBlur1316" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1322"
+       id="linearGradient1324"
+       x1="107.57521"
+       y1="992.28394"
+       x2="105.99323"
+       y2="421.97705"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -231,9 +289,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.8921875"
-     inkscape:cx="156.08053"
-     inkscape:cy="-219.39121"
+     inkscape:zoom="0.23652344"
+     inkscape:cx="-105.54299"
+     inkscape:cy="-1114.0584"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1679,5 +1737,24 @@
            inkscape:connector-curvature="0" />
       </g>
     </g>
+    <ellipse
+       transform="matrix(0.65841248,0,0,0.65841248,-397.75086,328.96236)"
+       style="fill:url(#radialGradient1032-7);fill-opacity:1;stroke:none;stroke-width:4.5564146;filter:url(#filter1267-1)"
+       id="path219-3"
+       cx="936.88422"
+       cy="225.36679"
+       rx="78.153442"
+       ry="19.538361"
+       inkscape:export-xdpi="95.929726"
+       inkscape:export-ydpi="95.929726"
+       inkscape:export-filename="C:\Users\federico\Documents\repositories\ggj2018\GGJ\assets\path219.png" />
+    <path
+       style="fill:url(#linearGradient1324);fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter1314)"
+       d="m 55.36959,695.74653 31.63977,-273.684 36.38574,-0.79099 26.89381,276.84796 c -34.46382,18.9773 -66.768688,22.84201 -94.91932,-2.37297 z"
+       id="path1172"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-xdpi="89.042709"
+       inkscape:export-ydpi="89.042709" />
   </g>
 </svg>

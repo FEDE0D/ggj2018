@@ -66,11 +66,9 @@ func _process(delta):
 		
 		var direction = position.x - get_pos().x
 		if (direction < 0):
-			get_node("body").get_node("Sprite").set_flip_h(true)
-			get_node("body").get_node("shadow").set_flip_h(true)
+			get_node("body").set_scale(Vector2(-1, 1))
 		else:
-			get_node("body").get_node("Sprite").set_flip_h(false)
-			get_node("body").get_node("shadow").set_flip_h(false)
+			get_node("body").set_scale(Vector2(1, 1))
 		set_pos(position)
 		
 		# if converted & far away from player
