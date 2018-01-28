@@ -40,7 +40,6 @@ func _ready():
 	ticker.set_one_shot(false)
 	ticker.start()
 
-
 func tick_health():
 	var health_tick = score.get_health() / 50 + 0.5
 	score.set_health(score.get_health() - health_tick)
@@ -87,18 +86,19 @@ func _process(delta):
 	else:
 		animationtree.transition_node_set_current("transition", 0)
 	set_pos(get_pos() + speed + (speed * getExtraSpeedRatio()))
-	if elevation:
-		set_global_pos(get_global_pos() + Vector2(0, -elevationSpeed) * delta)
-		if get_pos().y <= -1800:
-			fall = true
-		if fall:
-			elevationSpeed = -8000
-		else:
-			elevationSpeed += elevationAccel
-		if fall && (get_pos().y >= -35):
-			elevation = false
-	
-	
+#	if elevation:
+#		set_global_pos(get_global_pos() + Vector2(0, -elevationSpeed) * delta)
+#		if get_pos().y <= -1800:
+#			fall = true
+#			set_rotd(90)
+#		if fall:
+#			elevationSpeed = -8000
+#		else:
+#			elevationSpeed += elevationAccel
+#		if fall && (get_pos().y >= -35):
+#			elevation = false
+#			set_process_input(false)
+#			set_process(false)
 
 func getExtraSpeedRatio():
 	return float(get_followers_count()) / get_npcs_count()
@@ -124,8 +124,8 @@ func _input(event):
 					b.conversion(self)
 					emit_signal("new_follower", score.get_health(), score.get_score())
 			for a in get_node("Area2D").get_overlapping_areas():
-				if a.get_name() == "RescuePoint":
-					if salvados >= salvados_objetivo:
+				if a.is_in_group("rescue"):
+					if get_tree().get_nodes_in_group("salvados").size() == get_tree().get_nodes_in_group("npcs").size():
 						elevation()
 
 func newFollower(node):
@@ -133,8 +133,10 @@ func newFollower(node):
 	pass
 
 func elevation():
-	print("elevation")
 	elevation = true
 	direction = Vector2(0,0)
-	Globals.set("cameraSpeed",5)
+	Globals.set("cameraSpeed", 5)
+	set_process(false)
+	set_process_input(false)
+	Globals.get("map").get_node("characters/AnimationPlayer").play("die")
 	
