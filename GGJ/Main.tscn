@@ -157,7 +157,7 @@ stretch_mode = 0
 
 [node name="Spawner" parent="map/spawners" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 1206.8, 164.901 )
+transform/pos = Vector2( 595.49, 60.7121 )
 packedScene = ExtResource( 4 )
 
 [node name="Spawner1" parent="map/spawners" instance=ExtResource( 3 )]
@@ -281,7 +281,7 @@ script/script = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="characters"]
 
-transform/pos = Vector2( 613.716, 170.84 )
+transform/pos = Vector2( 234.342, -69.0582 )
 transform/scale = Vector2( 0.810029, 0.810029 )
 texture = ExtResource( 9 )
 
