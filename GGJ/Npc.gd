@@ -163,6 +163,8 @@ func setHealth(health):
 
 func salvado():
 	salvado = true
+	add_to_group("salvados")
+	Globals.get("contador").update()
 	set_z(10)
 	get_node("shadow").hide()
 	get_node("AnimationTreePlayer").transition_node_set_current("transition", 0)
