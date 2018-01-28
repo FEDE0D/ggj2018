@@ -78,6 +78,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 10 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "end_game"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 
@@ -114,6 +126,16 @@ tracks/2/keys = {
 "transitions": FloatArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("player/Particles2D 2:config/emitting")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [node name="Node" type="Node"]
@@ -260,7 +282,6 @@ sort/enabled = true
 
 [node name="player" parent="characters" instance=ExtResource( 9 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 215.913, 62.8084 )
 
 [node name="Particles2D 2" type="Particles2D" parent="characters/player"]
