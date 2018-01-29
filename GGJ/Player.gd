@@ -8,6 +8,8 @@ var animationtree
 var animation_pos = 0
 var score
 const MAX_SPEED = Vector2(20,20)
+var musicend
+
 
 var followers_count = 0
 var npcs_count = 0
@@ -30,7 +32,8 @@ func _ready():
 	Globals.set("player", self)
 	score = get_node("/root/Score")
 	emit_signal("new_follower", score.get_health(), score.get_score())
-	
+	musicend = load("res://assets/music/Angelical.ogg")
+	print(musicend)
 	var ticker = null
 	ticker = Timer.new()
 	add_child(ticker)
@@ -99,6 +102,8 @@ func _process(delta):
 #			elevation = false
 #			set_process_input(false)
 #			set_process(false)
+	if Globals.get("map").get_node("characters/AnimationPlayer").get_current_animation_pos() >= 6:
+		Globals.get("music").stop()
 
 func getExtraSpeedRatio():
 	return float(get_followers_count()) / get_npcs_count()
@@ -134,6 +139,8 @@ func newFollower(node):
 
 func elevation():
 	elevation = true
+	Globals.get("music").set_stream(musicend)
+	Globals.get("music").play()
 	direction = Vector2(0,0)
 	Globals.set("cameraSpeed", 5)
 	set_process(false)
@@ -141,4 +148,5 @@ func elevation():
 	get_tree().get_nodes_in_group("rescue")[0].changeColor()
 	animationtree.transition_node_set_current("transition", 0)
 	Globals.get("map").get_node("characters/AnimationPlayer").play("die")
+	
 	
